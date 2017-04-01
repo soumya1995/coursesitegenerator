@@ -9,6 +9,7 @@ Thsi repository is for the Course Site Generator Application developed using JAV
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
+Import all the projects in an IDE and build them. Additionally, add the javax.json-1.0.4 to libraries which helps in loading and saving json files.
 
 * Summary of set up
 * Configuration
