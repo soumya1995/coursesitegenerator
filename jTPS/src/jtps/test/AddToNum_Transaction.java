@@ -10,6 +10,7 @@ public class AddToNum_Transaction implements jTPS_Transaction {
     private Num num;
     private int amountToAdd;
     
+    
     public AddToNum_Transaction(Num initNum, int initAmountToAdd) {
         num = initNum;
         amountToAdd = initAmountToAdd;
@@ -34,3 +35,5 @@ public class AddToNum_Transaction implements jTPS_Transaction {
         return "Add " + amountToAdd;
     }
 }
+
+

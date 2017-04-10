@@ -50,13 +50,14 @@ public class AppGUI {
     // FILE TOOLBAR BUTTONS
     protected Button newButton;
     protected Button loadButton;
-    protected Button saveAsButton;
     protected Button saveButton;
-    protected Button exportButton;
     protected Button exitButton;
+    protected Button saveAsButton;
+    protected Button exportButton; 
     
     // THIS DIALOG IS USED FOR GIVING FEEDBACK TO THE USER
     protected AppYesNoCancelDialogSingleton yesNoCancelDialog;
+    protected AppYesNoDialogSingleton yesAndNoDialog; 
     
     // THIS TITLE WILL GO IN THE TITLE BAR
     protected String appTitle;
@@ -124,14 +125,14 @@ public class AppGUI {
         // THIS TOGGLES WITH WHETHER THE CURRENT COURSE
         // HAS BEEN SAVED OR NOT
         saveButton.setDisable(saved);
+        saveAsButton.setDisable(false);
 
         // ALL THE OTHER BUTTONS ARE ALWAYS ENABLED
         // ONCE EDITING THAT FIRST COURSE BEGINS
-        saveAsButton.setDisable(false);
 	newButton.setDisable(false);
         loadButton.setDisable(false);
-        exportButton.setDisable(false);
 	exitButton.setDisable(false);
+        exportButton.setDisable(false); 
 
         // NOTE THAT THE NEW, LOAD, AND EXIT BUTTONS
         // ARE NEVER DISABLED SO WE NEVER HAVE TO TOUCH THEM
@@ -152,10 +153,11 @@ public class AppGUI {
         // START AS ENABLED (false), WHILE OTHERS DISABLED (true)
         newButton = initChildButton(fileToolbarPane,	NEW_ICON.toString(),	    NEW_TOOLTIP.toString(),	false);
         loadButton = initChildButton(fileToolbarPane,	LOAD_ICON.toString(),	    LOAD_TOOLTIP.toString(),	false);
-        saveAsButton = initChildButton(fileToolbarPane,	SAVE_AS_ICON.toString(),    SAVE_AS_TOOLTIP.toString(),	true);
-        saveButton = initChildButton(fileToolbarPane,	SAVE_ICON.toString(),       SAVE_TOOLTIP.toString(),	true);
-        exportButton = initChildButton(fileToolbarPane,	EXPORT_ICON.toString(),     EXPORT_TOOLTIP.toString(),	true);
+        saveButton = initChildButton(fileToolbarPane,	SAVE_ICON.toString(),	    SAVE_TOOLTIP.toString(),	true);
+        saveAsButton=initChildButton(fileToolbarPane, SAVE_AS_ICON.toString(),      SAVE_AS_TOOLTIP.toString(),  true); 
+        exportButton=initChildButton(fileToolbarPane, EXPORT_ICON.toString(),      EXPORT_TOOLTIP.toString(),  true); 
         exitButton = initChildButton(fileToolbarPane,	EXIT_ICON.toString(),	    EXIT_TOOLTIP.toString(),	false);
+       
 
 	// AND NOW SETUP THEIR EVENT HANDLERS
         fileController = new AppFileController(app);
@@ -165,18 +167,19 @@ public class AppGUI {
         loadButton.setOnAction(e -> {
             fileController.handleLoadRequest();
         });
-        saveAsButton.setOnAction(e -> {
-            fileController.handleSaveAsRequest();
-        });
         saveButton.setOnAction(e -> {
             fileController.handleSaveRequest();
+        });
+        saveAsButton.setOnAction(e -> {
+            fileController.handleSaveAsRequest();
         });
         exportButton.setOnAction(e -> {
             fileController.handleExportRequest();
         });
         exitButton.setOnAction(e -> {
             fileController.handleExitRequest();
-        });	
+        });
+        
     }
 
     // INITIALIZE THE WINDOW (i.e. STAGE) PUTTING ALL THE CONTROLS
@@ -257,7 +260,9 @@ public class AppGUI {
 	fileToolbarPane.getStyleClass().add(CLASS_BORDERED_PANE);
 	newButton.getStyleClass().add(CLASS_FILE_BUTTON);
 	loadButton.getStyleClass().add(CLASS_FILE_BUTTON);
-	saveAsButton.getStyleClass().add(CLASS_FILE_BUTTON);
+	saveButton.getStyleClass().add(CLASS_FILE_BUTTON);
+        saveAsButton.getStyleClass().add(CLASS_FILE_BUTTON); 
+        exportButton.getStyleClass().add(CLASS_FILE_BUTTON); 
 	exitButton.getStyleClass().add(CLASS_FILE_BUTTON);
     }
 }

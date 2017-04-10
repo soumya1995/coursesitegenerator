@@ -90,6 +90,8 @@ public abstract class AppTemplate extends Application {
 	messageDialog.init(primaryStage);
 	AppYesNoCancelDialogSingleton yesNoDialog = AppYesNoCancelDialogSingleton.getSingleton();
 	yesNoDialog.init(primaryStage);
+        AppYesNoDialogSingleton yesAndNoDialog=AppYesNoDialogSingleton.getSingleton();
+        yesAndNoDialog.init(primaryStage); 
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 
 	try {

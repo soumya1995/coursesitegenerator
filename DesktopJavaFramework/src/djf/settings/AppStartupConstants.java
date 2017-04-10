@@ -21,8 +21,6 @@ public class AppStartupConstants
     public static final String FILE_PROTOCOL = "file:";
     public static final String PATH_DATA = "./data/";
     public static final String PATH_WORK = "./work/";
-    public static final String PATH_EXPORT_SRC = "./work/public_html";
-    public static final String PATH_EXPORT_JSON = "\\js\\OfficeHoursGridData.json";
     public static final String PATH_IMAGES = "./images/";
     public static final String PATH_EMPTY = ".";
   

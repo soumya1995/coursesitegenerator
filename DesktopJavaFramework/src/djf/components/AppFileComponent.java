@@ -10,7 +10,6 @@ import java.io.IOException;
  * @author Richard McKenna
  * @version 1.0
  */
-
 public interface AppFileComponent {
 
     /**

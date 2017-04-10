@@ -11,7 +11,7 @@
         <property name="APP_TITLE"	    value="Course Site Generator"></property>
 	<property name="APP_LOGO"	    value="TAManagerLogo.png"></property>
 	<property name="APP_PATH_CSS"	    value="style/"></property>
-	<property name="APP_CSS"	    value="tam_style.css"></property>
+	<property name="APP_CSS"	    value="csg_style.css"></property>
         
         <!-- PROGRAM ICON FILES -->
         <property name="NEW_ICON"	    value="New.png"></property>
@@ -72,8 +72,44 @@
         <property name="OFFICE_HOURS_GRID_JSON"         value="OfficeHoursGridData.json"></property>
 	<property name="WORK_FILE_EXT_DESC"		value="TA Office Hours"></property>
 
-        <!-- WORKSPACE CONTROLS STUFF -->        
-        <property name="COURSE_INFO_HEADER_TEXT"                value="Course Info"></property>
+        <!-- WORKSPACE CONTROLS STUFF -->      
+        <property name="COURSE_TAB_TEXT"                   value="Course Details"></property>  
+        <property name="COURSE_INFO_HEADER_TEXT"        value="Course Info"></property>
+        <property name="SUBJECT_TEXT"                   value="Subject: "></property>
+        <property name="NUMBER_TEXT"                   value="Number: "></property>
+        <property name="SEMESTER_TEXT"                   value="Semester: "></property>
+        <property name="YEAR_TEXT"                   value="Year: "></property>
+        <property name="CSE_TEXT"                   value="CSE"></property>
+        <property name="ISE_TEXT"                   value="ISE"></property>
+        <property name="ECE_TEXT"                   value="ECE"></property>
+        <property name="TEXT_219"                   value="219"></property>
+        <property name="TEXT_308"                   value="308"></property>
+        <property name="TEXT_373"                   value="373"></property>
+        <property name="FALL_TEXT"                   value="Fall"></property>
+        <property name="SPRING_TEXT"                   value="Spring"></property>
+        <property name="TEXT_2016"                   value="2016"></property>
+        <property name="TEXT_2017"                   value="2017"></property>
+        <property name="TEXT_2018"                   value="2018"></property>
+        <property name="TITLE_TEXT"                   value="Title: "></property>
+        <property name="NAME_TEXT"                   value="Instructor Name: "></property>
+        <property name="HOME_TEXT"                   value="Instructor Home: "></property>
+        <property name="CHANGE_TEXT"                   value="Change"></property>
+        <property name="EXPORT_TEXT"                   value="Export Dir: "></property>
+        <property name="EXPORT_DIR_TEXT"                value="../.../../"></property>
+        <property name="DIR_HEADER_TEXT"                value="Site Template"></property>
+        <property name="DIR_INFO_TEXT"                value="The selected directory should contain the full site template, including HTML files"></property>
+        <property name="PAGES_TEXT"                value="Site Pages:"></property>
+        <property name="USE_COLUMN_TEXT"                value="Use"></property>
+        <property name="NAVBAR_COLUMN_TEXT"                value="Navbar Title"></property>
+        <property name="FILE_COLUMN_TEXT"                value="File Name"></property>
+        <property name="SCRIPT_COLUMN_TEXT"                value="Script"></property>
+        <property name="TEMPLATE_BUTTON_TEXT"                value="Select Template Directory"></property>
+        <property name="STYLE_TEXT"                value="Page Style"></property>
+        <property name="BANNER_TEXT"                value="Banner School Image: "></property>
+        <property name="LEFT_FOOTER_TEXT"                value="Left Footer Image: "></property>
+        <property name="RIGHT_FOOTER_TEXT"                value="Right Footer Image: "></property>
+        <property name="STYLESHEET_TEXT"                value="Stylesheet: "></property>
+        <property name="STYLESHEET_NOTE_TEXT"                value="NOTE: New stylesheets may be placed in work/css to be selectable"></property>
         <property name="NAME_COLUMN_TEXT"               value="Name"></property>
         <property name="EMAIL_COLUMN_TEXT"              value="Email"></property>
         <property name="NAME_PROMPT_TEXT"               value="Name"></property>

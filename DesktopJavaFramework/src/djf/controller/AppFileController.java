@@ -10,9 +10,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import properties_manager.PropertiesManager;
 import djf.AppTemplate;
-import static djf.settings.AppPropertyType.CHANGE_MESSAGE;
-import static djf.settings.AppPropertyType.CHANGE_TITLE;
-import org.apache.commons.io.FileUtils;
+import static djf.settings.AppPropertyType.EXPORT_COMPLETED_MESSAGE;
+import static djf.settings.AppPropertyType.EXPORT_COMPLETED_TITLE;
+import static djf.settings.AppPropertyType.EXPORT_TITLE;
 import static djf.settings.AppPropertyType.LOAD_ERROR_MESSAGE;
 import static djf.settings.AppPropertyType.LOAD_ERROR_TITLE;
 import static djf.settings.AppPropertyType.LOAD_WORK_TITLE;
@@ -24,20 +24,14 @@ import static djf.settings.AppPropertyType.NEW_ERROR_MESSAGE;
 import static djf.settings.AppPropertyType.NEW_ERROR_TITLE;
 import static djf.settings.AppPropertyType.SAVE_COMPLETED_MESSAGE;
 import static djf.settings.AppPropertyType.SAVE_COMPLETED_TITLE;
-import static djf.settings.AppPropertyType.EXPORT_COMPLETED_MESSAGE;
-import static djf.settings.AppPropertyType.EXPORT_COMPLETED_TITLE;
 import static djf.settings.AppPropertyType.SAVE_ERROR_MESSAGE;
 import static djf.settings.AppPropertyType.SAVE_ERROR_TITLE;
-import static djf.settings.AppPropertyType.EXPORT_ERROR_MESSAGE;
-import static djf.settings.AppPropertyType.EXPORT_ERROR_TITLE;
 import static djf.settings.AppPropertyType.SAVE_UNSAVED_WORK_MESSAGE;
 import static djf.settings.AppPropertyType.SAVE_UNSAVED_WORK_TITLE;
 import static djf.settings.AppPropertyType.SAVE_WORK_TITLE;
-import static djf.settings.AppPropertyType.EXPORT_WORK_TITLE;
 import static djf.settings.AppStartupConstants.PATH_WORK;
-import static djf.settings.AppStartupConstants.PATH_EXPORT_SRC;
-import static djf.settings.AppStartupConstants.PATH_EXPORT_JSON;
 import javafx.stage.DirectoryChooser;
+import org.apache.commons.io.FileUtils;
 
 /**
  * This class provides the event programmed responses for the file controls
@@ -105,10 +99,10 @@ public class AppFileController {
 		app.getWorkspaceComponent().resetWorkspace();
 
                 // RESET THE DATA
-                app.getDataComponent().resetData();
+//                app.getDataComponent().resetData();
                 
                 // NOW RELOAD THE WORKSPACE WITH THE RESET DATA
-                app.getWorkspaceComponent().reloadWorkspace(app.getDataComponent());
+ //               app.getWorkspaceComponent().reloadWorkspace(app.getDataComponent());
 
 		// MAKE SURE THE WORKSPACE IS ACTIVATED
 		app.getWorkspaceComponent().activateWorkspace(app.getGUI().getAppPane());
@@ -159,21 +153,22 @@ public class AppFileController {
     }
 
     /**
-     * This method will save the current course to a file. 
+     * This method will save the current course to a file. Note that we already
+     * know the name of the file, so we won't need to prompt the user.
      * 
      * 
      * @param courseToSave The course being edited that is to be saved to a file.
      */
-    public void handleSaveAsRequest() {
+    public void handleSaveRequest() {
 	// WE'LL NEED THIS TO GET CUSTOM STUFF
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
         try {
 	    // MAYBE WE ALREADY KNOW THE FILE
-	   /* if (currentWorkFile != null) {
+	    if (currentWorkFile != null) {
 		saveWork(currentWorkFile);
 	    }
 	    // OTHERWISE WE NEED TO PROMPT THE USER
-	    else {*/
+	    else {
 		// PROMPT THE USER FOR A FILE NAME
 		FileChooser fc = new FileChooser();
 		fc.setInitialDirectory(new File(PATH_WORK));
@@ -184,35 +179,34 @@ public class AppFileController {
 		File selectedFile = fc.showSaveDialog(app.getGUI().getWindow());
 		if (selectedFile != null) {
 		    saveWork(selectedFile);
-		//}
+		}
 	    }
         } catch (IOException ioe) {
 	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
 	    dialog.show(props.getProperty(LOAD_ERROR_TITLE), props.getProperty(LOAD_ERROR_MESSAGE));
         }
     }
-    
-    /**
-     * This method will save the current course to the same file. Note that we already
-     * know the name of the file, so we won't need to prompt the user.
-     * 
-     */
-    
-    public void handleSaveRequest(){
-        PropertiesManager props = PropertiesManager.getPropertiesManager();
-        try{
-            if (currentWorkFile != null) 
-		saveWork(currentWorkFile);
-            else
-                handleSaveAsRequest();
-        }
-        catch(IOException ioe) {
-            AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+    public void handleSaveAsRequest() {
+	// WE'LL NEED THIS TO GET CUSTOM STUFF
+	PropertiesManager props = PropertiesManager.getPropertiesManager();
+        try {
+	    	// PROMPT THE USER FOR A FILE NAME
+		FileChooser fc = new FileChooser();
+		fc.setInitialDirectory(new File(PATH_WORK));
+		fc.setTitle(props.getProperty(SAVE_WORK_TITLE));
+		fc.getExtensionFilters().addAll(
+		new ExtensionFilter(props.getProperty(WORK_FILE_EXT_DESC), props.getProperty(WORK_FILE_EXT)));
+
+		File selectedFile = fc.showSaveDialog(app.getGUI().getWindow());
+		if (selectedFile != null) {
+		    saveWork(selectedFile);
+		
+	    }
+        } catch (IOException ioe) {
+	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
 	    dialog.show(props.getProperty(LOAD_ERROR_TITLE), props.getProperty(LOAD_ERROR_MESSAGE));
         }
     }
-    
-    
     // HELPER METHOD FOR SAVING WORK
     private void saveWork(File selectedFile) throws IOException {
 	// SAVE IT TO A FILE
@@ -231,48 +225,38 @@ public class AppFileController {
 	// THE APPROPRIATE CONTROLS
 	app.getGUI().updateToolbarControls(saved);	
     }
-    
-     /**
-     * This method will export the current course as a webpage
-     * 
-     */
-    
-    public void handleExportRequest(){
-        PropertiesManager props = PropertiesManager.getPropertiesManager();
-     
-        try{
-                DirectoryChooser chooser = new DirectoryChooser();
-                File srcDir = new File(PATH_EXPORT_SRC);
-                chooser.setTitle(props.getProperty(EXPORT_WORK_TITLE));
-                File destDir = chooser.showDialog(app.getGUI().getWindow());
-                
-                FileUtils.copyDirectory(srcDir, destDir);
-                
-             //   FileChooser fc = new FileChooser();
-		//fc.setInitialDirectory(new File(destDir.toString()));
-		//fc.setInitialFileName("OfficeHoursGridData.json");
-                
-                File jsonFile = new File(destDir.getPath()+PATH_EXPORT_JSON);
-                exportJson(jsonFile);
-
-                
-        }
-        catch (Exception ioe){
-           //  AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
-	   //  dialog.show(props.getProperty(EXPORT_ERROR_TITLE), props.getProperty(EXPORT_ERROR_MESSAGE));
-        }
-    }
-    
-    public void exportJson(File selectedFile)throws IOException{
-        app.getFileComponent().saveData(app.getDataComponent(), selectedFile.getPath());
-        
-        
-        // TELL THE USER THE FILE HAS BEEN EXPORTED
-        AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+     public void handleExportRequest() {
+	// WE'LL NEED THIS TO GET CUSTOM STUFF
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
-        dialog.show(props.getProperty(EXPORT_COMPLETED_TITLE),props.getProperty(EXPORT_COMPLETED_MESSAGE));
+        try {
+	    	// PROMPT THE USER FOR A FILE NAME
+                
+                DirectoryChooser fc = new DirectoryChooser();
+		fc.setInitialDirectory(new File(PATH_WORK));
+		fc.setTitle(props.getProperty(EXPORT_TITLE));
+		
+		File selectedFile = fc.showDialog(app.getGUI().getWindow());
+                File fileName=new File("../TAManagerTester/public_html"); 
+                copy(fileName,selectedFile);
+                File newDestination=new File(selectedFile.getAbsoluteFile()+"/js/OfficeHoursGridData.json"); 
+                copyFile(currentWorkFile,newDestination);
+                AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+              dialog.show(props.getProperty(EXPORT_COMPLETED_TITLE), props.getProperty(EXPORT_COMPLETED_MESSAGE));
+                
+                
+                
+        } catch (IOException ioe) {
+	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+	    dialog.show(props.getProperty(LOAD_ERROR_TITLE), props.getProperty(LOAD_ERROR_MESSAGE));
+        }
     }
-    
+     public static void copy(File src, File des) throws IOException{
+         FileUtils.copyDirectory(src,des); 
+     }
+     public static void copyFile(File src, File des)throws IOException{
+         FileUtils.copyFile(src,des); 
+     }
+   
     /**
      * This method will exit the application, making sure the user doesn't lose
      * any data first.
@@ -361,26 +345,6 @@ public class AppFileController {
         // HAD IN MIND IN THE FIRST PLACE
         return true;
     }
-    
-    public static boolean promptToConfirm(){
-        PropertiesManager props = PropertiesManager.getPropertiesManager();
-	
-	// CHECK TO SEE IF THE CURRENT WORK HAS
-	// BEEN SAVED AT LEAST ONCE
-	
-        // PROMPT THE USER TO SAVE UNSAVED WORK
-	AppYesNoCancelDialogSingleton yesNoDialog = AppYesNoCancelDialogSingleton.getSingleton();
-        yesNoDialog.show(props.getProperty(CHANGE_TITLE), props.getProperty(CHANGE_MESSAGE));
-        
-        // AND NOW GET THE USER'S SELECTION
-        String selection = yesNoDialog.getSelection();
-        
-        if (selection.equals(AppYesNoCancelDialogSingleton.YES)) 
-            return true;
-        else
-            return false;
-
-    }
 
     /**
      * This helper method asks the user for a file to open. The user-selected
@@ -416,7 +380,6 @@ public class AppFileController {
                 // AND MAKE SURE THE FILE BUTTONS ARE PROPERLY ENABLED
                 saved = true;
                 app.getGUI().updateToolbarControls(saved);
-                currentWorkFile = selectedFile;
             } catch (Exception e) {
                 AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
                 dialog.show(props.getProperty(LOAD_ERROR_TITLE), props.getProperty(LOAD_ERROR_MESSAGE));
