@@ -90,14 +90,18 @@ public abstract class AppTemplate extends Application {
 	messageDialog.init(primaryStage);
 	AppYesNoCancelDialogSingleton yesNoDialog = AppYesNoCancelDialogSingleton.getSingleton();
 	yesNoDialog.init(primaryStage);
-        AppYesNoDialogSingleton yesAndNoDialog=AppYesNoDialogSingleton.getSingleton();
-        yesAndNoDialog.init(primaryStage); 
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 
 	try {
 	    // LOAD APP PROPERTIES, BOTH THE BASIC UI STUFF FOR THE FRAMEWORK
 	    // AND THE CUSTOM UI STUFF FOR THE WORKSPACE
-	    boolean success = loadProperties(APP_PROPERTIES_FILE_NAME);
+	    boolean success ;
+            
+            if(promptLanguage(primaryStage).equals("spanish")){
+                APP_PROPERTIES_FILE_NAME = "app_properties_spanish.xml";
+            }
+                success = loadProperties(APP_PROPERTIES_FILE_NAME);
+            
 	    
 	    if (success) {
                 // GET THE TITLE FROM THE XML FILE
@@ -105,16 +109,36 @@ public abstract class AppTemplate extends Application {
                 
                 // BUILD THE APP GUI OBJECT FIRST, BUT DON'T
 		gui = new AppGUI(primaryStage, appTitle, this);
-
+                
+                
                 // THIS BUILDS ALL OF THE COMPONENTS, NOTE THAT
                 // IT WOULD BE DEFINED IN AN APPLICATION-SPECIFIC
                 // CHILD CLASS
 		buildAppComponentsHook();
 	    } 
-	}catch (Exception e) {
+	  }catch (Exception e) {
             AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
             dialog.show(props.getProperty(PROPERTIES_LOAD_ERROR_TITLE), props.getProperty(PROPERTIES_LOAD_ERROR_MESSAGE));
 	}
+    }
+    
+    public String promptLanguage(Stage primaryStage){
+        PropertiesManager props = PropertiesManager.getPropertiesManager();
+        
+        //PROMT FOR LANGUAGE SELECTION
+        
+        AppLanguageDialogSingleton languageDialog = AppLanguageDialogSingleton.getSingleton();
+        languageDialog.init(primaryStage);
+        languageDialog.show("Language Selection", "Select your Language");
+        
+        String selection = languageDialog.getSelection();
+        
+        if (selection.equals(AppLanguageDialogSingleton.ENGLISH))
+            return "english";
+        else
+            return "spanish";
+        
+        
     }
     
     /**

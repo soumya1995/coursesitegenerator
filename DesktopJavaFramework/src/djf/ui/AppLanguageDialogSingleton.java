@@ -1,43 +1,42 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package djf.ui;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
- * This class serves to present a dialog with three options to
- * the user: Yes, No, or Cancel and lets one access which was
- * selected.
- * 
- * @author Richard McKenna
- * @version 1.0
+ *
+ * @author Soumya
  */
-public class AppYesNoDialogSingleton extends Stage {
-    // HERE'S THE SINGLETON
-    static AppYesNoDialogSingleton singleton;
+public class AppLanguageDialogSingleton extends Stage{
+    
+    static AppLanguageDialogSingleton singleton;
     
     // GUI CONTROLS FOR OUR DIALOG
     VBox messagePane;
     Scene messageScene;
     Label messageLabel;
-    Button yesButton;
-    Button noButton;
-    Button cancelButton;
+    Button englishButton;
+    Button spanishButton;
     String selection;
     
     // CONSTANT CHOICES
 
-    public static final String YES = "Yes";
-    public static final String NO = "No";
-    public static final String CANCEL = "Cancel";
+    public static final String ENGLISH = "ENGLISH(EN)";
+    public static final String SPANISH = "ESPANOL(ES)";
     
     /**
      * Note that the constructor is private since it follows
@@ -45,16 +44,16 @@ public class AppYesNoDialogSingleton extends Stage {
      * 
      * @param primaryStage The owner of this modal dialog.
      */
-    private AppYesNoDialogSingleton() {}
+    private AppLanguageDialogSingleton() {}
     
     /**
      * The static accessor method for this singleton.
      * 
      * @return The singleton object for this type.
      */
-    public static AppYesNoDialogSingleton getSingleton() {
+    public static AppLanguageDialogSingleton getSingleton() {
 	if (singleton == null)
-	    singleton = new AppYesNoDialogSingleton();
+	    singleton = new AppLanguageDialogSingleton();
 	return singleton;
     }
 	
@@ -74,27 +73,27 @@ public class AppYesNoDialogSingleton extends Stage {
         messageLabel = new Label();        
 
         // YES, NO, AND CANCEL BUTTONS
-        yesButton = new Button(YES);
-        noButton = new Button(NO);
-        
+        englishButton = new Button(ENGLISH);
+        spanishButton = new Button(SPANISH);
+     
 	
 	// MAKE THE EVENT HANDLER FOR THESE BUTTONS
-        EventHandler yesNoHandler = (EventHandler<ActionEvent>) (ActionEvent ae) -> {
+        EventHandler englishNoCancelHandler = (EventHandler<ActionEvent>) (ActionEvent ae) -> {
             Button sourceButton = (Button)ae.getSource();
-            AppYesNoDialogSingleton.this.selection = sourceButton.getText();
-            AppYesNoDialogSingleton.this.hide();
+            AppLanguageDialogSingleton.this.selection = sourceButton.getText();
+            AppLanguageDialogSingleton.this.hide();
         };
         
 	// AND THEN REGISTER THEM TO RESPOND TO INTERACTIONS
-        yesButton.setOnAction(yesNoHandler);
-        noButton.setOnAction(yesNoHandler);
-        
+        englishButton.setOnAction(englishNoCancelHandler);
+        spanishButton.setOnAction(englishNoCancelHandler);
+      
 
         // NOW ORGANIZE OUR BUTTONS
         HBox buttonBox = new HBox();
-        buttonBox.getChildren().add(yesButton);
-        buttonBox.getChildren().add(noButton);
-      
+        buttonBox.getChildren().add(englishButton);
+        buttonBox.getChildren().add(spanishButton);
+     
         
         // WE'LL PUT EVERYTHING HERE
         messagePane = new VBox();
@@ -135,7 +134,7 @@ public class AppYesNoDialogSingleton extends Stage {
 	
 	// SET THE MESSAGE TO DISPLAY TO THE USER
         messageLabel.setText(message);
-        
+	
 	// AND OPEN UP THIS DIALOG, MAKING SURE THE APPLICATION
 	// WAITS FOR IT TO BE RESOLVED BEFORE LETTING THE USER
 	// DO MORE WORK.

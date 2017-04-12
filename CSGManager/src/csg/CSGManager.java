@@ -6,11 +6,14 @@
 package csg;
 
 import csg.data.CourseData;
+import csg.data.WorkspaceData;
+import csg.file.TAFiles;
 import csg.style.MasterStyle;
 import csg.workspace.CourseWorkspace;
 import csg.workspace.MasterWorkspace;
 import java.util.Locale;
 import djf.AppTemplate;
+import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
@@ -19,7 +22,7 @@ import javafx.scene.layout.BorderPane;
  *
  * @author Soumya
  */
-public class CSGManagerApp extends AppTemplate {
+public class CSGManager extends AppTemplate {
     
    
     /**
@@ -36,9 +39,9 @@ public class CSGManagerApp extends AppTemplate {
         // THE WORKSPACE NEEDS THE DATA COMPONENT TO EXIST ALREADY
         // WHEN IT IS CONSTRUCTED, SO BE CAREFUL OF THE ORDER
         
-       // dataComponent = new CourseData();
+        dataComponent = new WorkspaceData(this);
         workspaceComponent = new MasterWorkspace(this);
-       // fileComponent = new TAFiles(this);
+        fileComponent = new TAFiles(this);
         styleComponent = new MasterStyle(this);
        
     }

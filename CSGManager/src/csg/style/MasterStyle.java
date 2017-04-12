@@ -5,7 +5,8 @@
  */
 package csg.style;
 
-import csg.CSGManagerApp;
+import csg.CSGManager;
+import csg.workspace.MasterWorkspace;
 import djf.AppTemplate;
 import djf.components.AppStyleComponent;
 
@@ -15,15 +16,17 @@ import djf.components.AppStyleComponent;
  */
 public class MasterStyle extends AppStyleComponent {
     
-    private CSGManagerApp app;
+    private CSGManager app;
     private CourseStyle courseStyle;
+    private TAStyle taStyle;
     
+    public static String CLASS_TAB_PANE = "tab_pane";
     /**
      * This constructor initializes all style for the application.
      * 
      * @param initApp The application to be stylized.
      */
-    public MasterStyle(CSGManagerApp initApp) {
+    public MasterStyle(CSGManager initApp) {
         // KEEP THIS FOR LATER
         app = initApp;
 
@@ -35,6 +38,23 @@ public class MasterStyle extends AppStyleComponent {
 
         // AND NOW OUR WORKSPACE STYLE
         courseStyle = new CourseStyle(app);
+        taStyle = new TAStyle(app);
+        initMasterStyle();
     }
+
+    public CourseStyle getCourseStyle() {
+        return courseStyle;
+    }
+
+    public TAStyle getTAStyle() {
+        return taStyle;
+    }
+
+    private void initMasterStyle() {
+        MasterWorkspace workspaceComponent = (MasterWorkspace)app.getWorkspaceComponent();
+         workspaceComponent.getTabPane().getStyleClass().add(CLASS_TAB_PANE);
+    }
+    
+    
 
 }

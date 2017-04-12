@@ -12,7 +12,7 @@ public class AppStartupConstants
     // LOADING SETTINGS FROM OUR XML FILES
 
     // XML PROPERTIES FILE WHERE ALL LANGUAGE-SPECIFIC TEXT CAN BE FOUND
-    public static final String APP_PROPERTIES_FILE_NAME = "app_properties.xml";
+    public static String APP_PROPERTIES_FILE_NAME = "app_properties.xml";
 
     // XML SCHEMA FOR VALIDATING THE XML PROPERTIES FILE
     public static final String PROPERTIES_SCHEMA_FILE_NAME = "properties_schema.xsd";    
@@ -21,6 +21,8 @@ public class AppStartupConstants
     public static final String FILE_PROTOCOL = "file:";
     public static final String PATH_DATA = "./data/";
     public static final String PATH_WORK = "./work/";
+    public static final String PATH_EXPORT_SRC = "./work/public_html";
+    public static final String PATH_EXPORT_JSON = "\\js\\OfficeHoursGridData.json";
     public static final String PATH_IMAGES = "./images/";
     public static final String PATH_EMPTY = ".";
   

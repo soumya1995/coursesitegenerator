@@ -5,6 +5,7 @@
  */
 package csg.data;
 
+import csg.CSGManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,10 +15,37 @@ import javafx.collections.ObservableList;
  */
 public class CourseData {
     
-    ObservableList<Page> pages = FXCollections.observableArrayList();
+    CSGManager app;
+    
+     ObservableList<Page> pages;
+    
+    public CourseData(CSGManager initApp){
+        
+        app = initApp;
+        pages = FXCollections.observableArrayList();
+        addRequiredPages();
+    }
+    
     
     public ObservableList<Page> getPages(){
         return pages;
+    }
+    
+    public void addPage(boolean used, String title, String file, String script){
+        
+        pages.add(new Page(used, title, file, script));
+    }
+    
+    public void addRequiredPages(){
+        addPage(false, "Home", "", "");
+        addPage(false, "Sylabus", "", "");
+        addPage(false, "Schedule", "", "");
+        addPage(false, "HWs", "", "");
+        addPage(false, "Projects", "", "");
+    }
+    
+    public void resetData(){
+        pages.clear();
     }
     
 }

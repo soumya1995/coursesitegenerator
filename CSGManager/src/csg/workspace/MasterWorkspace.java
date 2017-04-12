@@ -5,12 +5,14 @@
  */
 package csg.workspace;
 
-import csg.CSGManagerApp;
+import csg.CSGManager;
 import djf.components.AppDataComponent;
 import djf.components.AppWorkspaceComponent;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -23,19 +25,22 @@ import javafx.scene.layout.BorderPane;
 public class MasterWorkspace extends AppWorkspaceComponent{
 
     
-    CSGManagerApp app;
+    CSGManager app;
     private TabPane tabPane;
     private CourseWorkspace courseWorkspace;
+    private TAWorkspace taWorkspace;
     
-    public MasterWorkspace(CSGManagerApp initApp){
+    public MasterWorkspace(CSGManager initApp){
         app = initApp;
         tabPane =new TabPane();
         tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
         //PUT THE TABPANE IN THE WORKSPACE
+        
           workspace = new BorderPane();
          ((BorderPane)workspace).setCenter(tabPane);    
         
         courseWorkspace = new CourseWorkspace(app, this);
+        taWorkspace = new TAWorkspace(app, this);
 }
     
     public TabPane getTabPane(){
@@ -46,13 +51,23 @@ public class MasterWorkspace extends AppWorkspaceComponent{
         return courseWorkspace;
     }
     
+    public TAWorkspace getTAWorkspace(){
+        return taWorkspace;
+    }
+    
+    public Pane getWorkspace(){
+        return workspace;
+    }
+    
      public void resetWorkspace(){
          courseWorkspace.resetWorkspace();
+         taWorkspace.resetWorkspace();
      }
 
     @Override
     public void reloadWorkspace(AppDataComponent dataComponent) {
         courseWorkspace.reloadWorkspace(dataComponent);
+        taWorkspace.reloadWorkspace(dataComponent);
     }
 
   

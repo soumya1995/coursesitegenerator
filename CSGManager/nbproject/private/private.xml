@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManagerProp.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/TAStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeachingAssistant.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateTA_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAWorkspace.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/WorkspaceData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CourseWorkspace.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteTA_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddTA_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/MasterStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/MasterWorkspace.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManager.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TAData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/file/TAFiles.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CellToggle_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAController.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/CourseData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboBox_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/CourseStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/file/TimeSlot.java</file>
+        </group>
+    </open-files>
 </project-private>

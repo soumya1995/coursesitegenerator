@@ -7,22 +7,27 @@ package csg.workspace;
 
 import djf.components.AppDataComponent;
 import djf.components.AppWorkspaceComponent;
-import csg.CSGManagerApp;
+import csg.CSGManager;
 import csg.CSGManagerProp;
 import csg.data.Page;
 import csg.data.CourseData;
+import csg.data.WorkspaceData;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -38,7 +43,7 @@ import properties_manager.PropertiesManager;
 public class CourseWorkspace{
     
     // THIS PROVIDES US WITH ACCESS TO THE APP COMPONENTS
-    CSGManagerApp app;
+    CSGManager app;
 
     // THIS PROVIDES RESPONSES TO INTERACTIONS WITH THIS WORKSPACE
     CourseController controller;
@@ -107,7 +112,7 @@ public class CourseWorkspace{
     
     //TABLE FOR THE PAGES TABLE
     TableView<Page> table;
-    TableColumn<Page, CheckBox> useColumn;
+    TableColumn<Page, Boolean> useColumn;
     TableColumn<Page, String> navbarColumn;
     TableColumn<Page, String> fileColumn;
     TableColumn<Page, String> scriptColumn;
@@ -143,7 +148,7 @@ public class CourseWorkspace{
     HBox styleNoteBox;
     
     
-    public CourseWorkspace(CSGManagerApp initApp, MasterWorkspace masterWorkspace){
+    public CourseWorkspace(CSGManager initApp, MasterWorkspace masterWorkspace){
         app = initApp;
         
          // WE'LL NEED THIS TO GET LANGUAGE PROPERTIES FOR OUR UI
@@ -160,12 +165,19 @@ public class CourseWorkspace{
         //THESE WILL HAVE SUBJECT AND SUBJECT NUMBER
         String subjectText = props.getProperty(CSGManagerProp.SUBJECT_TEXT.toString());
         subjectLabel = new Label(subjectText);
-        ObservableList<String> subjects = FXCollections.observableArrayList(CSGManagerProp.CSE_TEXT.toString(),CSGManagerProp.ISE_TEXT.toString(),CSGManagerProp.ECE_TEXT.toString());
+        String cse = props.getProperty(CSGManagerProp.CSE_TEXT.toString());
+        String ise = props.getProperty(CSGManagerProp.ISE_TEXT.toString());
+        String ece = props.getProperty(CSGManagerProp.ECE_TEXT.toString());
+        System.out.println(cse);
+        ObservableList<String> subjects = FXCollections.observableArrayList(cse,ise,ece);
         subjectComboBox = new ComboBox(subjects);
         subjectComboBox.getSelectionModel().selectFirst();
         String numberText = props.getProperty(CSGManagerProp.NUMBER_TEXT.toString());
         numberLabel = new Label(numberText);
-        ObservableList<String> numbers = FXCollections.observableArrayList(CSGManagerProp.TEXT_219.toString(),CSGManagerProp.TEXT_308.toString(),CSGManagerProp.TEXT_373.toString());
+        String txt219 = props.getProperty(CSGManagerProp.TEXT_219.toString());
+        String txt308 = props.getProperty(CSGManagerProp.TEXT_308.toString());
+        String txt373 = props.getProperty(CSGManagerProp.TEXT_373.toString());
+        ObservableList<String> numbers = FXCollections.observableArrayList(txt219,txt373,txt308);
         numberComboBox = new ComboBox(numbers);
         numberComboBox.getSelectionModel().selectFirst();
         subjectBox = new HBox();
@@ -177,12 +189,19 @@ public class CourseWorkspace{
         //THESE WILL HAVE SUBJECT AND SUBJECT NUMBER
         String semesterText = props.getProperty(CSGManagerProp.SEMESTER_TEXT.toString());
         semesterLabel = new Label(semesterText);
-        ObservableList<String> sem = FXCollections.observableArrayList(CSGManagerProp.FALL_TEXT.toString(),CSGManagerProp.SPRING_TEXT.toString());
+        String fall = props.getProperty(CSGManagerProp.FALL_TEXT.toString());
+        String spring = props.getProperty(CSGManagerProp.SPRING_TEXT.toString());
+        ObservableList<String> sem = FXCollections.observableArrayList(fall, spring);
         semesterComboBox = new ComboBox(sem);
         semesterComboBox.getSelectionModel().selectFirst();
         String yearText = props.getProperty(CSGManagerProp.YEAR_TEXT.toString());
         yearLabel = new Label(yearText);
-        ObservableList<String> years = FXCollections.observableArrayList(CSGManagerProp.TEXT_2016.toString(),CSGManagerProp.TEXT_2017.toString(),CSGManagerProp.TEXT_2018.toString());
+        String txt2016 = props.getProperty(CSGManagerProp.TEXT_2016.toString());
+        String txt2017 = props.getProperty(CSGManagerProp.TEXT_2017.toString());
+        String txt2018 = props.getProperty(CSGManagerProp.TEXT_2018.toString());
+        System.out.println(txt2018);
+        
+        ObservableList<String> years = FXCollections.observableArrayList(txt2016, txt2017, txt2018);
         yearComboBox = new ComboBox(years);
         yearComboBox.getSelectionModel().selectFirst();
         semesterBox = new HBox();
@@ -269,9 +288,9 @@ public class CourseWorkspace{
         //INITILIZE THE SITE PAGES TABLE
         table = new TableView();
         table.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        CourseData data = (CourseData) app.getDataComponent();
-        //ObservableList<Page> tableData = data.getPages();
-       // table.setItems(tableData);
+        CourseData data = ((WorkspaceData)app.getDataComponent()).getCourseData();
+        ObservableList<Page> tableData = data.getPages();
+        table.setItems(tableData);
         String useColumnText = props.getProperty(CSGManagerProp.USE_COLUMN_TEXT.toString());
         String navbarColumnText = props.getProperty(CSGManagerProp.NAVBAR_COLUMN_TEXT.toString());
         String fileColumnText = props.getProperty(CSGManagerProp.FILE_COLUMN_TEXT.toString());
@@ -280,14 +299,16 @@ public class CourseWorkspace{
         navbarColumn = new TableColumn(navbarColumnText);
         fileColumn = new TableColumn(fileColumnText);
         scriptColumn = new TableColumn(scriptColumnText);
-        useColumn.setCellValueFactory(
-                new PropertyValueFactory<Page, CheckBox>("use")
-        );
+        
+        useColumn.setCellValueFactory(e -> e.getValue().isUsed());
+        useColumn.setCellFactory(e -> new CheckBoxTableCell<>());            
+        table.setEditable(true);
+        
         navbarColumn.setCellValueFactory(
-                new PropertyValueFactory<Page, String>("navbar")
+                new PropertyValueFactory<Page, String>("title")
         );
         fileColumn.setCellValueFactory(
-                new PropertyValueFactory<Page, String>("file")
+                new PropertyValueFactory<Page, String>("fileName")
         );
         scriptColumn.setCellValueFactory(
                 new PropertyValueFactory<Page, String>("script")
@@ -297,6 +318,8 @@ public class CourseWorkspace{
         table.getColumns().add(fileColumn);
         table.getColumns().add(scriptColumn);
         
+        //EXTEND THE TABLE SO THAT IT ONLY SHOWS THE FIVE PAGES
+       
         //ORGANIZE THE SITE TEMPLATE PANE
         template = new VBox();
         template.getChildren().add(siteTemplateBox);
@@ -305,6 +328,9 @@ public class CourseWorkspace{
         template.getChildren().add(selectTemplateBox);
         template.getChildren().add(pagesBox);
         template.getChildren().add(table);
+        
+        table.prefWidthProperty().bind(template.widthProperty().multiply(0.3));
+        table.prefHeightProperty().bind(template.heightProperty().multiply(1.9));
         
         //THE PAGE STYLE HEADER
         String styleText = props.getProperty(CSGManagerProp.STYLE_TEXT.toString());
@@ -373,10 +399,13 @@ public class CourseWorkspace{
         coursePane.getChildren().add(template);
         coursePane.getChildren().add(style);
         
+        ScrollPane pane = new ScrollPane(coursePane);
+        pane.setFitToWidth(true);
+        
         //PUT THE WHOLE COURSE PANE IN A TAB
         String courseTabText = props.getProperty(CSGManagerProp.COURSE_TAB_TEXT.toString());
         courseTab = new Tab(courseTabText);
-        courseTab.setContent(coursePane);
+        courseTab.setContent(pane);
         
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(courseTab);
@@ -552,7 +581,7 @@ public class CourseWorkspace{
         return table;
     }
 
-    public TableColumn<Page, CheckBox> getUseColumn() {
+    public TableColumn<Page, Boolean> getUseColumn() {
         return useColumn;
     }
 
@@ -679,7 +708,7 @@ public class CourseWorkspace{
     }
     
     public void reloadWorkspace(AppDataComponent dataComponent){
-        CourseData courseData = (CourseData)dataComponent;
+        CourseData courseData = ((WorkspaceData)dataComponent).getCourseData();
         
     }
 }

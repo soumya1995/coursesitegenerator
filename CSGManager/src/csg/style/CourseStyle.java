@@ -5,7 +5,7 @@
  */
 package csg.style;
 
-import csg.CSGManagerApp;
+import csg.CSGManager;
 import csg.workspace.CourseWorkspace;
 import csg.workspace.MasterWorkspace;
 
@@ -15,7 +15,7 @@ import csg.workspace.MasterWorkspace;
  */
 public class CourseStyle {
     
-     CSGManagerApp app;
+     CSGManager app;
      
      // THESE ARE THE HEADERS
     public static String CLASS_HEADER_LABEL = "header_label";
@@ -27,7 +27,7 @@ public class CourseStyle {
     public static String CLASS_NUMBER_LABEL = "number_label";
     public static String CLASS_NUMBER_COMBOBOX = "number_combobox";
     
-    public CourseStyle(CSGManagerApp initApp){
+    public CourseStyle(CSGManager initApp){
         
         app = initApp;
         initCourseWorkspaceStyle();
@@ -47,6 +47,8 @@ public class CourseStyle {
         workspaceComponent.getNumberComboBox().getStyleClass().add(CLASS_NUMBER_COMBOBOX);
         workspaceComponent.getTemplate().getStyleClass().add(CLASS_INNER_VBOX_PANE);
         workspaceComponent.getSiteTemplateLabel().getStyleClass().add(CLASS_HEADER_LABEL);
+        workspaceComponent.getStyle().getStyleClass().add(CLASS_INNER_VBOX_PANE);
+        workspaceComponent.getPageStyleLabel().getStyleClass().add(CLASS_HEADER_LABEL);
         
     }
     
