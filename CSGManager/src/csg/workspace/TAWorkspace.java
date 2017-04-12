@@ -42,7 +42,7 @@ import javafx.scene.control.Tab;
  * @author Richard McKenna
  * @co-author Soumya Das
  */
-public class TAWorkspace extends AppWorkspaceComponent {
+public class TAWorkspace {
     // THIS PROVIDES US WITH ACCESS TO THE APP COMPONENTS
     CSGManager app;
 
@@ -394,7 +394,7 @@ public class TAWorkspace extends AppWorkspaceComponent {
         return cellText;
     }
 
-    @Override
+    
     public void resetWorkspace() {
         // CLEAR OUT THE GRID PANE
         officeHoursGridPane.getChildren().clear();
