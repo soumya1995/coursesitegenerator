@@ -150,6 +150,7 @@
 		<property name="END_DAY_TEXT"                value="Ending Friday: "></property>
 		<property name="ITEMS_TEXT"                value="Schedule Items"></property>
 		<property name="TYPE_COLUMN_TEXT"                value="Type"></property>
+		<property name="UNDERGRAD_COLUMN_TEXT"                value="Undergrad"></property>
 		<property name="DATE_COLUMN_TEXT"                value="Date"></property>
 		<property name="TITLE_COLUMN_TEXT"                value="Title"></property>
 		<property name="TOPIC_COLUMN_TEXT"                value="Topic"></property>

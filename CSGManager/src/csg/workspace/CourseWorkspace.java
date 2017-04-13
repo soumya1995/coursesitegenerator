@@ -14,6 +14,8 @@ import csg.data.CourseData;
 import csg.data.WorkspaceData;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -25,6 +27,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
@@ -34,6 +37,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import properties_manager.PropertiesManager;
 
 /**
@@ -112,7 +116,7 @@ public class CourseWorkspace{
     
     //TABLE FOR THE PAGES TABLE
     TableView<Page> table;
-    TableColumn<Page, Boolean> useColumn;
+    TableColumn<Page, CheckBox> useColumn;
     TableColumn<Page, String> navbarColumn;
     TableColumn<Page, String> fileColumn;
     TableColumn<Page, String> scriptColumn;
@@ -289,6 +293,9 @@ public class CourseWorkspace{
         table.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         CourseData data = ((WorkspaceData)app.getDataComponent()).getCourseData();
         ObservableList<Page> tableData = data.getPages();
+        ObservableList<Boolean> checkBoxes = FXCollections.observableArrayList();
+        for(Page p: tableData)
+            checkBoxes.add(p.isUsed().get());
         table.setItems(tableData);
         String useColumnText = props.getProperty(CSGManagerProp.USE_COLUMN_TEXT.toString());
         String navbarColumnText = props.getProperty(CSGManagerProp.NAVBAR_COLUMN_TEXT.toString());
@@ -299,9 +306,26 @@ public class CourseWorkspace{
         fileColumn = new TableColumn(fileColumnText);
         scriptColumn = new TableColumn(scriptColumnText);
         
-        useColumn.setCellValueFactory(e -> e.getValue().isUsed());
-        useColumn.setCellFactory(e -> new CheckBoxTableCell<>());            
-        table.setEditable(true);
+        useColumn.setCellValueFactory( new Callback<CellDataFeatures<Page, CheckBox>, ObservableValue<CheckBox>>() {
+
+             @Override
+             public ObservableValue<CheckBox> call(
+                     CellDataFeatures<Page, CheckBox> arg) {
+                 Page user = arg.getValue();
+                 CheckBox checkBox = new CheckBox();
+                 
+                 for (Boolean value : checkBoxes) {
+                    if(value==true){
+                        checkBox.selectedProperty().setValue(Boolean.TRUE);
+                    }
+                }
+                 
+                 
+                 return new SimpleObjectProperty<CheckBox>(checkBox);
+             }
+         
+         
+         });
         
         navbarColumn.setCellValueFactory(
                 new PropertyValueFactory<Page, String>("title")
@@ -328,8 +352,7 @@ public class CourseWorkspace{
         template.getChildren().add(pagesBox);
         template.getChildren().add(table);
         
-        table.prefWidthProperty().bind(template.widthProperty().multiply(0.3));
-        table.prefHeightProperty().bind(template.heightProperty().multiply(1.9));
+        
         
         //THE PAGE STYLE HEADER
         String styleText = props.getProperty(CSGManagerProp.STYLE_TEXT.toString());
@@ -580,7 +603,7 @@ public class CourseWorkspace{
         return table;
     }
 
-    public TableColumn<Page, Boolean> getUseColumn() {
+    public TableColumn<Page, CheckBox> getUseColumn() {
         return useColumn;
     }
 

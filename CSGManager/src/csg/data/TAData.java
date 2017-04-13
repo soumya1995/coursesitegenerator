@@ -256,7 +256,7 @@ public class TAData {
 
     public void addTA(String initName, String initEmail) {
         // MAKE THE TA
-        TeachingAssistant ta = new TeachingAssistant(initName, initEmail);
+        TeachingAssistant ta = new TeachingAssistant(false, initName, initEmail);
 
         // ADD THE TA
         if (!containsTA(initName, initEmail)) {

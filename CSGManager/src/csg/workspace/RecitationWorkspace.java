@@ -163,24 +163,28 @@ public class RecitationWorkspace {
         sectionLabel = new Label(sectionText);
         sectionTextField = new TextField();
         sectionBox = new HBox();
+        sectionBox.setSpacing(52);
         sectionBox.getChildren().addAll(sectionLabel, sectionTextField);
         
         String instructorText = props.getProperty(CSGManagerProp.INSTRUCTOR_TEXT.toString());
         instructorLabel = new Label(instructorText);
         instructorTextField = new TextField();
         instructorBox = new HBox();
+        instructorBox.setSpacing(41);
         instructorBox.getChildren().addAll(instructorLabel, instructorTextField);
         
         String dayText = props.getProperty(CSGManagerProp.DAY_TEXT.toString());
         dayLabel = new Label(dayText);
         dayTextField = new TextField();
         dayBox = new HBox();
+        dayBox.setSpacing(53);
         dayBox.getChildren().addAll(dayLabel, dayTextField);
         
         String locationText = props.getProperty(CSGManagerProp.LOCATION_TEXT.toString());
         locationLabel = new Label(locationText);
         locationTextField = new TextField();
         locationBox = new HBox();
+        locationBox.setSpacing(53);
         locationBox.getChildren().addAll(locationLabel, locationTextField);
         
         //GET THE TAS FOR THE COMBO BOX
@@ -195,14 +199,14 @@ public class RecitationWorkspace {
         ta1Label = new Label(ta1Text);
         ta1ComboBox = new ComboBox(taNames);
         ta1ComboBox.getSelectionModel().selectFirst();
-        ta1Box = new HBox();
+        ta1Box = new HBox(10);
         ta1Box.getChildren().addAll(ta1Label, ta1ComboBox);
         
         String ta2Text = props.getProperty(CSGManagerProp.TA2_TEXT.toString());
         ta2Label = new Label(ta2Text);
         ta2ComboBox = new ComboBox(taNames);
         ta2ComboBox.getSelectionModel().selectFirst();
-        ta2Box = new HBox();
+        ta2Box = new HBox(10);
         ta2Box.getChildren().addAll(ta2Label, ta2ComboBox);
         
         String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());

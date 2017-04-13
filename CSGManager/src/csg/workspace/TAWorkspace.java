@@ -33,6 +33,7 @@ import csg.data.TeachingAssistant;
 import csg.data.WorkspaceData;
 import csg.style.MasterStyle;
 import javafx.scene.control.Tab;
+import javafx.scene.control.cell.CheckBoxTableCell;
 
 /**
  * This class serves as the workspace component for the TA Manager
@@ -59,6 +60,7 @@ public class TAWorkspace {
     
     // FOR THE TA TABLE
     TableView<TeachingAssistant> taTable;
+    TableColumn<TeachingAssistant, Boolean> undergradColumn;
     TableColumn<TeachingAssistant, String> nameColumn;
     TableColumn<TeachingAssistant, String> emailColumn;
 
@@ -118,16 +120,24 @@ public class TAWorkspace {
         taTable.setItems(tableData);
         String nameColumnText = props.getProperty(CSGManagerProp.NAME_COLUMN_TEXT.toString());
         String emailColumnText = props.getProperty(CSGManagerProp.EMAIL_COLUMN_TEXT.toString());
+        String undergradColumnText = props.getProperty(CSGManagerProp.UNDERGRAD_COLUMN_TEXT.toString());
         nameColumn = new TableColumn(nameColumnText);
         emailColumn = new TableColumn(emailColumnText);
+        undergradColumn = new TableColumn(undergradColumnText);
+        undergradColumn.setCellValueFactory(e -> e.getValue().isUndergrad());
+        undergradColumn.setCellFactory(e -> new CheckBoxTableCell<>());            
+        taTable.setEditable(true);
+        
         nameColumn.setCellValueFactory(
                 new PropertyValueFactory<TeachingAssistant, String>("name")
         );
         emailColumn.setCellValueFactory(
                 new PropertyValueFactory<TeachingAssistant, String>("email")
         );
+        taTable.getColumns().add(undergradColumn);
         taTable.getColumns().add(nameColumn);
         taTable.getColumns().add(emailColumn);
+        
 
         // ADD BOX FOR ADDING A TA
         String namePromptText = props.getProperty(CSGManagerProp.NAME_PROMPT_TEXT.toString());
