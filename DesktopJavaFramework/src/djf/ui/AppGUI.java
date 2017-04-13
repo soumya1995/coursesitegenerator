@@ -54,6 +54,9 @@ public class AppGUI {
     protected Button saveButton;
     protected Button exportButton;
     protected Button exitButton;
+    protected Button undoButton;
+    protected Button redoButton;
+    protected Button aboutButton;
     
     // THIS DIALOG IS USED FOR GIVING FEEDBACK TO THE USER
     protected AppYesNoCancelDialogSingleton yesNoCancelDialog;
@@ -156,6 +159,9 @@ public class AppGUI {
         saveButton = initChildButton(fileToolbarPane,	SAVE_ICON.toString(),       SAVE_TOOLTIP.toString(),	true);
         exportButton = initChildButton(fileToolbarPane,	EXPORT_ICON.toString(),     EXPORT_TOOLTIP.toString(),	true);
         exitButton = initChildButton(fileToolbarPane,	EXIT_ICON.toString(),	    EXIT_TOOLTIP.toString(),	false);
+        undoButton = initChildButton(fileToolbarPane,	UNDO_ICON.toString(),	    UNDO_TOOLTIP.toString(),	false);
+        redoButton = initChildButton(fileToolbarPane,	REDO_ICON.toString(),	    REDO_TOOLTIP.toString(),	false);
+        aboutButton = initChildButton(fileToolbarPane,	ABOUT_ICON.toString(),	    ABOUT_TOOLTIP.toString(),	false);
 
 	// AND NOW SETUP THEIR EVENT HANDLERS
         fileController = new AppFileController(app);
@@ -259,5 +265,8 @@ public class AppGUI {
 	loadButton.getStyleClass().add(CLASS_FILE_BUTTON);
 	saveAsButton.getStyleClass().add(CLASS_FILE_BUTTON);
 	exitButton.getStyleClass().add(CLASS_FILE_BUTTON);
+        undoButton.getStyleClass().add(CLASS_FILE_BUTTON);
+        redoButton.getStyleClass().add(CLASS_FILE_BUTTON);
+        aboutButton.getStyleClass().add(CLASS_FILE_BUTTON);
     }
 }

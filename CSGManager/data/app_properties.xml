@@ -20,6 +20,9 @@
         <property name="SAVE_ICON"	    value="Save.png"></property>
         <property name="EXPORT_ICON"	    value="Export.png"></property>
         <property name="EXIT_ICON"          value="Exit.png"></property> 
+        <property name="UNDO_ICON"          value="undo.png"></property> 
+        <property name="REDO_ICON"          value="redo.png"></property> 
+        <property name="ABOUT_ICON"          value="about.png"></property> 
         
         <!-- TOOLTIPS FOR BUTTONS -->
         <property name="NEW_TOOLTIP"		value="Build a new TA Grid"></property>
@@ -28,6 +31,9 @@
         <property name="SAVE_TOOLTIP"           value="Save"></property>
         <property name="EXPORT_TOOLTIP"	        value="Export the current TA Grid"></property>
         <property name="EXIT_TOOLTIP"		value="Exit the Application"></property>
+        <property name="UNDO_TOOLTIP"		value="Undo changes"></property>
+        <property name="REDO_TOOLTIP"		value="Redo Changes"></property>
+        <property name="ABOUT_TOOLTIP"		value="About the Application"></property>
         
         <!-- ERROR MESSAGES -->
         <property name="CLOSE_BUTTON_TEXT"              value="Close"></property>
@@ -151,12 +157,31 @@
 		<property name="LINK_TEXT"                value="Link: "></property>
 		<property name="TOPIC_TEXT"                value="Topic: "></property>
 		<property name="TIME_TEXT"                value="Time: "></property>
-		<property name="DATE_TEXT"                value="date: "></property>
+		<property name="DATE_TEXT"                value="Date: "></property>
 		<property name="HW_TEXT"                value="HW"></property>
 		<property name="LECTURE_TEXT"                value="Lecture"></property>
 		<property name="HOLIDAY_TEXT"                value="Holiday"></property>
 		<property name="TYPE_TEXT"                value="Type: "></property>
 		<property name="SCHEDULE_TAB_TEXT"                value="Schedule Data"></property>
+		<property name="PROJECT_HEADER_TEXT"                value="Projects"></property>
+		<property name="TEAM_TEXT"                value="Teams"></property>
+		<property name="COLOR_COLUMN_TEXT"                value="Color(hex#)"></property>
+		<property name="TEXT_COLOR_COLUMN_TEXT"                value="Text Color(hex#)"></property>
+		<property name="LINK_COLUMN_TEXT"                value="Link"></property>
+		<property name="COLOR_TEXT"                value="Color: "></property>
+		<property name="TEXT_COLOR_TEXT"                value="Text Color: "></property>
+		<property name="HYPERLINK_TEXT"                value="Link: "></property>
+		<property name="STUDENT_TEXT"                value="Students"></property>
+		<property name="FIRSTNAME_COLUMN_TEXT"                value="First Name"></property>
+		<property name="TEAM_COLUMN_TEXT"                value="Team"></property>
+		<property name="LASTNAME_COLUMN_TEXT"                value="Last Name"></property>
+		<property name="ROLE_COLUMN_TEXT"                value="Role"></property>
+		<property name="FIRSTNAME_TEXT"                value="First Name: "></property>
+		<property name="LASTNAME_TEXT"                value="Last Name: "></property>
+		<property name="TEAM_COMOBO_TEXT"                value="Team: "></property>
+		<property name="ROLE_TEXT"                value="Role: "></property>
+		<property name="PROJECT_TAB_TEXT"                value="Project Data"></property>
+		<property name="STUDENT_NAME_TEXT"                value="Name: "></property>
 
 
 

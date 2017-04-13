@@ -31,6 +31,7 @@ public class MasterWorkspace extends AppWorkspaceComponent{
     private TAWorkspace taWorkspace;
     private RecitationWorkspace recWorkspace;
     private ScheduleWorkspace scheduleWorkspace;
+    private ProjectWorkspace projectWorkspace;
     
     public MasterWorkspace(CSGManager initApp){
         app = initApp;
@@ -45,6 +46,7 @@ public class MasterWorkspace extends AppWorkspaceComponent{
         taWorkspace = new TAWorkspace(app, this);
         recWorkspace = new RecitationWorkspace(app, this);
         scheduleWorkspace = new ScheduleWorkspace(app, this);
+        projectWorkspace = new ProjectWorkspace(app, this);
 }
     
     public TabPane getTabPane(){
@@ -67,6 +69,10 @@ public class MasterWorkspace extends AppWorkspaceComponent{
         return scheduleWorkspace;
     }
     
+    public ProjectWorkspace getProjectWorkspace(){
+        return projectWorkspace;
+    }
+    
     public Pane getWorkspace(){
         return workspace;
     }
@@ -76,6 +82,7 @@ public class MasterWorkspace extends AppWorkspaceComponent{
          taWorkspace.resetWorkspace();
          recWorkspace.resetWorkspace();
          scheduleWorkspace.resetWorkspace();
+         projectWorkspace.resetWorkspace();
      }
 
     @Override
@@ -84,6 +91,7 @@ public class MasterWorkspace extends AppWorkspaceComponent{
         taWorkspace.reloadWorkspace(dataComponent);
         recWorkspace.reloadWorkspace(dataComponent);
         scheduleWorkspace.reloadWorkspace(dataComponent);
+        projectWorkspace.reloadWorkspace(dataComponent);
         
     }
 

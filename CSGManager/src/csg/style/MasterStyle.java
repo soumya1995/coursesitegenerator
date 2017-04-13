@@ -21,6 +21,7 @@ public class MasterStyle extends AppStyleComponent {
     private TAStyle taStyle;
     private RecitationStyle recStyle;
     private ScheduleStyle scheduleStyle;
+    private ProjectStyle projectStyle;
     
     
     public static String CLASS_TAB_PANE = "tab_pane";
@@ -44,6 +45,7 @@ public class MasterStyle extends AppStyleComponent {
         taStyle = new TAStyle(app);
         recStyle = new RecitationStyle(app);
         scheduleStyle = new ScheduleStyle(app);
+        projectStyle = new ProjectStyle(app);
         initMasterStyle();
     }
 
@@ -61,6 +63,10 @@ public class MasterStyle extends AppStyleComponent {
     
     public ScheduleStyle getScheduleStyle() {
         return scheduleStyle;
+    }
+    
+    public ProjectStyle getProjectStyle() {
+        return projectStyle;
     }
 
     private void initMasterStyle() {

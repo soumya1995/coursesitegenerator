@@ -182,6 +182,7 @@ public class ScheduleWorkspace {
         String hw = props.getProperty(CSGManagerProp.HW_TEXT.toString());
         ObservableList<String> subjects = FXCollections.observableArrayList(holiday,lecture,hw);
         typeComboBox = new ComboBox(subjects);
+        typeComboBox.getSelectionModel().selectFirst();
         typeBox = new HBox();
         typeBox.getChildren().addAll(typeLabel, typeComboBox);
         
@@ -189,7 +190,7 @@ public class ScheduleWorkspace {
         dateLabel = new Label(dateText);
         datePickerBox = new DatePicker();
         dateBox = new HBox();
-        dateBox.getChildren().addAll(dateLabel, dateBox);
+        dateBox.getChildren().addAll(dateLabel, datePickerBox);
         
         String timeText = props.getProperty(CSGManagerProp.TIME_TEXT.toString());
         timeLabel = new Label(timeText);
@@ -221,7 +222,7 @@ public class ScheduleWorkspace {
         criteriaBox = new HBox();
         criteriaBox.getChildren().addAll(criteriaLabel, criteriaTextField);
         
-        String addText = props.getProperty(CSGManagerProp.ADD_BUTTON_TEXT.toString());
+        String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
         addButton = new Button(addText);
         String clearText = props.getProperty(CSGManagerProp.CLEAR_BUTTON_TEXT.toString());
         clearButton = new Button(clearText);
