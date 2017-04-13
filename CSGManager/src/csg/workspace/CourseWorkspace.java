@@ -168,7 +168,6 @@ public class CourseWorkspace{
         String cse = props.getProperty(CSGManagerProp.CSE_TEXT.toString());
         String ise = props.getProperty(CSGManagerProp.ISE_TEXT.toString());
         String ece = props.getProperty(CSGManagerProp.ECE_TEXT.toString());
-        System.out.println(cse);
         ObservableList<String> subjects = FXCollections.observableArrayList(cse,ise,ece);
         subjectComboBox = new ComboBox(subjects);
         subjectComboBox.getSelectionModel().selectFirst();

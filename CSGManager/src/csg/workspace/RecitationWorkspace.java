@@ -214,7 +214,7 @@ public class RecitationWorkspace {
         
         //PUT EVERYTHING IN THE ADD/EDIT SECTION IN A PANE
         addEditBox = new VBox();
-        addEditBox.getChildren().addAll(addEditLabel, sectionBox, instructorBox, dayBox, locationBox, ta1Box, ta2Box);
+        addEditBox.getChildren().addAll(addEditLabel, sectionBox, instructorBox, dayBox, locationBox, ta1Box, ta2Box, buttonBox);
         
         //PUT ALL THREE ELEMENTS IN A PANE
         recitationPane = new VBox();
@@ -224,6 +224,8 @@ public class RecitationWorkspace {
         ScrollPane pane = new ScrollPane(recitationPane);
         pane.setFitToWidth(true);
         
+        table.prefWidthProperty().bind(addEditBox.widthProperty().multiply(1.9));
+        
         //PUT THE WHOLE RECITATION PANE IN A TAB
         String recitationTabText = props.getProperty(CSGManagerProp.RECITATION_TAB_TEXT.toString());
         recitationTab = new Tab(recitationTabText);
@@ -231,5 +233,159 @@ public class RecitationWorkspace {
         
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(recitationTab);
+    }
+
+
+    public Tab getRecitationTab() {
+        return recitationTab;
+    }
+
+    public BorderPane getWorkspacePane() {
+        return workspacePane;
+    }
+
+    public VBox getRecitationPane() {
+        return recitationPane;
+    }
+
+    public HBox getRecitationHeaderBox() {
+        return recitationHeaderBox;
+    }
+
+    public Label getRecitationHeader() {
+        return recitationHeader;
+    }
+
+    public HBox getTableBox() {
+        return tableBox;
+    }
+
+    public TableView<Recitation> getTable() {
+        return table;
+    }
+
+    public TableColumn<Recitation, String> getSectionColumn() {
+        return sectionColumn;
+    }
+
+    public TableColumn<Recitation, String> getInstructorColumn() {
+        return instructorColumn;
+    }
+
+    public TableColumn<Recitation, String> getDayColumn() {
+        return dayColumn;
+    }
+
+    public TableColumn<Recitation, String> getLocationColumn() {
+        return locationColumn;
+    }
+
+    public TableColumn<Recitation, String> getTa1Column() {
+        return ta1Column;
+    }
+
+    public TableColumn<Recitation, String> getTa2Column() {
+        return ta2Column;
+    }
+
+    public VBox getAddEditBox() {
+        return addEditBox;
+    }
+
+    public Label getAddEditLabel() {
+        return addEditLabel;
+    }
+
+    public HBox getSectionBox() {
+        return sectionBox;
+    }
+
+    public Label getSectionLabel() {
+        return sectionLabel;
+    }
+
+    public TextField getSectionTextField() {
+        return sectionTextField;
+    }
+
+    public HBox getInstructorBox() {
+        return instructorBox;
+    }
+
+    public Label getInstructorLabel() {
+        return instructorLabel;
+    }
+
+    public TextField getInstructorTextField() {
+        return instructorTextField;
+    }
+
+    public HBox getDayBox() {
+        return dayBox;
+    }
+
+    public Label getDayLabel() {
+        return dayLabel;
+    }
+
+    public TextField getDayTextField() {
+        return dayTextField;
+    }
+
+    public HBox getLocationBox() {
+        return locationBox;
+    }
+
+    public Label getLocationLabel() {
+        return locationLabel;
+    }
+
+    public TextField getLocationTextField() {
+        return locationTextField;
+    }
+
+    public HBox getTa1Box() {
+        return ta1Box;
+    }
+
+    public Label getTa1Label() {
+        return ta1Label;
+    }
+
+    public ComboBox getTa1ComboBox() {
+        return ta1ComboBox;
+    }
+
+    public HBox getTa2Box() {
+        return ta2Box;
+    }
+
+    public Label getTa2Label() {
+        return ta2Label;
+    }
+
+    public ComboBox getTa2ComboBox() {
+        return ta2ComboBox;
+    }
+
+    public HBox getButtonBox() {
+        return buttonBox;
+    }
+
+    public Button getAddButton() {
+        return addButton;
+    }
+
+    public Button getClearButton() {
+        return clearButton;
+    }
+    
+    public void resetWorkspace(){
+        
+    }
+    
+    public void reloadWorkspace(AppDataComponent dataComponent){
+        RecitationData recData = ((WorkspaceData)dataComponent).getRecitationData();
+        
     }
 }

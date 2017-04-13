@@ -17,12 +17,16 @@ public class WorkspaceData implements AppDataComponent{
     CSGManager app;
     private CourseData courseData;
     private TAData taData;
+    private RecitationData recitationData;
+    private ScheduleData scheduleData;
     
     public WorkspaceData(CSGManager initApp){
         
         app = initApp;
         courseData = new CourseData(app);
         taData = new TAData(app);
+        recitationData = new RecitationData(app);
+        scheduleData = new ScheduleData(app);
     }
 
     public CourseData getCourseData() {
@@ -36,6 +40,14 @@ public class WorkspaceData implements AppDataComponent{
     public void resetData(){
       //  courseData.resetData();
         taData.resetData();
+    }
+
+    public RecitationData getRecitationData() {
+        return recitationData;
+    }
+
+    public ScheduleData getScheduleData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

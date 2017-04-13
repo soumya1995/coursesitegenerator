@@ -13,19 +13,18 @@ import javafx.collections.ObservableList;
  *
  * @author Soumya
  */
-
-public class RecitationData {
+public class ScheduleData {
     
      CSGManager app;
-     ObservableList<Recitation> recitations;
-    
-    public RecitationData(CSGManager initApp){
+     ObservableList<Schedule> schedules;
+
+    public ScheduleData(CSGManager initApp) {
         app = initApp;
-        recitations = FXCollections.observableArrayList();
+         schedules = FXCollections.observableArrayList();
     }
 
-    public ObservableList<Recitation> getRecitations() {
-        return recitations;
+    public ObservableList<Schedule> getSchedules() {
+        return schedules;
     }
     
 }

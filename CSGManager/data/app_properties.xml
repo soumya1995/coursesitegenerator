@@ -121,7 +121,46 @@
         <property name="OFFICE_HOURS_SUBHEADER"         value="Office Hours Grid"></property>
         <property name="START_TIME_TEXT"                value="START TIME: "></property>
         <property name="END_TIME_TEXT"                value="END TIME: "></property>
-        
+        <property name="RECITATION_HEADER_TEXT"                value="Recitations"></property>
+        <property name="SECTION_COLUMN_TEXT"                value="Section"></property>
+        <property name="INSTRUCTOR_COLUMN_TEXT"                value="Instructor"></property>
+        <property name="DAY_COLUMN_TEXT"                value="Day/Time"></property>
+        <property name="LOCATION_COLUMN_TEXT"                value="Location"></property>
+        <property name="TA1_COLUMN_TEXT"                value="Supervising TA"></property>
+        <property name="TA2_COLUMN_TEXT"                value="Supervising TA"></property>
+        <property name="ADD_EDIT_TEXT"                value="Add/Edit"></property>
+        <property name="SECTION_TEXT"                value="Section: "></property>
+        <property name="RECITATION_TAB_TEXT"                value="Recitation Data"></property>
+        <property name="CLEAR_TEXT"                value="Clear"></property>
+        <property name="ADD_TEXT"                value="Add/Update"></property>
+        <property name="TA1_TEXT"                value="Supervising TA: "></property>
+        <property name="TA2_TEXT"                value="Supervising TA: "></property>
+        <property name="LOCATION_TEXT"                value="Location: "></property>
+        <property name="DAY_TEXT"                value="Day/Time: "></property>
+        <property name="INSTRUCTOR_TEXT"                value="Instructor: "></property>
+        <property name="SCHEDULE_HEADER_TEXT"                value="Schedule"></property>
+		<property name="CALENDAR_TEXT"                value="Calendar Boundaries"></property>
+		<property name="START_DAY_TEXT"                value="Starting Monday: "></property>
+		<property name="END_DAY_TEXT"                value="Ending Friday: "></property>
+		<property name="ITEMS_TEXT"                value="Schedule Items"></property>
+		<property name="TYPE_COLUMN_TEXT"                value="Type"></property>
+		<property name="DATE_COLUMN_TEXT"                value="Date"></property>
+		<property name="TITLE_COLUMN_TEXT"                value="Title"></property>
+		<property name="TOPIC_COLUMN_TEXT"                value="Topic"></property>
+		<property name="CRITERIA_TEXT"                value="Criteria: "></property>
+		<property name="LINK_TEXT"                value="Link: "></property>
+		<property name="TOPIC_TEXT"                value="Topic: "></property>
+		<property name="TIME_TEXT"                value="Time: "></property>
+		<property name="DATE_TEXT"                value="date: "></property>
+		<property name="HW_TEXT"                value="HW"></property>
+		<property name="LECTURE_TEXT"                value="Lecture"></property>
+		<property name="HOLIDAY_TEXT"                value="Holiday"></property>
+		<property name="TYPE_TEXT"                value="Type: "></property>
+		<property name="SCHEDULE_TAB_TEXT"                value="Schedule Data"></property>
+
+
+
+
         <!-- WORKSPACE ERROR MESSAGES -->
         <property name="MISSING_TA_NAME_TITLE"          value="Missing TA Name"></property>
         <property name="MISSING_TA_NAME_MESSAGE"        value="You must provide a TA Name"></property>

@@ -19,6 +19,9 @@ public class MasterStyle extends AppStyleComponent {
     private CSGManager app;
     private CourseStyle courseStyle;
     private TAStyle taStyle;
+    private RecitationStyle recStyle;
+    private ScheduleStyle scheduleStyle;
+    
     
     public static String CLASS_TAB_PANE = "tab_pane";
     /**
@@ -39,6 +42,8 @@ public class MasterStyle extends AppStyleComponent {
         // AND NOW OUR WORKSPACE STYLE
         courseStyle = new CourseStyle(app);
         taStyle = new TAStyle(app);
+        recStyle = new RecitationStyle(app);
+        scheduleStyle = new ScheduleStyle(app);
         initMasterStyle();
     }
 
@@ -48,6 +53,14 @@ public class MasterStyle extends AppStyleComponent {
 
     public TAStyle getTAStyle() {
         return taStyle;
+    }
+    
+    public RecitationStyle getRecitationStyle() {
+        return recStyle;
+    }
+    
+    public ScheduleStyle getScheduleStyle() {
+        return scheduleStyle;
     }
 
     private void initMasterStyle() {
