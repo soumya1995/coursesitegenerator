@@ -188,24 +188,35 @@ public class ProjectWorkspace {
         addEditLabel = new Label(addEditText);
         
         nameBox = new HBox();
+        nameBox.setSpacing(38);
         String nameText = props.getProperty(CSGManagerProp.STUDENT_NAME_TEXT.toString());
         nameLabel = new Label(nameText);
         nameTextField = new TextField();
+        nameTextField.prefWidth(200);
         nameBox.getChildren().addAll(nameLabel, nameTextField);
         
         String colorText = props.getProperty(CSGManagerProp.COLOR_TEXT.toString());
         colorLabel = new Label(colorText);
         colorPicker = new ColorPicker(Color.BLUE);
+        HBox c1 = new HBox();
+        c1.setSpacing(30);
+        c1.getChildren().addAll(colorLabel, colorPicker);
         String textColorText = props.getProperty(CSGManagerProp.TEXT_COLOR_TEXT.toString());
         textColorLabel = new Label(textColorText);
         textColorPicker = new ColorPicker();
+        HBox c2 = new HBox();
+        c2.setSpacing(30);
+        c2.getChildren().addAll(textColorLabel, textColorPicker);
         colorBox = new HBox();
-        colorBox.getChildren().addAll(colorLabel, colorPicker, textColorLabel, textColorPicker);
+        colorBox.setSpacing(20);
+        colorBox.getChildren().addAll(c1, c2);
         
         linkBox = new HBox();
+        linkBox.setSpacing(38);
         String linkText = props.getProperty(CSGManagerProp.HYPERLINK_TEXT.toString());
         linkLabel = new Label(linkText);
         linkTextField = new TextField();
+        linkTextField.prefWidth(600);
         linkBox.getChildren().addAll(linkLabel, linkTextField);
         
         String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
@@ -213,6 +224,7 @@ public class ProjectWorkspace {
         String clearText = props.getProperty(CSGManagerProp.CLEAR_BUTTON_TEXT.toString());
         clearButton = new Button(clearText);
         buttonBox = new HBox();
+        buttonBox.setSpacing(20);
         buttonBox.getChildren().addAll(addButton, clearButton);
         
         teamBox = new VBox();
@@ -264,15 +276,19 @@ public class ProjectWorkspace {
         addEditLabel2 = new Label(addEditText2);
         
         firstNameBox = new HBox();
+        firstNameBox.setSpacing(25);
         String firstNameText = props.getProperty(CSGManagerProp.FIRSTNAME_TEXT.toString());
         firstNameLabel = new Label(firstNameText);
         firstNameTextField = new TextField();
+        firstNameTextField.prefWidth(200);
         firstNameBox.getChildren().addAll(firstNameLabel, firstNameTextField);
         
         lastNameBox = new HBox();
+        lastNameBox.setSpacing(35);
         String lastNameText = props.getProperty(CSGManagerProp.LASTNAME_TEXT.toString());
         lastNameLabel = new Label(lastNameText);
         lastNameTextField = new TextField();
+        lastNameTextField.prefWidth(200);
         lastNameBox.getChildren().addAll(lastNameLabel, lastNameTextField);
         
         //GET THE TEAMS FOR THE COMBO BOX
@@ -288,12 +304,15 @@ public class ProjectWorkspace {
         teamComboBox = new ComboBox(teamNames);
         teamComboBox.getSelectionModel().selectFirst();
         teamFieldBox = new HBox();
+        teamFieldBox.setSpacing(70);
         teamFieldBox.getChildren().addAll(teamComboLabel, teamComboBox);
         
         roleBox = new HBox();
+        roleBox.setSpacing(70);
         String roleText = props.getProperty(CSGManagerProp.ROLE_TEXT.toString());
         roleLabel = new Label(roleText);
         roleTextField = new TextField();
+        roleTextField.prefWidth(200);
         roleBox.getChildren().addAll(roleLabel, roleTextField);
         
         String addText2 = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
@@ -301,6 +320,7 @@ public class ProjectWorkspace {
         String clearText2 = props.getProperty(CSGManagerProp.CLEAR_BUTTON_TEXT.toString());
         clearButton2 = new Button(clearText2);
         buttonBox2 = new HBox();
+        buttonBox2.setSpacing(20);
         buttonBox2.getChildren().addAll(addButton2, clearButton2);
         
         studentBox = new VBox();

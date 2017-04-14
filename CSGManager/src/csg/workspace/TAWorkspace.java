@@ -32,6 +32,7 @@ import csg.data.TAData;
 import csg.data.TeachingAssistant;
 import csg.data.WorkspaceData;
 import csg.style.MasterStyle;
+import javafx.geometry.Insets;
 import javafx.scene.control.Tab;
 import javafx.scene.control.cell.CheckBoxTableCell;
 
@@ -51,6 +52,7 @@ public class TAWorkspace {
     TAController controller;
     
     Tab taTab;
+    SplitPane sPane;
     
     // NOTE THAT EVERY CONTROL IS PUT IN A BOX TO HELP WITH ALIGNMENT
     
@@ -110,6 +112,7 @@ public class TAWorkspace {
         String tasHeaderText = props.getProperty(CSGManagerProp.TAS_HEADER_TEXT.toString());
         tasHeaderLabel = new Label(tasHeaderText);
         tasHeaderBox.getChildren().add(tasHeaderLabel);
+        tasHeaderBox.setPadding(new Insets(5, 0, 5, 0));
 
         // MAKE THE TABLE AND SETUP THE DATA MODEL
         taTable = new TableView();
@@ -163,8 +166,11 @@ public class TAWorkspace {
 
         // INIT THE HEADER ON THE RIGHT
         officeHoursHeaderBox = new HBox();
+        officeHoursHeaderBox.setSpacing(20);
         String officeHoursGridText = props.getProperty(CSGManagerProp.OFFICE_HOURS_SUBHEADER.toString());
         officeHoursHeaderLabel = new Label(officeHoursGridText);
+        HBox officeLabel = new HBox();
+        officeLabel.getChildren().addAll(officeHoursHeaderLabel);
         String startTimeText = props.getProperty(CSGManagerProp. START_TIME_TEXT.toString());
         startTimeLabel = new Label(startTimeText);
         String endTimeText = props.getProperty(CSGManagerProp. END_TIME_TEXT.toString());
@@ -179,10 +185,14 @@ public class TAWorkspace {
        // System.out.println(data.getEndHour());
         
         officeHoursHeaderBox.getChildren().add(officeHoursHeaderLabel);
-        officeHoursHeaderBox.getChildren().add(startTimeLabel);
-        officeHoursHeaderBox.getChildren().add(startTimeBox);
-        officeHoursHeaderBox.getChildren().add(endTimeLabel);
-        officeHoursHeaderBox.getChildren().add(endTimeBox);
+        
+        HBox office = new HBox();
+        office.setSpacing(20);
+        office.getChildren().addAll(startTimeLabel, startTimeBox, endTimeLabel, endTimeBox);
+        officeHoursHeaderBox.setSpacing(80);
+        officeHoursHeaderBox.setPadding(new Insets(5,0, 10,10));
+        officeHoursHeaderBox.getChildren().addAll(officeLabel, office);
+        
         
         // THESE WILL STORE PANES AND LABELS FOR OUR OFFICE HOURS GRID
         officeHoursGridPane = new GridPane();
@@ -208,7 +218,7 @@ public class TAWorkspace {
         // BOTH PANES WILL NOW GO IN A SPLIT PANE
         ScrollPane pane = new ScrollPane(rightPane);
         pane.setFitToWidth(true);
-        SplitPane sPane = new SplitPane(leftPane, pane);
+        sPane = new SplitPane(leftPane, pane);
        // workspace = new BorderPane();
         
         // AND PUT EVERYTHING IN THE WORKSPACE
@@ -362,6 +372,10 @@ public class TAWorkspace {
     
     public ComboBox getEndTimeBox(){
         return endTimeBox;
+    }
+    
+    public SplitPane getSplitPane(){
+        return sPane;
     }
     
     public String getCellKey(Pane testPane) {

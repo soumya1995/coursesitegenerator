@@ -8,141 +8,250 @@
 -->
 <properties>
     <property_list>
-        <property name="APP_TITLE"	    value="**** /// ****"></property>
-	<property name="APP_LOGO"	    value="TAManagerLogo.png"></property>
-	<property name="APP_PATH_CSS"	    value="style/"></property>
-	<property name="APP_CSS"	    value="csg_style.css"></property>
+        <property name="APP_TITLE"      value="Generador de sitios de curso"></property>
+    <property name="APP_LOGO"       value="TAManagerLogo.png"></property>
+    <property name="APP_PATH_CSS"       value="style/"></property>
+    <property name="APP_CSS"        value="csg_style.css"></property>
         
         <!-- PROGRAM ICON FILES -->
-        <property name="NEW_ICON"	    value="New.png"></property>
-        <property name="LOAD_ICON"	    value="Load.png"></property>
-        <property name="SAVE_AS_ICON"	    value="SaveAs.png"></property>
-        <property name="SAVE_ICON"	    value="Save.png"></property>
-        <property name="EXPORT_ICON"	    value="Export.png"></property>
+        <property name="NEW_ICON"       value="New.png"></property>
+        <property name="LOAD_ICON"      value="Load.png"></property>
+        <property name="SAVE_AS_ICON"       value="SaveAs.png"></property>
+        <property name="SAVE_ICON"      value="Save.png"></property>
+        <property name="EXPORT_ICON"        value="Export.png"></property>
         <property name="EXIT_ICON"          value="Exit.png"></property> 
+        <property name="UNDO_ICON"          value="undo.png"></property> 
+        <property name="REDO_ICON"          value="redo.png"></property> 
+        <property name="ABOUT_ICON"          value="about.png"></property> 
         
         <!-- TOOLTIPS FOR BUTTONS -->
-        <property name="NEW_TOOLTIP"		value="Build a new TA Grid"></property>
-        <property name="LOAD_TOOLTIP"		value="Load an existing TA Grid"></property>
-        <property name="SAVE_AS_TOOLTIP"	value="Save As"></property>
-        <property name="SAVE_TOOLTIP"           value="Save"></property>
-        <property name="EXPORT_TOOLTIP"	        value="Export the current TA Grid"></property>
-        <property name="EXIT_TOOLTIP"		value="Exit the Application"></property>
+        <property name="NEW_TOOLTIP"        value="Crear una nueva cuadrícula de generador de sitios"></property>
+        <property name="LOAD_TOOLTIP"       value="Cargar una cuadrícula de generador de sitio existente"></property>
+        <property name="SAVE_AS_TOOLTIP"    value="Guardar como"></property>
+        <property name="SAVE_TOOLTIP"           value="Salvar"></property>
+        <property name="EXPORT_TOOLTIP"         value="Exportar la actual cuadrícula del generador de sitios"></property>
+        <property name="EXIT_TOOLTIP"       value="Salir de la aplicación"></property>
+        <property name="UNDO_TOOLTIP"       value="Deshacer cambios
+"></property>
+        <property name="REDO_TOOLTIP"       value="Rehacer cambios"></property>
+        <property name="ABOUT_TOOLTIP"      value="Acerca de la aplicación"></property>
         
         <!-- ERROR MESSAGES -->
-        <property name="CLOSE_BUTTON_TEXT"              value="Close"></property>
+        <property name="CLOSE_BUTTON_TEXT"              value="Cerca
+"></property>
 
-        <property name="NEW_ERROR_MESSAGE"              value="An error occured creating New work."></property>
-        <property name="NEW_ERROR_TITLE"		value="New Work Error"></property>
-        <property name="LOAD_ERROR_MESSAGE"             value="An error occured loading work."></property>
-        <property name="LOAD_ERROR_TITLE"		value="Load Work Error"></property>
-        <property name="SAVE_ERROR_MESSAGE"             value="An error occured saving work."></property>
-        <property name="SAVE_ERROR_TITLE"		value="Save Work Error"></property>
-        <property name="EXPORT_ERROR_TITLE"		value="Export Work Error"></property>
-        <property name="EXPORT_ERROR_MESSAGE"             value="An error occured while exporting work"></property>
-        <property name="START_END_TIME_ERROR"           value="Start End Hour Error"></property>
-        <property name="START_END_TIME_ERROR_MESSAGE"   value="Start hour should be before end hour"></property>
-        <property name="PROPERTIES_LOAD_ERROR_MESSAGE"	value="An error occured loading a properties file."></property>	
-        <property name="PROPERTIES_LOAD_ERROR_TITLE"	value="Properties File Loading Error"></property>
-	
+        <property name="NEW_ERROR_MESSAGE"              value="Se ha producido un error al crear Nuevo trabajo."></property>
+        <property name="NEW_ERROR_TITLE"        value="Nuevo error de trabajo"></property>
+        <property name="LOAD_ERROR_MESSAGE"             value="Se ha producido un error al cargar el trabajo."></property>
+        <property name="LOAD_ERROR_TITLE"       value="Cargar error de trabajo"></property>
+        <property name="SAVE_ERROR_MESSAGE"             value="Se ha producido un error al guardar el trabajo."></property>
+        <property name="SAVE_ERROR_TITLE"       value="Guardar error de trabajo"></property>
+        <property name="EXPORT_ERROR_TITLE"     value="Error de trabajo de exportación"></property>
+        <property name="EXPORT_ERROR_MESSAGE"             value="Se produjo un error al exportar el trabajo"></property>
+        <property name="START_END_TIME_ERROR"           value="Error de fin de hora de inicio"></property>
+        <property name="START_END_TIME_ERROR_MESSAGE"   value="La hora de inicio debe ser antes de la hora final"></property>
+        <property name="PROPERTIES_LOAD_ERROR_MESSAGE"  value="Se ha producido un error al cargar un archivo de propiedades."></property> 
+        <property name="PROPERTIES_LOAD_ERROR_TITLE"    value="Error en el archivo de propiedades"></property>
+    
         <!-- VERIFICATION MESSAGES -->
-	
-        <property name="NEW_COMPLETED_MESSAGE"		value="New Work Ready for Editing"></property>
-        <property name="NEW_COMPLETED_TITLE"		value="New Work Created"></property>
-        <property name="LOAD_COMPLETED_MESSAGE"		value="File Loading Completed and ready for editing"></property>
-        <property name="LOAD_COMPLETED_TITLE"		value="Loading Completed"></property>
-        <property name="SAVE_COMPLETED_MESSAGE"		value="File Saving Completed"></property>
-        <property name="SAVE_COMPLETED_TITLE"		value="Saving Completed"></property>
-        <property name="EXPORT_COMPLETED_MESSAGE"	value="File Exporting Completed"></property>
-        <property name="EXPORT_COMPLETED_TITLE"		value="Exporting Completed"></property>
-        <property name="SAVE_UNSAVED_WORK_MESSAGE"	value="Would you like to save your unsaved work first?"></property>
-        <property name="SAVE_UNSAVED_WORK_TITLE"	value="Save unsaved work?"></property>
-        <property name="CHANGE_TITLE"                   value="Change to office hours"></property>
-        <property name="CHANGE_MESSAGE"                 value="Do you really want to make changes to existing office hours"></property>
+    
+        <property name="NEW_COMPLETED_MESSAGE"      value="Nuevo trabajo preparado para su edición"></property>
+        <property name="NEW_COMPLETED_TITLE"        value="Nuevo trabajo creado"></property>
+        <property name="LOAD_COMPLETED_MESSAGE"     value="Carga del archivo Completado y listo para su edición"></property>
+        <property name="LOAD_COMPLETED_TITLE"       value="Carga completada"></property>
+        <property name="SAVE_COMPLETED_MESSAGE"     value="Archivo guardado completado"></property>
+        <property name="SAVE_COMPLETED_TITLE"       value="Guardado completado"></property>
+        <property name="EXPORT_COMPLETED_MESSAGE"   value="Exportación de archivos completada"></property>
+        <property name="EXPORT_COMPLETED_TITLE"     value="Exportación completada"></property>
+        <property name="SAVE_UNSAVED_WORK_MESSAGE"  value="¿Desea guardar primero su trabajo no guardado?"></property>
+        <property name="SAVE_UNSAVED_WORK_TITLE"    value="¿Guardar el trabajo no guardado?"></property>
+        <property name="CHANGE_TITLE"                   value="Cambio a horario de oficina"></property>
+        <property name="CHANGE_MESSAGE"                 value="¿Realmente desea hacer cambios en las horas de oficina existentes?"></property>
         
-	
-        <property name="NEW_CREATED_MESSAGE"		value="New Work Created but not yet Saved"></property>
-        <property name="WORK_LOADED_MESSAGE"		value="The Work has been Loaded"></property>
-        <property name="WORK_SAVED_MESSAGE"		value="The Work has been Saved"></property>
-        <property name="SAVE_UNSAVED_WORK_MESSAGE"	value="Do you want to save your unsaved work first?"></property>
-	<property name="SAVE_WORK_TITLE"		value="Save your work"></property>
-        <property name="EXPORT_WORK_TITLE"		value="Export your work"></property>
-	<property name="LOAD_WORK_TITLE"		value="Select work file to load"></property>
-	<property name="WORK_FILE_EXT"			value="json"></property>
+    
+        <property name="NEW_CREATED_MESSAGE"        value="Nuevo trabajo creado pero aún no guardado"></property>
+        <property name="WORK_LOADED_MESSAGE"        value="El trabajo ha sido cargado"></property>
+        <property name="WORK_SAVED_MESSAGE"     value="El trabajo ha sido guardado"></property>
+        <property name="SAVE_UNSAVED_WORK_MESSAGE"  value="¿Desea guardar primero su trabajo no guardado?"></property>
+    <property name="SAVE_WORK_TITLE"        value="Guarda tu trabajo
+"></property>
+        <property name="EXPORT_WORK_TITLE"      value="Exportar su trabajo"></property>
+    <property name="LOAD_WORK_TITLE"        value="Exportar su trabajo"></property>
+    <property name="WORK_FILE_EXT"          value="json"></property>
         <property name="OFFICE_HOURS_GRID_JSON"         value="OfficeHoursGridData.json"></property>
-	<property name="WORK_FILE_EXT_DESC"		value="TA Office Hours"></property>
+    <property name="WORK_FILE_EXT_DESC"     value="Oficina TA H"></property>
 
         <!-- WORKSPACE CONTROLS STUFF -->      
-        <property name="COURSE_TAB_TEXT"                   value="Course Details"></property>  
-<property name="TA_TAB_TEXT"                   value="TA Data"></property>  
-        <property name="COURSE_INFO_HEADER_TEXT"        value="Course Info"></property>
-        <property name="SUBJECT_TEXT"                   value="Subject: "></property>
-        <property name="NUMBER_TEXT"                   value="Number: "></property>
-        <property name="SEMESTER_TEXT"                   value="Semester: "></property>
-        <property name="YEAR_TEXT"                   value="Year: "></property>
+        <property name="COURSE_TAB_TEXT"                   value="detalles del curso
+"></property>  
+<property name="TA_TAB_TEXT"                   value="Datos TA"></property>  
+        <property name="COURSE_INFO_HEADER_TEXT"        value="Información del curso"></property>
+        <property name="SUBJECT_TEXT"                   value="Tema:
+ "></property>
+        <property name="NUMBER_TEXT"                   value="Número: "></property>
+        <property name="SEMESTER_TEXT"                   value="Semestre: "></property>
+        <property name="YEAR_TEXT"                   value="An: "></property>
         <property name="CSE_TEXT"                   value="CSE"></property>
-        <property name="ISE_TEXT"                   value="ISE"></property>
+        <property name="ISE_TEXT"                   value="ISA"></property>
         <property name="ECE_TEXT"                   value="ECE"></property>
         <property name="TEXT_219"                   value="219"></property>
         <property name="TEXT_308"                   value="308"></property>
         <property name="TEXT_373"                   value="373"></property>
-        <property name="FALL_TEXT"                   value="Fall"></property>
-        <property name="SPRING_TEXT"                   value="Spring"></property>
+        <property name="FALL_TEXT"                   value="Tomber"></property>
+        <property name="SPRING_TEXT"                   value="Printemps"></property>
         <property name="TEXT_2016"                   value="2016"></property>
         <property name="TEXT_2017"                   value="2017"></property>
         <property name="TEXT_2018"                   value="2018"></property>
-        <property name="TITLE_TEXT"                   value="Title: "></property>
-        <property name="NAME_TEXT"                   value="Instructor Name: "></property>
-        <property name="HOME_TEXT"                   value="Instructor Home: "></property>
-        <property name="CHANGE_TEXT"                   value="Change"></property>
-        <property name="EXPORT_TEXT"                   value="Export Dir: "></property>
+        <property name="TITLE_TEXT"                   value="Titre:
+ "></property>
+        <property name="NAME_TEXT"                   value="Nom de l'instructeur: "></property>
+        <property name="HOME_TEXT"                   value="Accueil de l'instructeur: "></property>
+        <property name="CHANGE_TEXT"                   value="Changement
+"></property>
+        <property name="EXPORT_TEXT"                   value="Exportez-vous: "></property>
         <property name="EXPORT_DIR_TEXT"                value="../.../../"></property>
-        <property name="DIR_HEADER_TEXT"                value="Site Template"></property>
-        <property name="DIR_INFO_TEXT"                value="The selected directory should contain the full site template, including HTML files"></property>
-        <property name="PAGES_TEXT"                value="Site Pages:"></property>
-        <property name="USE_COLUMN_TEXT"                value="Use"></property>
-        <property name="NAVBAR_COLUMN_TEXT"                value="Navbar Title"></property>
-        <property name="FILE_COLUMN_TEXT"                value="File Name"></property>
-        <property name="SCRIPT_COLUMN_TEXT"                value="Script"></property>
-        <property name="TEMPLATE_BUTTON_TEXT"                value="Select Template Directory"></property>
-        <property name="STYLE_TEXT"                value="Page Style"></property>
+        <property name="DIR_HEADER_TEXT"                value="Modèle du site"></property>
+        <property name="DIR_INFO_TEXT"                value="Le répertoire sélectionné doit contenir le modèle de site complet, y compris les fichiers HTML"></property>
+        <property name="PAGES_TEXT"                value="Pages du site:"></property>
+        <property name="USE_COLUMN_TEXT"                value="Utilisation
+"></property>
+        <property name="NAVBAR_COLUMN_TEXT"                value="Titre Navbar"></property>
+        <property name="FILE_COLUMN_TEXT"                value="Nom de fichier"></property>
+        <property name="SCRIPT_COLUMN_TEXT"                value="Scénario"></property>
+        <property name="TEMPLATE_BUTTON_TEXT"                value="Sélectionnez l'annuaire de modèles
+"></property>
+        <property name="STYLE_TEXT"                value="Style de page"></property>
         <property name="BANNER_TEXT"                value="Banner School Image: "></property>
-        <property name="LEFT_FOOTER_TEXT"                value="Left Footer Image: "></property>
-        <property name="RIGHT_FOOTER_TEXT"                value="Right Footer Image: "></property>
+        <property name="LEFT_FOOTER_TEXT"                value="Image de pied de page gauche: "></property>
+        <property name="RIGHT_FOOTER_TEXT"                value="Image du pied droit: "></property>
         <property name="STYLESHEET_TEXT"                value="Stylesheet: "></property>
-        <property name="STYLESHEET_NOTE_TEXT"                value="NOTE: New stylesheets may be placed in work/css to be selectable"></property>
-        <property name="NAME_COLUMN_TEXT"               value="Name"></property>
+        <property name="STYLESHEET_NOTE_TEXT"                value="REMARQUE: De nouvelles feuilles de style peuvent être placées dans work / css pour pouvoir être sélectionnées"></property>
+        <property name="NAME_COLUMN_TEXT"               value="Nombre
+"></property>
         <property name="EMAIL_COLUMN_TEXT"              value="Email"></property>
-        <property name="NAME_PROMPT_TEXT"               value="Name"></property>
+        <property name="NAME_PROMPT_TEXT"               value="Nombre
+"></property>
         <property name="EMAIL_PROMPT_TEXT"              value="Email"></property>
-        <property name="ADD_BUTTON_TEXT"                value="Add TA"></property>
-        <property name="CLEAR_BUTTON_TEXT"                value="Clear"></property>
-        <property name="UPDATE_BUTTON_TEXT"                value="Update TA"></property>
-        <property name="OFFICE_HOURS_SUBHEADER"         value="Office Hours Grid"></property>
-        <property name="START_TIME_TEXT"                value="START TIME: "></property>
-        <property name="END_TIME_TEXT"                value="END TIME: "></property>
-        
+        <property name="ADD_BUTTON_TEXT"                value="Añadir TA"></property>
+        <property name="CLEAR_BUTTON_TEXT"                value="Claro
+"></property>
+        <property name="UPDATE_BUTTON_TEXT"                value="actualización de TA"></property>
+        <property name="OFFICE_HOURS_SUBHEADER"         value="Horario de oficina"></property>
+        <property name="START_TIME_TEXT"                value="HORA DE INICIO:
+ "></property>
+        <property name="END_TIME_TEXT"                value="HORA DE FINALIZACIÓN:
+ "></property>
+        <property name="RECITATION_HEADER_TEXT"                value="Recitaciones"></property>
+        <property name="SECTION_COLUMN_TEXT"                value="Sección"></property>
+        <property name="INSTRUCTOR_COLUMN_TEXT"                value="Instructor"></property>
+        <property name="DAY_COLUMN_TEXT"                value="Tiempo de día"></property>
+        <property name="LOCATION_COLUMN_TEXT"                value="Ubicación
+"></property>
+        <property name="TAS_HEADER_TEXT"                value="Asistentes de Enseñanza"></property>
+        <property name="TA1_COLUMN_TEXT"                value="Supervisión de TA"></property>
+        <property name="TA2_COLUMN_TEXT"                value="Supervisión de TA"></property>
+        <property name="ADD_EDIT_TEXT"                value="Añadir / Editar"></property>
+        <property name="SECTION_TEXT"                value="Sección: "></property>
+        <property name="RECITATION_TAB_TEXT"                value="Datos de la Recitación"></property>
+        <property name="CLEAR_TEXT"                value="Claro
+"></property>
+        <property name="ADD_TEXT"                value="Añadir / actualizar"></property>
+        <property name="TA1_TEXT"                value="Supervisión de TA: "></property>
+        <property name="TA2_TEXT"                value="Supervisión de TA: "></property>
+        <property name="LOCATION_TEXT"                value="Ubicación:
+ "></property>
+        <property name="DAY_TEXT"                value="Tiempo de día: "></property>
+        <property name="INSTRUCTOR_TEXT"                value="Instructor: "></property>
+        <property name="SCHEDULE_HEADER_TEXT"                value="Programar"></property>
+        <property name="CALENDAR_TEXT"                value="Límites del calendario"></property>
+        <property name="START_DAY_TEXT"                value="Comenzando el lunes: "></property>
+        <property name="END_DAY_TEXT"                value="Finalizando el viernes: "></property>
+        <property name="ITEMS_TEXT"                value="Itinerarios"></property>
+        <property name="TYPE_COLUMN_TEXT"                value="Tipo
+"></property>
+        <property name="UNDERGRAD_COLUMN_TEXT"                value="De licenciatura"></property>
+        <property name="DATE_COLUMN_TEXT"                value="Fecha
+"></property>
+        <property name="TITLE_COLUMN_TEXT"                value="Título"></property>
+        <property name="TOPIC_COLUMN_TEXT"                value="Tema"></property>
+        <property name="CRITERIA_TEXT"                value="Criterios: "></property>
+        <property name="LINK_TEXT"                value="Enlazar: "></property>
+        <property name="TOPIC_TEXT"                value="Tema: "></property>
+        <property name="TIME_TEXT"                value="Hora:
+ "></property>
+        <property name="DATE_TEXT"                value="Fecha:
+ "></property>
+        <property name="HW_TEXT"                value="Deberes
+"></property>
+        <property name="LECTURE_TEXT"                value="Conferencia
+"></property>
+        <property name="HOLIDAY_TEXT"                value="Fiesta
+"></property>
+        <property name="TYPE_TEXT"                value="Tipo:
+ "></property>
+        <property name="SCHEDULE_TAB_TEXT"                value="Datos del horario"></property>
+        <property name="PROJECT_HEADER_TEXT"                value="Proyectos"></property>
+        <property name="TEAM_TEXT"                value="Equipos"></property>
+        <property name="COLOR_COLUMN_TEXT"                value="Color(hex#)"></property>
+        <property name="TEXT_COLOR_COLUMN_TEXT"                value="Color del texto (hex #)"></property>
+        <property name="LINK_COLUMN_TEXT"                value="Enlazar"></property>
+        <property name="COLOR_TEXT"                value="Color: "></property>
+        <property name="TEXT_COLOR_TEXT"                value="Color de texto:
+ "></property>
+        <property name="HYPERLINK_TEXT"                value="Enlazar: "></property>
+        <property name="STUDENT_TEXT"                value="Estudiantes"></property>
+        <property name="FIRSTNAME_COLUMN_TEXT"                value="Nombre de pila
+"></property>
+        <property name="TEAM_COLUMN_TEXT"                value="Equipo"></property>
+        <property name="LASTNAME_COLUMN_TEXT"                value="Apellido
+"></property>
+        <property name="ROLE_COLUMN_TEXT"                value="Papel"></property>
+        <property name="FIRSTNAME_TEXT"                value="Nombre de pila:
+ "></property>
+        <property name="LASTNAME_TEXT"                value="Apellido:
+ "></property>
+        <property name="TEAM_COMOBO_TEXT"                value="Equipo: "></property>
+        <property name="ROLE_TEXT"                value="Papel: "></property>
+        <property name="PROJECT_TAB_TEXT"                value="Datos del proyecto"></property>
+        <property name="STUDENT_NAME_TEXT"                value="Nombre:
+ "></property>
+        <property name="COURSE_HOME_TEXT"                value="Casa
+"></property>
+        <property name="SYLLABUS_TEXT"                value="Silaba
+"></property>
+        <property name="SCHEDULE_TEXT"                value="Programar"></property>
+        <property name="HWS_TEXT"                value="Tareas escolares
+"></property>
+        <property name="PROJECTS_TEXT"                value="Proyectos"></property>
+
+
+
+
         <!-- WORKSPACE ERROR MESSAGES -->
-        <property name="MISSING_TA_NAME_TITLE"          value="Missing TA Name"></property>
-        <property name="MISSING_TA_NAME_MESSAGE"        value="You must provide a TA Name"></property>
-        <property name="MISSING_TA_EMAIL_TITLE"         value="Missing TA Email"></property>
-        <property name="MISSING_TA_EMAIL_MESSAGE"       value="You must provide a TA Email"></property>
-        <property name="TA_NAME_AND_EMAIL_NOT_UNIQUE_TITLE"     value="TA Name and Email Not Unique"></property>
-        <property name="TA_NAME_AND_EMAIL_NOT_UNIQUE_MESSAGE"   value="You must provide a unique TA Name and Email"></property>
-        <property name="TA_EMAIL_INVALID"   value="Email Address is not valid"></property>
-        <property name="TA_EMAIL_INVALID_MESSAGE"   value="You must provide a valid Email Address"></property>
+        <property name="MISSING_TA_NAME_TITLE"          value="Falta el nombre de TA"></property>
+        <property name="MISSING_TA_NAME_MESSAGE"        value="Debe proporcionar un nombre de TA"></property>
+        <property name="MISSING_TA_EMAIL_TITLE"         value="Falta el correo electrónico de TA"></property>
+        <property name="MISSING_TA_EMAIL_MESSAGE"       value="Debe proporcionar un correo electrónico de TA"></property>
+        <property name="TA_NAME_AND_EMAIL_NOT_UNIQUE_TITLE"     value="Nombre y correo electrónico de TA no son únicos"></property>
+        <property name="TA_NAME_AND_EMAIL_NOT_UNIQUE_MESSAGE"   value="Debe proporcionar un nombre y correo electrónico exclusivo de TA"></property>
+        <property name="TA_EMAIL_INVALID"   value="La dirección de correo electrónico es inválida
+"></property>
+        <property name="TA_EMAIL_INVALID_MESSAGE"   value="Debe proporcionar una dirección de correo electrónico válida"></property>
     </property_list>
     <property_options_list>
         <property_options name="OFFICE_HOURS_TABLE_HEADERS">
-            <option>Start Time</option>
-            <option>End Time</option>
+            <option>Hora de inicio
+</option>
+            <option>Hora de finalización
+</option>
         </property_options>
         <property_options name="DAYS_OF_WEEK">
-            <option>MONDAY</option>
-            <option>TUESDAY</option>
-            <option>WEDNESDAY</option>
-            <option>THURSDAY</option>
-            <option>FRIDAY</option>
+            <option>LUNES
+</option>
+            <option>MARTES</option>
+            <option>MIÉRCOLES</option>
+            <option>JUEVES</option>
+            <option>VIERNES</option>
         </property_options>
     </property_options_list>
 </properties>

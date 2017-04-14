@@ -145,6 +145,14 @@ public enum CSGManagerProp {
     ROLE_TEXT, 
     PROJECT_TAB_TEXT, 
     STUDENT_NAME_TEXT, 
+    
+    //THESE ARE TEXT PARTICULAR TO THE COURSE DATA
+    COURSE_HOME_TEXT, 
+    SYLLABUS_TEXT, 
+    SCHEDULE_TEXT, 
+    HWS_TEXT, 
+    PROJECTS_TEXT, 
+    
 }
 
 

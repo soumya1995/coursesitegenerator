@@ -162,13 +162,15 @@ public class RecitationWorkspace {
         String sectionText = props.getProperty(CSGManagerProp.SECTION_TEXT.toString());
         sectionLabel = new Label(sectionText);
         sectionTextField = new TextField();
+        sectionTextField.prefWidth(500);
         sectionBox = new HBox();
-        sectionBox.setSpacing(52);
+        sectionBox.setSpacing(62);
         sectionBox.getChildren().addAll(sectionLabel, sectionTextField);
         
         String instructorText = props.getProperty(CSGManagerProp.INSTRUCTOR_TEXT.toString());
         instructorLabel = new Label(instructorText);
         instructorTextField = new TextField();
+        instructorTextField.prefWidth(500);
         instructorBox = new HBox();
         instructorBox.setSpacing(41);
         instructorBox.getChildren().addAll(instructorLabel, instructorTextField);
@@ -176,13 +178,15 @@ public class RecitationWorkspace {
         String dayText = props.getProperty(CSGManagerProp.DAY_TEXT.toString());
         dayLabel = new Label(dayText);
         dayTextField = new TextField();
+        dayTextField.prefWidth(500);
         dayBox = new HBox();
-        dayBox.setSpacing(53);
+        dayBox.setSpacing(52);
         dayBox.getChildren().addAll(dayLabel, dayTextField);
         
         String locationText = props.getProperty(CSGManagerProp.LOCATION_TEXT.toString());
         locationLabel = new Label(locationText);
         locationTextField = new TextField();
+        locationTextField.prefWidth(500);
         locationBox = new HBox();
         locationBox.setSpacing(53);
         locationBox.getChildren().addAll(locationLabel, locationTextField);
@@ -214,6 +218,7 @@ public class RecitationWorkspace {
         String clearText = props.getProperty(CSGManagerProp.CLEAR_TEXT.toString());
         clearButton = new Button(clearText);
         buttonBox = new HBox();
+        buttonBox.setSpacing(25);
         buttonBox.getChildren().addAll(addButton, clearButton);
         
         //PUT EVERYTHING IN THE ADD/EDIT SECTION IN A PANE

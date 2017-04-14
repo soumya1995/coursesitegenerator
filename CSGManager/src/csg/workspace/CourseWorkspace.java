@@ -183,11 +183,15 @@ public class CourseWorkspace{
         ObservableList<String> numbers = FXCollections.observableArrayList(txt219,txt373,txt308);
         numberComboBox = new ComboBox(numbers);
         numberComboBox.getSelectionModel().selectFirst();
+        HBox sub = new HBox();
+        sub.setSpacing(40);
+        sub.getChildren().addAll(subjectLabel, subjectComboBox);
+        HBox num = new HBox();
+        num.setSpacing(39);
+        num.getChildren().addAll(numberLabel, numberComboBox);
         subjectBox = new HBox();
-        subjectBox.getChildren().add(subjectLabel);
-        subjectBox.getChildren().add(subjectComboBox);
-        subjectBox.getChildren().add(numberLabel);
-        subjectBox.getChildren().add(numberComboBox);
+        subjectBox.setSpacing(45);
+        subjectBox.getChildren().addAll(sub, num);
         
         //THESE WILL HAVE SUBJECT AND SUBJECT NUMBER
         String semesterText = props.getProperty(CSGManagerProp.SEMESTER_TEXT.toString());
@@ -207,17 +211,23 @@ public class CourseWorkspace{
         ObservableList<String> years = FXCollections.observableArrayList(txt2016, txt2017, txt2018);
         yearComboBox = new ComboBox(years);
         yearComboBox.getSelectionModel().selectFirst();
+        HBox sems = new HBox();
+        sems.setSpacing(45);
+        sems.getChildren().addAll(semesterLabel, semesterComboBox);
+        HBox ys = new HBox();
+        ys.setSpacing(50);
+        ys.getChildren().addAll(yearLabel, yearComboBox);
         semesterBox = new HBox();
-        semesterBox.getChildren().add(semesterLabel);
-        semesterBox.getChildren().add(semesterComboBox);
-        semesterBox.getChildren().add(yearLabel);
-        semesterBox.getChildren().add(yearComboBox);
+        semesterBox.setSpacing(25);
+        semesterBox.getChildren().addAll(sems, ys);
         
         //THE COURSE TITLE
         String titleText = props.getProperty(CSGManagerProp.TITLE_TEXT.toString());
         titleLabel = new Label(titleText);
         titleField = new TextField();
+        titleField.setPrefWidth(800);
         titleBox = new HBox();
+        titleBox.setSpacing(70);
         titleBox.getChildren().add(titleLabel);
         titleBox.getChildren().add(titleField);
         
@@ -225,6 +235,7 @@ public class CourseWorkspace{
         String nameText = props.getProperty(CSGManagerProp.NAME_TEXT.toString());
         instructorLabel = new Label(nameText);
         instructorField = new TextField();
+        instructorField.setPrefWidth(800);
         instructorBox = new HBox();
         instructorBox.getChildren().add(instructorLabel);
         instructorBox.getChildren().add(instructorField);
@@ -233,6 +244,7 @@ public class CourseWorkspace{
         String homeText = props.getProperty(CSGManagerProp.HOME_TEXT.toString());
         homeLabel = new Label(homeText);
         homeField = new TextField();
+        homeField.setPrefWidth(800);
         homeBox = new HBox();
         homeBox.getChildren().add(homeLabel);
         homeBox.getChildren().add(homeField);
@@ -247,6 +259,7 @@ public class CourseWorkspace{
         String exportDirText = props.getProperty(CSGManagerProp.EXPORT_DIR_TEXT.toString());
         exportDirLabel = new Label(exportDirText);
         exportBox = new HBox();
+        exportBox.setSpacing(16);
         exportBox.getChildren().addAll(exportLabel, exportDirLabel, changeButton1);
         
         //ORGANIZE THE COURSE INFO PANE
@@ -366,6 +379,7 @@ public class CourseWorkspace{
         schoolBannerImage = new ImageView();
         changeButton2 = new Button(changeText);
         schoolBannerBox = new HBox();
+        schoolBannerBox.setSpacing(9);
         schoolBannerBox.getChildren().add(schoolBannerLabel);
         schoolBannerBox.getChildren().add(schoolBannerImage);
         schoolBannerBox.getChildren().add(changeButton2);
@@ -376,6 +390,7 @@ public class CourseWorkspace{
         leftFooterImage = new ImageView();
         changeButton3 = new Button(changeText);
         leftFooterBox = new HBox();
+        leftFooterBox.setSpacing(15);
         leftFooterBox.getChildren().add(leftFooterLabel);
         leftFooterBox.getChildren().add(leftFooterImage);
         leftFooterBox.getChildren().add(changeButton3);
@@ -386,6 +401,7 @@ public class CourseWorkspace{
         rightFooterImage = new ImageView();
         changeButton4 = new Button(changeText);
         rightFooterBox = new HBox();
+        rightFooterBox.setSpacing(10);
         rightFooterBox.getChildren().add(rightFooterLabel);
         rightFooterBox.getChildren().add(rightFooterImage);
         rightFooterBox.getChildren().add(changeButton4);
@@ -396,6 +412,7 @@ public class CourseWorkspace{
         stylesheets = FXCollections.observableArrayList();
         stylesheetComboBox = new ComboBox(stylesheets);
         stylesheetBox = new HBox();
+        stylesheetBox.setSpacing(25);
         stylesheetBox.getChildren().add(stylesheetLabel);
         stylesheetBox.getChildren().add(stylesheetComboBox);
         

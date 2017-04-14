@@ -6,8 +6,10 @@
 package csg.data;
 
 import csg.CSGManager;
+import csg.CSGManagerProp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import properties_manager.PropertiesManager;
 
 /**
  *
@@ -37,6 +39,14 @@ public class CourseData {
     }
     
     public void addRequiredPages(){
+        
+        PropertiesManager props = PropertiesManager.getPropertiesManager();
+        String homeText = props.getProperty(CSGManagerProp.COURSE_HOME_TEXT.toString());
+        String syllabusText = props.getProperty(CSGManagerProp.SYLLABUS_TEXT.toString());
+        String scheduleText = props.getProperty(CSGManagerProp.SCHEDULE_TEXT.toString());
+        String hwsText = props.getProperty(CSGManagerProp.HWS_TEXT.toString());
+        String projectsText = props.getProperty(CSGManagerProp.PROJECTS_TEXT.toString());
+        
         addPage(false, "Home", "", "");
         addPage(false, "Sylabus", "", "");
         addPage(false, "Schedule", "", "");

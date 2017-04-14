@@ -25,11 +25,11 @@
         <property name="ABOUT_ICON"          value="about.png"></property> 
         
         <!-- TOOLTIPS FOR BUTTONS -->
-        <property name="NEW_TOOLTIP"		value="Build a new TA Grid"></property>
-        <property name="LOAD_TOOLTIP"		value="Load an existing TA Grid"></property>
+        <property name="NEW_TOOLTIP"		value="Build a new Site Generator Grid"></property>
+        <property name="LOAD_TOOLTIP"		value="Load an existing Site Generator Grid"></property>
         <property name="SAVE_AS_TOOLTIP"	value="Save As"></property>
         <property name="SAVE_TOOLTIP"           value="Save"></property>
-        <property name="EXPORT_TOOLTIP"	        value="Export the current TA Grid"></property>
+        <property name="EXPORT_TOOLTIP"	        value="Export the current Site Generator Grid"></property>
         <property name="EXIT_TOOLTIP"		value="Exit the Application"></property>
         <property name="UNDO_TOOLTIP"		value="Undo changes"></property>
         <property name="REDO_TOOLTIP"		value="Redo Changes"></property>
@@ -124,9 +124,9 @@
         <property name="ADD_BUTTON_TEXT"                value="Add TA"></property>
         <property name="CLEAR_BUTTON_TEXT"                value="Clear"></property>
         <property name="UPDATE_BUTTON_TEXT"                value="Update TA"></property>
-        <property name="OFFICE_HOURS_SUBHEADER"         value="Office Hours Grid"></property>
-        <property name="START_TIME_TEXT"                value="START TIME: "></property>
-        <property name="END_TIME_TEXT"                value="END TIME: "></property>
+        <property name="OFFICE_HOURS_SUBHEADER"         value="Office Hours"></property>
+        <property name="START_TIME_TEXT"                value="Start: "></property>
+        <property name="END_TIME_TEXT"                value="End: "></property>
         <property name="RECITATION_HEADER_TEXT"                value="Recitations"></property>
         <property name="SECTION_COLUMN_TEXT"                value="Section"></property>
         <property name="INSTRUCTOR_COLUMN_TEXT"                value="Instructor"></property>
@@ -155,6 +155,7 @@
 		<property name="TITLE_COLUMN_TEXT"                value="Title"></property>
 		<property name="TOPIC_COLUMN_TEXT"                value="Topic"></property>
 		<property name="CRITERIA_TEXT"                value="Criteria: "></property>
+		<property name="TAS_HEADER_TEXT"                value="Teaching Assistants"></property>
 		<property name="LINK_TEXT"                value="Link: "></property>
 		<property name="TOPIC_TEXT"                value="Topic: "></property>
 		<property name="TIME_TEXT"                value="Time: "></property>
@@ -183,9 +184,11 @@
 		<property name="ROLE_TEXT"                value="Role: "></property>
 		<property name="PROJECT_TAB_TEXT"                value="Project Data"></property>
 		<property name="STUDENT_NAME_TEXT"                value="Name: "></property>
-
-
-
+		<property name="COURSE_HOME_TEXT"                value="Home"></property>
+		<property name="SYLLABUS_TEXT"                value="Syllabus"></property>
+		<property name="SCHEDULE_TEXT"                value="Schedule"></property>
+		<property name="HWS_TEXT"                value="Homeworks"></property>
+		<property name="PROJECTS_TEXT"                value="Projects"></property>
 
         <!-- WORKSPACE ERROR MESSAGES -->
         <property name="MISSING_TA_NAME_TITLE"          value="Missing TA Name"></property>

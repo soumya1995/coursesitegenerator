@@ -123,11 +123,18 @@ public class ScheduleWorkspace {
         String startDayText = props.getProperty(CSGManagerProp.START_DAY_TEXT.toString());
         startLabel = new Label(startDayText);
         startBox = new DatePicker();
+        HBox start = new HBox();
+        start.setSpacing(6);
+        start.getChildren().addAll(startLabel, startBox);
         String endDayText = props.getProperty(CSGManagerProp.END_DAY_TEXT.toString());
         endLabel = new Label(endDayText);
         endBox = new DatePicker();
+        HBox end = new HBox();
+        end.setSpacing(6);
+        end.getChildren().addAll(endLabel, endBox);
         startEndBox = new HBox();
-        startEndBox.getChildren().addAll(startLabel, startBox, endLabel, endBox);
+        startEndBox.setSpacing(60);
+        startEndBox.getChildren().addAll(start, end);
         
         calendarBox = new VBox();
         calendarBox.getChildren().addAll(calendarLabel, startEndBox);
@@ -184,42 +191,54 @@ public class ScheduleWorkspace {
         typeComboBox = new ComboBox(subjects);
         typeComboBox.getSelectionModel().selectFirst();
         typeBox = new HBox();
+        typeBox.setSpacing(50);
         typeBox.getChildren().addAll(typeLabel, typeComboBox);
         
         String dateText = props.getProperty(CSGManagerProp.DATE_TEXT.toString());
         dateLabel = new Label(dateText);
         datePickerBox = new DatePicker();
         dateBox = new HBox();
+        dateBox.setSpacing(50);
         dateBox.getChildren().addAll(dateLabel, datePickerBox);
         
         String timeText = props.getProperty(CSGManagerProp.TIME_TEXT.toString());
         timeLabel = new Label(timeText);
         timeTextField = new TextField();
+        timeTextField.setPrefWidth(200);
         timeBox = new HBox();
+        timeBox.setSpacing(50);
         timeBox.getChildren().addAll(timeLabel, timeTextField);
         
         String titleText = props.getProperty(CSGManagerProp.TITLE_TEXT.toString());
         titleLabel = new Label(titleText);
         titleTextField = new TextField();
+        titleTextField.setPrefWidth(600);
         titleBox = new HBox();
+        titleBox.setSpacing(44);
         titleBox.getChildren().addAll(titleLabel, titleTextField);
         
         String topicText = props.getProperty(CSGManagerProp.TOPIC_TEXT.toString());
         topicLabel = new Label(topicText);
         topicTextField = new TextField();
+        topicTextField.setPrefWidth(600);
         topicBox = new HBox();
+        topicBox.setSpacing(44);
         topicBox.getChildren().addAll(topicLabel, topicTextField);
         
         String linkText = props.getProperty(CSGManagerProp.LINK_TEXT.toString());
         linkLabel = new Label(linkText);
         linkTextField = new TextField();
+        linkTextField.setPrefWidth(600);
         linkBox = new HBox();
+        linkBox.setSpacing(50);
         linkBox.getChildren().addAll(linkLabel, linkTextField);
         
         String criteriaText = props.getProperty(CSGManagerProp.CRITERIA_TEXT.toString());
         criteriaLabel = new Label(criteriaText);
         criteriaTextField = new TextField();
+        criteriaTextField.setPrefWidth(600);
         criteriaBox = new HBox();
+        criteriaBox.setSpacing(20);
         criteriaBox.getChildren().addAll(criteriaLabel, criteriaTextField);
         
         String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
@@ -227,6 +246,7 @@ public class ScheduleWorkspace {
         String clearText = props.getProperty(CSGManagerProp.CLEAR_BUTTON_TEXT.toString());
         clearButton = new Button(clearText);
         buttonBox = new HBox();
+        buttonBox.setSpacing(30);
         buttonBox.getChildren().addAll(addButton, clearButton);
         
         //PUT EVERYTHING IN THE ITEMS BOX

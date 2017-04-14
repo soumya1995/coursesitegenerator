@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import csg.data.TeachingAssistant;
+import static csg.style.ScheduleStyle.CLASS_OUTER_VBOX_PANE;
 import csg.workspace.MasterWorkspace;
 import csg.workspace.TAWorkspace;
 
@@ -26,6 +27,9 @@ public class TAStyle extends AppStyleComponent {
     // THESE ARE THE HEADERS FOR EACH SIDE
     public static String CLASS_HEADER_PANE = "header_pane";
     public static String CLASS_HEADER_LABEL = "header_label";
+    public static String CLASS_OUTER_VBOX_PANE = "outer_plain_pane";
+     public static String CLASS_SUB_HEADER_LABEL = "subheader_label";
+    public static String CLASS_TAB = "tab";
 
     // ON THE LEFT WE HAVE THE TA ENTRY
     public static String CLASS_TA_TABLE = "ta_table";
@@ -36,6 +40,7 @@ public class TAStyle extends AppStyleComponent {
     public static String CLASS_CLEAR_TA_BUTTON = "clear_ta_button";
 
     // ON THE RIGHT WE HAVE THE OFFICE HOURS GRID
+    public static String CLASS_TAGS = "tags";
     public static String CLASS_OFFICE_HOURS_GRID = "office_hours_grid";
     public static String CLASS_START_TIME_LABEL = "start_time_label";
     public static String CLASS_END_TIME_LABEL = "end_time_label";
@@ -83,6 +88,8 @@ public class TAStyle extends AppStyleComponent {
     private void initTAWorkspaceStyle() {
         // LEFT SIDE - THE HEADER
         TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
+        ((MasterWorkspace)app.getWorkspaceComponent()).getTabPane().getStyleClass().add(CLASS_OUTER_VBOX_PANE);
+        workspaceComponent.getSplitPane().getStyleClass().add(CLASS_OUTER_VBOX_PANE);
         workspaceComponent.getTAsHeaderBox().getStyleClass().add(CLASS_HEADER_PANE);
         workspaceComponent.getTAsHeaderLabel().getStyleClass().add(CLASS_HEADER_LABEL);
 
@@ -113,6 +120,7 @@ public class TAStyle extends AppStyleComponent {
     public void initOfficeHoursGridStyle() {
         // RIGHT SIDE - THE OFFICE HOURS GRID TIME HEADERS
          TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
+         ((MasterWorkspace)app.getWorkspaceComponent()).getTabPane().getStyleClass().add(CLASS_OUTER_VBOX_PANE);
         workspaceComponent.getOfficeHoursGridPane().getStyleClass().add(CLASS_OFFICE_HOURS_GRID);
         workspaceComponent.getStartTimeLabel().getStyleClass().add(CLASS_START_TIME_LABEL);
         workspaceComponent.getEndTimeLabel().getStyleClass().add(CLASS_END_TIME_LABEL);
