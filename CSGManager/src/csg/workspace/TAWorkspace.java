@@ -158,6 +158,8 @@ public class TAWorkspace {
         emailTextField.prefWidthProperty().bind(addBox.widthProperty().multiply(.4));
         addButton.prefWidthProperty().bind(addBox.widthProperty().multiply(.3));
         clearButton.prefWidthProperty().bind(addBox.widthProperty().multiply(.2));
+        addBox.setSpacing(6);
+        addBox.setPadding(new Insets(15,1,3,0));
         addBox.getChildren().add(nameTextField);
         addBox.getChildren().add(emailTextField);
         addBox.getChildren().add(addButton);

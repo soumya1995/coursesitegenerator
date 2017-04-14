@@ -19,6 +19,7 @@ import csg.data.WorkspaceData;
 import djf.components.AppDataComponent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
@@ -183,6 +184,7 @@ public class ProjectWorkspace {
 
         teamTableBox = new HBox();
         teamTableBox.getChildren().add(teamTable);
+        teamTableBox.setPadding(new Insets(5,0, 25, 0));
         
         String addEditText = props.getProperty(CSGManagerProp.ADD_EDIT_TEXT.toString());
         addEditLabel = new Label(addEditText);
@@ -216,7 +218,7 @@ public class ProjectWorkspace {
         String linkText = props.getProperty(CSGManagerProp.HYPERLINK_TEXT.toString());
         linkLabel = new Label(linkText);
         linkTextField = new TextField();
-        linkTextField.setPrefWidth(400);
+        linkTextField.setPrefWidth(410);
         linkBox.getChildren().addAll(linkLabel, linkTextField);
         
         String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
@@ -271,6 +273,7 @@ public class ProjectWorkspace {
 
         studentTableBox = new HBox();
         studentTableBox.getChildren().add(studentTable);
+        studentTableBox.setPadding(new Insets(5,0, 25, 0));
         
         String addEditText2 = props.getProperty(CSGManagerProp.ADD_EDIT_TEXT.toString());
         addEditLabel2 = new Label(addEditText2);

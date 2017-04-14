@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -71,7 +72,7 @@ public class AppLanguageDialogSingleton extends Stage{
         
         // LABEL TO DISPLAY THE CUSTOM MESSAGE
         messageLabel = new Label();        
-
+        messageLabel.setFont(Font.font("Verdana", 30));
         // YES, NO, AND CANCEL BUTTONS
         englishButton = new Button(ENGLISH);
         spanishButton = new Button(SPANISH);
@@ -91,6 +92,7 @@ public class AppLanguageDialogSingleton extends Stage{
 
         // NOW ORGANIZE OUR BUTTONS
         HBox buttonBox = new HBox();
+        buttonBox.setSpacing(140);
         buttonBox.getChildren().add(englishButton);
         buttonBox.getChildren().add(spanishButton);
      

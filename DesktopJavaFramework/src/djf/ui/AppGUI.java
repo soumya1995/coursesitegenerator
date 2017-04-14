@@ -127,7 +127,6 @@ public class AppGUI {
         // THIS TOGGLES WITH WHETHER THE CURRENT COURSE
         // HAS BEEN SAVED OR NOT
         saveButton.setDisable(saved);
-
         // ALL THE OTHER BUTTONS ARE ALWAYS ENABLED
         // ONCE EDITING THAT FIRST COURSE BEGINS
         saveAsButton.setDisable(false);

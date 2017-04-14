@@ -129,7 +129,7 @@ public abstract class AppTemplate extends Application {
         
         AppLanguageDialogSingleton languageDialog = AppLanguageDialogSingleton.getSingleton();
         languageDialog.init(primaryStage);
-        languageDialog.show("Language Selection", "Select your Language");
+        languageDialog.show("Language", "Select your Language");
         
         String selection = languageDialog.getSelection();
         
