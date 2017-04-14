@@ -192,7 +192,7 @@ public class ProjectWorkspace {
         String nameText = props.getProperty(CSGManagerProp.STUDENT_NAME_TEXT.toString());
         nameLabel = new Label(nameText);
         nameTextField = new TextField();
-        nameTextField.prefWidth(200);
+        nameTextField.setPrefWidth(240);
         nameBox.getChildren().addAll(nameLabel, nameTextField);
         
         String colorText = props.getProperty(CSGManagerProp.COLOR_TEXT.toString());
@@ -216,7 +216,7 @@ public class ProjectWorkspace {
         String linkText = props.getProperty(CSGManagerProp.HYPERLINK_TEXT.toString());
         linkLabel = new Label(linkText);
         linkTextField = new TextField();
-        linkTextField.prefWidth(600);
+        linkTextField.setPrefWidth(400);
         linkBox.getChildren().addAll(linkLabel, linkTextField);
         
         String addText = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
@@ -280,7 +280,7 @@ public class ProjectWorkspace {
         String firstNameText = props.getProperty(CSGManagerProp.FIRSTNAME_TEXT.toString());
         firstNameLabel = new Label(firstNameText);
         firstNameTextField = new TextField();
-        firstNameTextField.prefWidth(200);
+        firstNameTextField.setPrefWidth(400);
         firstNameBox.getChildren().addAll(firstNameLabel, firstNameTextField);
         
         lastNameBox = new HBox();
@@ -288,7 +288,7 @@ public class ProjectWorkspace {
         String lastNameText = props.getProperty(CSGManagerProp.LASTNAME_TEXT.toString());
         lastNameLabel = new Label(lastNameText);
         lastNameTextField = new TextField();
-        lastNameTextField.prefWidth(200);
+        lastNameTextField.setPrefWidth(400);
         lastNameBox.getChildren().addAll(lastNameLabel, lastNameTextField);
         
         //GET THE TEAMS FOR THE COMBO BOX
@@ -312,7 +312,7 @@ public class ProjectWorkspace {
         String roleText = props.getProperty(CSGManagerProp.ROLE_TEXT.toString());
         roleLabel = new Label(roleText);
         roleTextField = new TextField();
-        roleTextField.prefWidth(200);
+        roleTextField.setPrefWidth(400);
         roleBox.getChildren().addAll(roleLabel, roleTextField);
         
         String addText2 = props.getProperty(CSGManagerProp.ADD_TEXT.toString());
