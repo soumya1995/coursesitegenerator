@@ -13,6 +13,7 @@ import csg.data.WorkspaceData;
 import djf.components.AppDataComponent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -178,6 +179,7 @@ public class ScheduleWorkspace {
 
         tableBox = new HBox();
         tableBox.getChildren().add(table);
+        tableBox.setPadding(new Insets(5, 0, 25, 0));
         
         String addEditText = props.getProperty(CSGManagerProp.ADD_EDIT_TEXT.toString());
         addEditLabel = new Label(addEditText);

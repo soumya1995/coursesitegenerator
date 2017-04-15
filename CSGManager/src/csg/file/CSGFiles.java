@@ -33,7 +33,7 @@ import csg.data.TeachingAssistant;
  * @author Richard McKenna
  * @co-author Soumya Das
  */
-public class TAFiles implements AppFileComponent {
+public class CSGFiles implements AppFileComponent {
     // THIS IS THE APP ITSELF
     CSGManager app;
     
@@ -47,7 +47,7 @@ public class TAFiles implements AppFileComponent {
     static final String JSON_UNDERGRAD_TAS = "undergrad_tas";
     static final String JSON_EMAIL = "email";
     
-    public TAFiles(CSGManager initApp) {
+    public CSGFiles(CSGManager initApp) {
         app = initApp;
     }
 

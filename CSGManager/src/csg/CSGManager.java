@@ -7,7 +7,7 @@ package csg;
 
 import csg.data.CourseData;
 import csg.data.WorkspaceData;
-import csg.file.TAFiles;
+import csg.file.CSGFiles;
 import csg.style.MasterStyle;
 import csg.workspace.CourseWorkspace;
 import csg.workspace.MasterWorkspace;
@@ -41,7 +41,7 @@ public class CSGManager extends AppTemplate {
         
         dataComponent = new WorkspaceData(this);
         workspaceComponent = new MasterWorkspace(this);
-        fileComponent = new TAFiles(this);
+        fileComponent = new CSGFiles(this);
         styleComponent = new MasterStyle(this);
        
     }
