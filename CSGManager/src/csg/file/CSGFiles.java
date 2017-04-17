@@ -30,14 +30,29 @@ import csg.data.TeachingAssistant;
  * manager app. It provides all saving and loading 
  * services for the application.
  * 
- * @author Richard McKenna
- * @co-author Soumya Das
+ * @author Soumya Das
  */
 public class CSGFiles implements AppFileComponent {
     // THIS IS THE APP ITSELF
     CSGManager app;
     
     // THESE ARE USED FOR IDENTIFYING JSON TYPES
+    static final String JSON_SUBJECT = "subject";
+    static final String JSON_NUMBER = "number";
+    static final String JSON_SEMESTER = "semester";
+    static final String JSON_YEAR = "year";
+    static final String JSON_TITLE = "title";
+    static final String JSON_INSTRUCTOR_NAME = "instructor_name";
+    static final String JSON_INSTRUCTOR_HOME = "instructor_home";
+    static final String JSON_EXPORT_DIR = "export_dir";
+    static final String JSON_TEMPLATE_DIR = "template_dir";
+    static final String JSON_PAGES = "pages";
+    static final String JSON_USED = "use";
+    static final String JSON_BANNER = "banner_image";
+    static final String JSON_LEFT_FOOTER = "left_footer_image";
+    static final String JSON_RIGHT_FOOTER = "right_footer_image";
+    static final String JSON_STYLESHEET = "stylesheet";
+    
     static final String JSON_START_HOUR = "startHour";
     static final String JSON_END_HOUR = "endHour";
     static final String JSON_OFFICE_HOURS = "officeHours";
@@ -46,6 +61,36 @@ public class CSGFiles implements AppFileComponent {
     static final String JSON_NAME = "name";
     static final String JSON_UNDERGRAD_TAS = "undergrad_tas";
     static final String JSON_EMAIL = "email";
+    
+    static final String JSON_SECTION = "section";
+    static final String JSON_INSTRUCTOR = "instructor";
+    static final String JSON_DAY_TIME = "dayTime";
+    static final String JSON_LOCATION = "location";
+    static final String JSON_TA1 = "ta1";
+    static final String JSON_TA2 = "ta2";
+    static final String JSON_RECITATIONS = "recitations";
+    
+    static final String JSON_START_DATE = "startDate";
+    static final String JSON_END_DATE = "endDate";
+    static final String JSON_TYPE = "type";
+    static final String JSON_DATE = "date";
+    static final String JSON_SCHEDULE_TITLE = "scheduleTitle";
+    static final String JSON_TOPIC = "topic";
+    static final String JSON_SCHEDULES = "schedules";
+    
+    static final String JSON_TEAM_NAME = "teamName";
+    static final String JSON_COLOR = "color";
+    static final String JSON_TEXT_COLOR = "textColor";
+    static final String JSON_LINK = "link";
+    static final String JSON_TEAMS = "teams";
+    
+    static final String JSON_FIRST_NAME = "firstName";
+    static final String JSON_LAST_NAME = "lastName";
+    static final String JSON_TEAM = "team";
+    static final String JSON_ROLE = "role";
+    static final String JSON_STUDENTS = "students";
+    
+    
     
     public CSGFiles(CSGManager initApp) {
         app = initApp;
