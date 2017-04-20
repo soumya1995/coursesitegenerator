@@ -220,7 +220,7 @@ public class TAData {
         // OFFICE HOURS GRID AND FEED THEM TO OUR DATA
         // STRUCTURE AS WE GO
         TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
-         workspaceComponent.resetWorkspace();
+        workspaceComponent.resetWorkspace();
         workspaceComponent.reloadOfficeHoursGrid(this);
     }
     

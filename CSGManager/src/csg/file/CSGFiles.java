@@ -22,8 +22,17 @@ import javax.json.JsonWriter;
 import javax.json.JsonWriterFactory;
 import javax.json.stream.JsonGenerator;
 import csg.CSGManager;
+import csg.data.CourseData;
+import csg.data.RecitationData;
+import csg.data.ScheduleData;
+import csg.data.StudentData;
 import csg.data.TAData;
 import csg.data.TeachingAssistant;
+import csg.data.TeamData;
+import csg.data.WorkspaceData;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * This class serves as the file component for the TA
@@ -76,6 +85,9 @@ public class CSGFiles implements AppFileComponent {
     static final String JSON_DATE = "date";
     static final String JSON_SCHEDULE_TITLE = "scheduleTitle";
     static final String JSON_TOPIC = "topic";
+    static final String JSON_LINK_SCHEDULE = "scheduleLink";
+    static final String JSON_TIME_SCHEDULE = "scheduleTime";
+    static final String JSON_CRITERIA = "criteria";
     static final String JSON_SCHEDULES = "schedules";
     
     static final String JSON_TEAM_NAME = "teamName";
@@ -98,19 +110,144 @@ public class CSGFiles implements AppFileComponent {
 
     @Override
     public void loadData(AppDataComponent data, String filePath) throws IOException {
-	// CLEAR THE OLD DATA OUT
-	TAData dataManager = (TAData)data;
 
 	// LOAD THE JSON FILE WITH ALL THE DATA
 	JsonObject json = loadJSONFile(filePath);
-
-	// LOAD THE START AND END HOURS
+        
+        loadCourseData(data, json);
+        loadRecitationData(data, json);
+        loadTAData(data, json);
+        
+        // NOW RELOAD THE WORKSPACE WITH THE LOADED DATA
+        app.getWorkspaceComponent().reloadWorkspace(app.getDataComponent());
+    }
+    
+    public void loadCourseData(AppDataComponent data, JsonObject json) throws IOException{
+        
+        CourseData dataManager = ((WorkspaceData)data).getCourseData();
+        
+        // LOAD THE COURSE INFO
+	String subject = json.getString(JSON_SUBJECT);
+        dataManager.setSubject(subject);
+        String number = json.getString(JSON_NUMBER);
+        dataManager.setNumber(number);
+        String semester = json.getString(JSON_SEMESTER);
+        dataManager.setSemester(semester);
+        String year = json.getString(JSON_YEAR);
+        dataManager.setYear(year);
+        String title = json.getString(JSON_TITLE);
+        dataManager.setTitle(title);
+        String instructor = json.getString(JSON_INSTRUCTOR_NAME);
+        dataManager.setInstructorName(instructor);
+        String instructorHome = json.getString(JSON_INSTRUCTOR_HOME);
+        dataManager.setInstructorHome(instructorHome);
+        String exportDir = json.getString(JSON_EXPORT_DIR);
+        dataManager.setExportDir(exportDir);
+        String templateDir = json.getString(JSON_TEMPLATE_DIR);
+        dataManager.setTemplateDir(templateDir);
+        String banner = json.getString(JSON_BANNER);
+        dataManager.setSchoolImage(banner);
+        String leftFooter = json.getString(JSON_LEFT_FOOTER);
+        dataManager.setLeftFooterImage(leftFooter);
+        String rightFooter = json.getString(JSON_RIGHT_FOOTER);
+        dataManager.setRightFooterImage(rightFooter);
+        String stylesheet = json.getString(JSON_STYLESHEET);
+        dataManager.setStylesheet(stylesheet);
+        
+        // NOW LOAD ALL THE TEMPLATE PAGES
+        ArrayList<Boolean> usedPages = new ArrayList<>();
+        JsonArray jsonArray = json.getJsonArray(JSON_PAGES);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject jsonPage = jsonArray.getJsonObject(i);
+            String use = jsonPage.getString(JSON_USED);
+            if(use.equals("true"))
+                usedPages.add(true);
+            else
+                usedPages.add(false);
+        }
+        
+        dataManager.addRequiredPages(usedPages);
+    }
+    
+    public void loadRecitationData(AppDataComponent data, JsonObject json) throws IOException{
+        
+        RecitationData dataManager = ((WorkspaceData)data).getRecitationData();
+        
+        // LOAD ALL THE RECITATIONS
+        JsonArray jsonArray = json.getJsonArray(JSON_RECITATIONS);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject jsonRec = jsonArray.getJsonObject(i);
+            String sec = jsonRec.getString(JSON_SECTION);
+            String ins = jsonRec.getString(JSON_INSTRUCTOR);
+            String day = jsonRec.getString(JSON_DAY_TIME);
+            String loc = jsonRec.getString(JSON_LOCATION);
+            String ta1 = jsonRec.getString(JSON_TA1);
+            String ta2 = jsonRec.getString(JSON_TA2);
+            dataManager.addRecitation(sec, ins, day, loc, ta1, ta2);
+        }
+        
+    }
+    
+    public void loadScheduleData(AppDataComponent data, JsonObject json) throws IOException, ParseException{
+        
+        ScheduleData dataManager = ((WorkspaceData)data).getScheduleData();
+        
+        // LOAD THE START AND END HOURS
+	String startDate = json.getString(JSON_START_DATE);
+        String endDate = json.getString(JSON_END_DATE);
+        dataManager.initDate(startDate, endDate);
+        
+        // LOAD ALL THE SCHEDULE
+        JsonArray jsonArray = json.getJsonArray(JSON_SCHEDULES);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject jsonSchedule = jsonArray.getJsonObject(i);
+            String type = jsonSchedule.getString(JSON_TYPE);
+            Date date = new SimpleDateFormat("MM/dd/yyyy").parse(jsonSchedule.getString(JSON_DATE));
+            String title = jsonSchedule.getString(JSON_SCHEDULE_TITLE);
+            String topic = jsonSchedule.getString(JSON_TOPIC);
+            String time = jsonSchedule.getString(JSON_TIME_SCHEDULE);
+            String link = jsonSchedule.getString(JSON_LINK_SCHEDULE);
+            String criteria = jsonSchedule.getString(JSON_CRITERIA);
+            dataManager.addSchedule(type, date, title, topic, time, link, criteria);
+        }
+    }
+    
+     public void loadProjectData(AppDataComponent data, JsonObject json) throws IOException, ParseException{
+        
+        TeamData dataManager = ((WorkspaceData)data).getTeamData();
+        StudentData studentData = ((WorkspaceData)data).getStudentData();
+        
+        //LOAD THE TEAMS
+        JsonArray jsonArray = json.getJsonArray(JSON_TEAMS);
+        for (int i = 0; i < jsonArray.size(); i++) {
+            JsonObject jsonTeam = jsonArray.getJsonObject(i);
+            String team = jsonTeam.getString(JSON_TEAM_NAME);
+            String color = jsonTeam.getString(JSON_COLOR);
+            String textColor = jsonTeam.getString(JSON_TEXT_COLOR);
+            String link = jsonTeam.getString(JSON_LINK);
+            dataManager.addTeam(team, color, textColor, link);
+        }
+        
+        //LOAD THE STUDENTS
+        JsonArray jsonArrayStudent = json.getJsonArray(JSON_STUDENTS);
+        for (int i = 0; i < jsonArrayStudent.size(); i++) {
+            JsonObject jsonTeam = jsonArrayStudent.getJsonObject(i);
+            String firstName = jsonTeam.getString(JSON_FIRST_NAME);
+            String lastName = jsonTeam.getString(JSON_LAST_NAME);
+            String studentTeam = jsonTeam.getString(JSON_TEAM);
+            String role = jsonTeam.getString(JSON_ROLE);
+            studentData.addStudent(firstName, lastName, studentTeam, role);
+        }
+     }
+    
+    public void loadTAData(AppDataComponent data, JsonObject json) throws IOException{
+        
+        TAData dataManager = ((WorkspaceData)data).getTAData();
+        
+        // LOAD THE START AND END HOURS
 	String startHour = json.getString(JSON_START_HOUR);
         String endHour = json.getString(JSON_END_HOUR);
         dataManager.initHours(startHour, endHour);
-
-        // NOW RELOAD THE WORKSPACE WITH THE LOADED DATA
-        app.getWorkspaceComponent().reloadWorkspace(app.getDataComponent());
 
         // NOW LOAD ALL THE UNDERGRAD TAs
         JsonArray jsonTAArray = json.getJsonArray(JSON_UNDERGRAD_TAS);

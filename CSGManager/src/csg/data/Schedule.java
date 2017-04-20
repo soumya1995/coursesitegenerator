@@ -5,6 +5,7 @@
  */
 package csg.data;
 
+import java.util.Date;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -12,18 +13,24 @@ import javafx.beans.property.StringProperty;
  *
  * @author Soumya
  */
-public class Schedule<E extends Comparable<E>> {
+public class Schedule<E extends Comparable<E>>  implements Comparable<E> {
     
     private StringProperty type;
-    private StringProperty date;
+    private Date date;
     private StringProperty title;
     private StringProperty topic;
+    private StringProperty time;
+    private StringProperty link;
+    private StringProperty criteria;
     
-    public Schedule(String initType, String initDate, String initTitle, String initTopic){
+    public Schedule(String initType, Date initDate, String initTitle, String initTopic, String initTime, String initLink, String initCriteria){
         type = new SimpleStringProperty(initType);
-        date = new SimpleStringProperty(initDate);
+        date = initDate;
         title = new SimpleStringProperty(initTitle);
         topic = new SimpleStringProperty(initTopic);
+        time = new SimpleStringProperty(initTime);
+        link = new SimpleStringProperty(initLink);
+        criteria = new SimpleStringProperty(initCriteria);
     }
 
     public String getType() {
@@ -34,12 +41,12 @@ public class Schedule<E extends Comparable<E>> {
         this.type.set(type);
     }
 
-    public String getDate() {
-        return date.get();
+    public Date getDate() {
+        return date;
     }
 
-    public void setDate(String date) {
-        this.date.set(date);
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getTitle() {
@@ -57,6 +64,31 @@ public class Schedule<E extends Comparable<E>> {
     public void setTopic(String topic) {
         this.topic.set(topic);
     }
+
+    public StringProperty getTime() {
+        return time;
+    }
+
+    public void setTime(StringProperty time) {
+        this.time = time;
+    }
+
+    public StringProperty getLink() {
+        return link;
+    }
+
+    public void setLink(StringProperty link) {
+        this.link = link;
+    }
+
+    public StringProperty getCriteria() {
+        return criteria;
+    }
+
+    public void setCriteria(StringProperty criteria) {
+        this.criteria = criteria;
+    }
+    
     
     public int compareTo(E otherTA) {
         return getDate().compareTo(((Schedule)otherTA).getDate());

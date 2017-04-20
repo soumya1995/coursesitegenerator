@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author Soumya
  */
-public class Team<E extends Comparable<E>> {
+public class Team<E extends Comparable<E>>  implements Comparable<E> {
     
     private final StringProperty name;
     private final StringProperty color;

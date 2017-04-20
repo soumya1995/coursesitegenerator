@@ -6,6 +6,7 @@
 package csg.data;
 
 import csg.CSGManager;
+import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,5 +27,28 @@ public class TeamData {
     public ObservableList<Team> getTeams() {
         return teams;
     }
+    
+    public void addTeam(String initName,String initColor, String initTextColor, String initLink){
+        
+        // MAKE THE TEAM
+        Team team = new Team(initName, initColor, initTextColor, initLink);
+
+        // ADD THE TEAM
+         if (!containsTeam(initName, initColor, initTextColor, initLink)) {
+            teams.add(team);
+         }
+
+        // SORT THE TEAMS
+        Collections.sort(teams);
+    }
+    
+    public boolean containsTeam(String initName,String initColor, String initTextColor, String initLink){
+        
+    for (Team t : teams) {
+            if (t.getName().equals(initName))
+                return true;
+        }
+        return false;
+    }    
     
 }

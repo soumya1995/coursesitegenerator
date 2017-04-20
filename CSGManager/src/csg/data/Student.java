@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author Soumya
  */
-public class Student<E extends Comparable<E>> {
+public class Student<E extends Comparable<E>> implements Comparable<E> {
     
     private StringProperty firstName;
     private StringProperty lastName;

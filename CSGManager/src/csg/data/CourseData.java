@@ -8,6 +8,7 @@ package csg.data;
 import csg.CSGManager;
 import csg.CSGManagerProp;
 import java.io.File;
+import java.util.ArrayList;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +29,7 @@ public class CourseData {
     StringProperty year;
     StringProperty title;
     StringProperty instructorName;
-    StringProperty instructoreHome;
+    StringProperty instructorHome;
     StringProperty exportDir;
     StringProperty templateDir;
     File schoolImage;
@@ -40,7 +41,8 @@ public class CourseData {
         
         app = initApp;
         pages = FXCollections.observableArrayList();
-        addRequiredPages();
+        ArrayList<Boolean> pages = new ArrayList<>(5);
+        addRequiredPages(pages);
     }
     
     
@@ -96,12 +98,12 @@ public class CourseData {
         this.instructorName.set(instructorName);
     }
 
-    public String getInstructoreHome() {
-        return instructoreHome.get();
+    public String getInstructorHome() {
+        return instructorHome.get();
     }
 
-    public void setInstructoreHome(String instructoreHome) {
-        this.instructoreHome.set(instructoreHome);
+    public void setInstructorHome(String instructoreHome) {
+        this.instructorHome.set(instructoreHome);
     }
 
     public String getExportDir() {
@@ -158,7 +160,7 @@ public class CourseData {
         pages.add(new Page(used, title, file, script));
     }
     
-    public void addRequiredPages(){
+    public void addRequiredPages(ArrayList<Boolean> usedPages){
         
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         String homeText = props.getProperty(CSGManagerProp.COURSE_HOME_TEXT.toString());
@@ -167,11 +169,11 @@ public class CourseData {
         String hwsText = props.getProperty(CSGManagerProp.HWS_TEXT.toString());
         String projectsText = props.getProperty(CSGManagerProp.PROJECTS_TEXT.toString());
         
-        addPage(false, "Home", "", "");
-        addPage(false, "Sylabus", "", "");
-        addPage(false, "Schedule", "", "");
-        addPage(false, "HWs", "", "");
-        addPage(false, "Projects", "", "");
+        addPage(usedPages.get(0), "Home", "", "");
+        addPage(usedPages.get(1), "Sylabus", "", "");
+        addPage(usedPages.get(2), "Schedule", "", "");
+        addPage(usedPages.get(3), "HWs", "", "");
+        addPage(usedPages.get(4), "Projects", "", "");
     }
     
     public void resetData(){

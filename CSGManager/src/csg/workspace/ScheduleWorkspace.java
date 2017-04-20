@@ -452,11 +452,11 @@ public class ScheduleWorkspace {
     
     
 
-    void resetWorkspace() {
+    public void resetWorkspace() {
        
     }
 
-    void reloadWorkspace(AppDataComponent dataComponent) {
+    public void reloadWorkspace(AppDataComponent dataComponent) {
         
     }
     
