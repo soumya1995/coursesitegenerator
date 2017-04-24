@@ -1,0 +1,168 @@
+
+{
+    "subject":"CSE",
+    "number":"219",
+    "semester":"Fall",
+    "year":"2017",
+    "title":"Computer Science III",
+    "instructor_name":"Richard Mckenna",
+    "instructor_home":"http://www.rmckenna.com",
+    "export_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\work",
+    "template_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\work\\public_html",
+    "banner_image":"",
+    "left_footer_image":"",
+    "right_footer_image":"",
+    "stylesheet":"sea_wolf.css",
+    "pages":[
+        {
+            "use":"true"
+        },
+        {
+            "use":"true"
+        },
+        {
+            "use":"true"
+        },
+        {
+            "use":"true"
+        },
+        {
+            "use":"true"
+        }
+    ],
+    "startHour":"10",
+    "endHour":"19",
+    "undergrad_tas":[
+        {
+            "name":"Eli Parx",
+            "email":"eli.parrx@stony.edu"
+        },
+        {
+            "name":"Govid Hihra",
+            "email":"govid.cox@stoyt.edu"
+        },
+        {
+            "name":"Leo Harais",
+            "email":"leo.wero@savy.com"
+        },
+        {
+            "name":"Piggy Rob",
+            "email":"piggy.rob@wiki.com"
+        },
+        {
+            "name":"Rik Dermy",
+            "email":"rik.dermy@stonybrook.ed"
+        },
+        {
+            "name":"Ron Jeremy",
+            "email":"ron.jermey@rimon.edu"
+        },
+        {
+            "name":"Ronit Sya",
+            "email":"rnit.fur@gmail.com"
+        },
+        {
+            "name":"Tim Frezee",
+            "email":"tim.freze@stonybrook.edy"
+        }
+    ],
+    "officeHours":[
+        {
+            "day":"TUESDAY",
+            "time":"12_00pm",
+            "name":"Ron Jeremy"
+        },
+        {
+            "day":"MONDAY",
+            "time":"12_30pm",
+            "name":"Eli Parx"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"12_30pm",
+            "name":"Ron Jeremy"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"12_30pm",
+            "name":"Ron Jeremy"
+        }
+    ],
+    "recitations":[
+        {
+            "section":"R02",
+            "instructor":"Mckenna",
+            "day":"Wed 2:30pm-3:30pm",
+            "location":"Old CS 2114",
+            "ta1":"Ron Jeremy",
+            "ta2":"Rik Dermy"
+        },
+        {
+            "section":"R05",
+            "instructor":"Banerjee",
+            "day":"Tues 6:00pm-7:00pm",
+            "location":"Old CS 2114",
+            "ta1":"Eli Parx",
+            "ta2":"Govid Hihra"
+        }
+    ],
+    "startDate":"07/22/2017",
+    "endDate":"12/19/2017",
+    "schedules":[
+        {
+            "type":"Lecture",
+            "date":"07/29/2017",
+            "scheduleTitle":"Lecture 3",
+            "topic":"Event Prog.",
+            "scheduleTime":"2:30pm-4:30pm",
+            "scheduleLink":"http://www3.cs.stonybrook.edu/~cse219/Section02/hw/HW5.html",
+            "criteria":"None"
+        },
+        {
+            "type":"Holiday",
+            "date":"08/29/2017",
+            "scheduleTitle":"SNOW DAY",
+            "topic":"",
+            "scheduleTime":"",
+            "scheduleLink":"",
+            "criteria":"None"
+        },
+        {
+            "type":"Lecture",
+            "date":"09/11/2017",
+            "scheduleTitle":"Lecture 4",
+            "topic":"OOP Prog.",
+            "scheduleTime":"2:30pm-4:30pm",
+            "scheduleLink":"http://www3.cs.stonybrook.edu/~cse219/Section02/hw/HW5.html",
+            "criteria":"None"
+        }
+    ],
+    "teams":[
+        {
+            "teamName":"Atomic Comics",
+            "color":"552211",
+            "textColor":"ffffff",
+            "link":"http://atomicomic.com"
+        },
+        {
+            "teamName":"C4 Comics",
+            "color":"fff000",
+            "textColor":"000000",
+            "link":"http://c4_comics.com"
+        }
+    ],
+    "students":[
+        {
+            "firstName":"Buae",
+            "lastName":"Conan",
+            "team":"Atomic Comics",
+            "role":"Lead Programmar"
+        },
+        {
+            "firstName":"Noonan",
+            "lastName":"Stiff",
+            "team":"C4 Comics",
+            "role":"Lead Designer"
+        }
+    ]
+}

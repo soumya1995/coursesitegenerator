@@ -7,8 +7,13 @@ package csg.data;
 
 import csg.CSGManager;
 import csg.CSGManagerProp;
+import csg.workspace.CourseWorkspace;
+import csg.workspace.MasterWorkspace;
+import csg.workspace.TAWorkspace;
 import java.io.File;
 import java.util.ArrayList;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,12 +42,45 @@ public class CourseData {
     File rightFooterImage;
     StringProperty stylesheet;
     
+    public CourseData(){
+        
+        pages = FXCollections.observableArrayList();
+        ArrayList<Boolean> usedPages = new ArrayList<>();
+        subject = new SimpleStringProperty();
+        number = new SimpleStringProperty();
+        semester = new SimpleStringProperty();
+        year = new SimpleStringProperty();
+        title = new SimpleStringProperty();
+        instructorName = new SimpleStringProperty();
+        instructorHome = new SimpleStringProperty();
+        exportDir = new SimpleStringProperty();
+        templateDir = new SimpleStringProperty();
+        number = new SimpleStringProperty();
+        stylesheet = new SimpleStringProperty();
+        for(int i=0; i<5; i++)
+            usedPages.add(true);
+        addRequiredPages(usedPages);
+    }
+    
     public CourseData(CSGManager initApp){
         
         app = initApp;
         pages = FXCollections.observableArrayList();
-        ArrayList<Boolean> pages = new ArrayList<>(5);
-        addRequiredPages(pages);
+        ArrayList<Boolean> usedPages = new ArrayList<>();
+        subject = new SimpleStringProperty();
+        number = new SimpleStringProperty();
+        semester = new SimpleStringProperty();
+        year = new SimpleStringProperty();
+        title = new SimpleStringProperty();
+        instructorName = new SimpleStringProperty();
+        instructorHome = new SimpleStringProperty();
+        exportDir = new SimpleStringProperty();
+        templateDir = new SimpleStringProperty();
+        number = new SimpleStringProperty();
+        stylesheet = new SimpleStringProperty();
+        for(int i=0; i<5; i++)
+            usedPages.add(true);
+        addRequiredPages(usedPages);
     }
     
     
@@ -169,15 +207,24 @@ public class CourseData {
         String hwsText = props.getProperty(CSGManagerProp.HWS_TEXT.toString());
         String projectsText = props.getProperty(CSGManagerProp.PROJECTS_TEXT.toString());
         
-        addPage(usedPages.get(0), "Home", "", "");
-        addPage(usedPages.get(1), "Sylabus", "", "");
-        addPage(usedPages.get(2), "Schedule", "", "");
-        addPage(usedPages.get(3), "HWs", "", "");
-        addPage(usedPages.get(4), "Projects", "", "");
+        addPage(usedPages.get(0), homeText, "", "");
+        addPage(usedPages.get(1), syllabusText, "", "");
+        addPage(usedPages.get(2), scheduleText, "", "");
+        addPage(usedPages.get(3), hwsText, "", "");
+        addPage(usedPages.get(4), projectsText, "", "");
+    }
+    
+    public void setPages(ArrayList<Boolean> usedPages){
+        
+        for(int i=0; i<5; i++){
+            Page p = pages.get(i);
+            p.setUsed(new SimpleBooleanProperty(usedPages.get(i)));
+        }
     }
     
     public void resetData(){
         pages.clear();
     }
+    
     
 }

@@ -28,8 +28,8 @@ public class Page {
         this.script = new SimpleStringProperty(script);
     }
 
-    public BooleanProperty isUsed() {
-        return used;
+    public Boolean isUsed() {
+        return used.get();
     }
 
     public void setUsed(BooleanProperty used) {

@@ -19,8 +19,6 @@ import javafx.scene.layout.Pane;
  * @author Soumya
  */
 
- 
-
 
 public class MasterWorkspace extends AppWorkspaceComponent{
 

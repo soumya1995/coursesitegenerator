@@ -36,4 +36,8 @@ public interface AppFileComponent {
      * be used for importing app data from another format.
      */
     public void importData(AppDataComponent data, String filePath) throws IOException;
+
+    public void saveJsonFiles(AppDataComponent dataComponent, String selectedFile) throws IOException;
+
+
 }

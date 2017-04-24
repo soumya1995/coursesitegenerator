@@ -9,10 +9,15 @@ import csg.data.CourseData;
 import csg.data.WorkspaceData;
 import csg.file.CSGFiles;
 import csg.style.MasterStyle;
+import csg.test_bed.TestSave;
 import csg.workspace.CourseWorkspace;
 import csg.workspace.MasterWorkspace;
 import java.util.Locale;
 import djf.AppTemplate;
+import java.text.ParseException;
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.control.TabPane;
@@ -24,7 +29,7 @@ import javafx.scene.layout.BorderPane;
  */
 public class CSGManager extends AppTemplate {
     
-   
+   public static final CountDownLatch latch = new CountDownLatch(1);
     /**
      * This hook method must initialize all four components in the
      * proper order ensuring proper dependencies are respected, meaning
@@ -43,9 +48,21 @@ public class CSGManager extends AppTemplate {
         workspaceComponent = new MasterWorkspace(this);
         fileComponent = new CSGFiles(this);
         styleComponent = new MasterStyle(this);
+        
+       /* try {
+            //SAVE HARD-CODED DATA
+            TestSave save = new TestSave(this);
+            save.saveRequest();
+        } catch (ParseException ex) {
+            Logger.getLogger(CSGManager.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
        
     }
     
+    public static void loadStaticData() throws ParseException{
+        
+       
+    }
     
     /**
      * This is where program execution begins. Since this is a JavaFX app it

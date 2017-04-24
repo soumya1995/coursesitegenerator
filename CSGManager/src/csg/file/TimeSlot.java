@@ -12,7 +12,7 @@ import csg.data.TAData;
  * 
  * @author Richard McKenna
  */
-public class TimeSlot {
+public class TimeSlot <E extends Comparable<E>> implements Comparable<E>{
     private String day;
     private String time;
     private String name;
@@ -42,6 +42,14 @@ public class TimeSlot {
         name = initName;
     }
     
+    @Override
+    public int compareTo(E t){
+        if(this.getDay().compareTo(((TimeSlot)t).getDay())==0 && this.getTime().compareTo(((TimeSlot)t).getTime())==0 && this.getTime().compareTo(((TimeSlot)t).getTime())==0)
+            return 0;
+        
+        return -1;
+    }
+    
     /**
      * This function builds a list of all the office hours stored in 
      * the grid excluding empty time slots. This helps us do our file
@@ -53,6 +61,8 @@ public class TimeSlot {
         ArrayList<TimeSlot> officeHoursList = new ArrayList();
         ArrayList<String> gridHeaders = data.getGridHeaders();
         HashMap<String, StringProperty> officeHours = data.getOfficeHours();
+        if(officeHours == null)
+            return null;
         for (int row = 1; row < data.getNumRows(); row++) {
             for (int col = 2; col < 7; col++) {
                 // WE ONLY WANT THE DATA, NOTE THE HEADERS

@@ -5,6 +5,8 @@
  */
 package csg.data;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -16,7 +18,7 @@ import javafx.beans.property.StringProperty;
 public class Schedule<E extends Comparable<E>>  implements Comparable<E> {
     
     private StringProperty type;
-    private Date date;
+    private StringProperty date;
     private StringProperty title;
     private StringProperty topic;
     private StringProperty time;
@@ -25,7 +27,8 @@ public class Schedule<E extends Comparable<E>>  implements Comparable<E> {
     
     public Schedule(String initType, Date initDate, String initTitle, String initTopic, String initTime, String initLink, String initCriteria){
         type = new SimpleStringProperty(initType);
-        date = initDate;
+        Format df = new SimpleDateFormat("MM/dd/yyyy");
+        date = new SimpleStringProperty(df.format(initDate));
         title = new SimpleStringProperty(initTitle);
         topic = new SimpleStringProperty(initTopic);
         time = new SimpleStringProperty(initTime);
@@ -41,12 +44,13 @@ public class Schedule<E extends Comparable<E>>  implements Comparable<E> {
         this.type.set(type);
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return date.get();
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        Format df = new SimpleDateFormat("MM/dd/yyyy");
+        this.date.set(df.format(date));
     }
 
     public String getTitle() {
@@ -65,24 +69,24 @@ public class Schedule<E extends Comparable<E>>  implements Comparable<E> {
         this.topic.set(topic);
     }
 
-    public StringProperty getTime() {
-        return time;
+    public String getTime() {
+        return time.get();
     }
 
     public void setTime(StringProperty time) {
         this.time = time;
     }
 
-    public StringProperty getLink() {
-        return link;
+    public String getLink() {
+        return link.get();
     }
 
     public void setLink(StringProperty link) {
         this.link = link;
     }
 
-    public StringProperty getCriteria() {
-        return criteria;
+    public String getCriteria() {
+        return criteria.get();
     }
 
     public void setCriteria(StringProperty criteria) {

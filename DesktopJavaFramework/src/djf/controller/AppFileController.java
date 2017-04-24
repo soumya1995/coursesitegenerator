@@ -241,30 +241,31 @@ public class AppFileController {
         PropertiesManager props = PropertiesManager.getPropertiesManager();
      
         try{
-                DirectoryChooser chooser = new DirectoryChooser();
-                File srcDir = new File(PATH_EXPORT_SRC);
-                chooser.setTitle(props.getProperty(EXPORT_WORK_TITLE));
-                File destDir = chooser.showDialog(app.getGUI().getWindow());
+                //DirectoryChooser chooser = new DirectoryChooser();
+                //File srcDir = new File(PATH_EXPORT_SRC);
+                //chooser.setTitle(props.getProperty(EXPORT_WORK_TITLE));
+                //File destDir = chooser.showDialog(app.getGUI().getWindow());
                 
-                FileUtils.copyDirectory(srcDir, destDir);
+                app.getFileComponent().exportData(app.getDataComponent(), PATH_EXPORT_SRC);
+         
                 
              //   FileChooser fc = new FileChooser();
 		//fc.setInitialDirectory(new File(destDir.toString()));
 		//fc.setInitialFileName("OfficeHoursGridData.json");
                
-                File jsonFile = new File(destDir.getPath()+PATH_EXPORT_JSON);
-                exportJson(jsonFile);
+               // File jsonFile = new File(destDir.getPath()+PATH_EXPORT_JSON);
+                exportJson(PATH_EXPORT_JSON);
 
                 
         }
         catch (Exception ioe){
-           //  AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
-	   //  dialog.show(props.getProperty(EXPORT_ERROR_TITLE), props.getProperty(EXPORT_ERROR_MESSAGE));
+             AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+	     dialog.show(props.getProperty(EXPORT_ERROR_TITLE), props.getProperty(EXPORT_ERROR_MESSAGE));
         }
     }
     
-    public void exportJson(File selectedFile)throws IOException{
-        app.getFileComponent().saveData(app.getDataComponent(), selectedFile.getPath());
+    public void exportJson(String selectedFile)throws IOException{
+        app.getFileComponent().saveJsonFiles(app.getDataComponent(), selectedFile);
         
         
         // TELL THE USER THE FILE HAS BEEN EXPORTED

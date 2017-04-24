@@ -22,6 +22,16 @@ public class WorkspaceData implements AppDataComponent{
     private TeamData teamData;
     private StudentData studentData;
     
+    public WorkspaceData(){
+        
+        courseData = new CourseData();
+        taData = new TAData();
+        recitationData = new RecitationData();
+        scheduleData = new ScheduleData();
+        teamData = new TeamData();
+        studentData = new StudentData(this);
+    }
+    
     public WorkspaceData(CSGManager initApp){
         
         app = initApp;
@@ -32,6 +42,7 @@ public class WorkspaceData implements AppDataComponent{
         teamData = new TeamData(app);
         studentData = new StudentData(app);
     }
+    
 
     public CourseData getCourseData() {
         return courseData;
@@ -54,6 +65,7 @@ public class WorkspaceData implements AppDataComponent{
       //  courseData.resetData();
         taData.resetData();
     }
+   
 
     public TeamData getTeamData() {
         return teamData;

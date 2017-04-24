@@ -28,6 +28,9 @@ public class TAData {
 
     // WE'LL NEED ACCESS TO THE APP TO NOTIFY THE GUI WHEN DATA CHANGES
     CSGManager app;
+    
+    //NOTE THIS ARRAYLIST IS ONLY FOR JUNIT TESTING FOR OFFICE HOURS GRID DATA
+    ArrayList<TimeSlot> testOfficeHours;
 
     // NOTE THAT THIS DATA STRUCTURE WILL DIRECTLY STORE THE
     // DATA IN THE ROWS OF THE TABLE VIEW
@@ -63,6 +66,37 @@ public class TAData {
      * 
      * @param initApp The application this data manager belongs to. 
      */
+    public TAData() {
+        
+
+        // CONSTRUCT THE LIST OF TAs FOR THE TABLE
+        teachingAssistants = FXCollections.observableArrayList();
+        
+        testOfficeHours = new ArrayList<>();
+
+        // THESE ARE THE DEFAULT OFFICE HOURS
+        startHour = MIN_START_HOUR;
+        endHour = MAX_END_HOUR;
+        
+        //THIS WILL STORE OUR OFFICE HOURS
+      //  officeHours = new HashMap();
+        
+        // THESE ARE THE LANGUAGE-DEPENDENT OFFICE HOURS GRID HEADERS
+        PropertiesManager props = PropertiesManager.getPropertiesManager();
+        ArrayList<String> timeHeaders = new ArrayList<>();
+        timeHeaders.add("Start Time");
+        timeHeaders.add("End Time");
+        ArrayList<String> dowHeaders = new ArrayList<>();
+        dowHeaders.add("MONDAY");
+        dowHeaders.add("TUESDAY");
+        dowHeaders.add("WEDNESDAY");
+        dowHeaders.add("THURSDAY");
+        dowHeaders.add("FRIDAY");
+        gridHeaders = new ArrayList();
+        gridHeaders.addAll(timeHeaders);
+        gridHeaders.addAll(dowHeaders);
+    }
+    
     public TAData(CSGManager initApp) {
         // KEEP THIS FOR LATER
         app = initApp;
@@ -112,6 +146,7 @@ public class TAData {
     public ArrayList<String> getGridHeaders() {
         return gridHeaders;
     }
+    
 
     public ObservableList getTeachingAssistants() {
         return teachingAssistants;
@@ -128,6 +163,10 @@ public class TAData {
 
     public HashMap<String, StringProperty> getOfficeHours() {
         return officeHours;
+    }
+    
+    public ArrayList<TimeSlot> getTestOfficeHours(){
+        return testOfficeHours;
     }
     
     public int getNumRows() {
@@ -214,14 +253,15 @@ public class TAData {
         endHour = initEndHour;
         
         // EMPTY THE CURRENT OFFICE HOURS VALUES
-        officeHours.clear();
+        if(officeHours!=null)
+            officeHours.clear();
             
         // WE'LL BUILD THE USER INTERFACE COMPONENT FOR THE
         // OFFICE HOURS GRID AND FEED THEM TO OUR DATA
         // STRUCTURE AS WE GO
-        TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
-        workspaceComponent.resetWorkspace();
-        workspaceComponent.reloadOfficeHoursGrid(this);
+//         TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
+  //       workspaceComponent.resetWorkspace();
+    //     workspaceComponent.reloadOfficeHoursGrid(this);
     }
     
     
@@ -278,13 +318,21 @@ public class TAData {
     
     
     public void addOfficeHoursReservation(String day, String time, String taName) {
+        if(officeHours == null)
+            addOfficeHoursJUitTest(day, time, taName);
+        else{
         String cellKey = getCellKey(day, time);
         if(cellKey!="" && taName!= "")
             toggleTAOfficeHours(cellKey, taName);
+        }
 
     }
     
-
+    //THIS METHOD IS EXCLUSIVE FOR JUNIT TESTING
+    public void addOfficeHoursJUitTest(String day, String time, String taName){
+        
+        testOfficeHours.add(new TimeSlot(day, time, taName));
+    }
 
     /**
      * This function toggles the taName in the cell represented

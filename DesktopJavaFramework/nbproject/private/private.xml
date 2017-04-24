@@ -5,8 +5,11 @@
         <group>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/controller/AppFileController.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/components/AppWorkspaceComponent.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/components/AppFileComponent.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/settings/AppPropertyType.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/components/AppStyleComponent.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/settings/AppStartupConstants.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/components/AppDataComponent.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/ui/AppLanguageDialogSingleton.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/ui/AppYesNoCancelDialogSingleton.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/DesktopJavaFramework/src/djf/ui/AppGUI.java</file>

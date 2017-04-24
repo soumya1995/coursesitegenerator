@@ -17,7 +17,13 @@ import javafx.collections.ObservableList;
 public class StudentData {
     
      CSGManager app;
+     WorkspaceData workspaceData;
      ObservableList<Student> students;
+     
+     public StudentData(WorkspaceData data) {
+        workspaceData = data; 
+        students = FXCollections.observableArrayList();
+    }
      
      public StudentData(CSGManager initApp) {
         app = initApp;
@@ -28,9 +34,13 @@ public class StudentData {
         return students;
     }
     
-    public void addTeam(String initFirstName,String initLastName, String initTeam, String initRole){
+    public void addStudent(String initFirstName,String initLastName, String initTeam, String initRole){
         
-        TeamData data = ((WorkspaceData)app.getDataComponent()).getTeamData();
+        TeamData data;
+        if(app == null)
+            data = workspaceData.getTeamData();
+        else
+            data = ((WorkspaceData)app.getDataComponent()).getTeamData();
         //GET THE TEAM AFTER CHECKING IF THE TEAM EXISTS
         Team team = null;
         for(Team t:data.getTeams()){
@@ -40,7 +50,7 @@ public class StudentData {
         
         // MAKE THE STUDENT
         if(team!=null){
-            Student student = new Student(initFirstName, initLastName, team, initRole);
+            Student student = new Student(initFirstName, initLastName, team.getName(), initRole);
 
         // ADD THE TEAM
          if (!containsStudent(initFirstName)) 

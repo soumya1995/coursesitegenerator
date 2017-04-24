@@ -16,14 +16,14 @@ public class Student<E extends Comparable<E>> implements Comparable<E> {
     
     private StringProperty firstName;
     private StringProperty lastName;
-    private Team team;
+    private StringProperty team;
     private StringProperty role;
     
-    public Student(String initFirstName, String initLastName, Team initTeam, String initRole){
+    public Student(String initFirstName, String initLastName, String initTeam, String initRole){
         
         firstName = new SimpleStringProperty(initFirstName);
         lastName = new SimpleStringProperty(initLastName);
-        team = initTeam;
+        team = new SimpleStringProperty(initTeam);
         role = new SimpleStringProperty(initRole);
     }
 
@@ -43,12 +43,12 @@ public class Student<E extends Comparable<E>> implements Comparable<E> {
         this.lastName.set(lastName);
     }
 
-    public Team getTeam() {
-        return team;
+    public String getTeam() {
+        return team.get();
     }
 
     public void setTeam(Team team) {
-        this.team = team;
+        this.team.set(team.getName());
     }
 
     public String getRole() {

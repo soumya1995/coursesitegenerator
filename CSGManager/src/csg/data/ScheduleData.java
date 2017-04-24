@@ -8,6 +8,7 @@ package csg.data;
 import csg.CSGManager;
 import csg.workspace.MasterWorkspace;
 import csg.workspace.ScheduleWorkspace;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -26,7 +27,11 @@ public class ScheduleData {
      
      Date startDate;
      Date endDate;
-
+    
+    public ScheduleData() {
+        schedules = FXCollections.observableArrayList();
+    } 
+     
     public ScheduleData(CSGManager initApp) {
         app = initApp;
         schedules = FXCollections.observableArrayList();
@@ -35,6 +40,15 @@ public class ScheduleData {
     public ObservableList<Schedule> getSchedules() {
         return schedules;
     }
+    
+    public Date getStartDate(){
+        return startDate;
+    }
+    
+    public Date getEndDate(){
+        return endDate;
+    }
+    
     public void initDate(String startDate, String endDate) throws ParseException{
         
         Date initStartDate = new SimpleDateFormat("MM/dd/yyyy").parse(startDate);
@@ -51,8 +65,7 @@ public class ScheduleData {
         startDate = initStartDate;
         endDate = initEndDate;
         
-        ScheduleWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getScheduleWorkspace();
-        workspaceComponent.resetWorkspace();
+        
     }
     
     public void addSchedule(String initType, Date initDate, String initTitle, String initTopic, String initTime, String initLink, String initCriteria){
@@ -62,12 +75,12 @@ public class ScheduleData {
         // MAKE THE SCHEDULE
         Schedule schedule = new Schedule(initType, initDate, initTitle, initTopic, initTime, initLink, initCriteria);
 
-        // ADD THE RECITATION
+        // ADD THE SCHEDULE
          if (!containsSchedule(initDate)) {
             schedules.add(schedule);
          }
 
-        // SORT THE RECITATIONS
+        // SORT THE SCHEDULES
         Collections.sort(schedules);
         }
     }
@@ -75,7 +88,8 @@ public class ScheduleData {
     public boolean containsSchedule(Date initDate){
         
         for(Schedule s:schedules){
-            if(s.getDate().compareTo(initDate)==0)
+            Format df = new SimpleDateFormat("MM/dd/yyyy");
+            if(s.getDate().compareTo(df.format(initDate))==0)
                 return true;
         }
         

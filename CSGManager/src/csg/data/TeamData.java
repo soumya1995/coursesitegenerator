@@ -19,6 +19,10 @@ public class TeamData {
      CSGManager app;
      ObservableList<Team> teams;
      
+     public TeamData() {
+        teams = FXCollections.observableArrayList();
+    }
+     
      public TeamData(CSGManager initApp) {
         app = initApp;
         teams = FXCollections.observableArrayList();

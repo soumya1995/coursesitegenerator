@@ -32,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -308,7 +309,7 @@ public class CourseWorkspace{
         ObservableList<Page> tableData = data.getPages();
         ObservableList<Boolean> checkBoxes = FXCollections.observableArrayList();
         for(Page p: tableData)
-            checkBoxes.add(p.isUsed().get());
+            checkBoxes.add(p.isUsed());
         table.setItems(tableData);
         String useColumnText = props.getProperty(CSGManagerProp.USE_COLUMN_TEXT.toString());
         String navbarColumnText = props.getProperty(CSGManagerProp.NAVBAR_COLUMN_TEXT.toString());
@@ -746,9 +747,38 @@ public class CourseWorkspace{
         
     }
     
-    public void reloadWorkspace(AppDataComponent dataComponent){
-        CourseData courseData = ((WorkspaceData)dataComponent).getCourseData();
+    public void reloadWorkspace(AppDataComponent data){
+        CourseData courseData = ((WorkspaceData)data).getCourseData();
         
+        //RELAOD ALL COMPONENTS WITH NEWLY RELOADED DATA
+        subjectComboBox.getSelectionModel().select(courseData.getSubject());
+        numberComboBox.getSelectionModel().select(courseData.getNumber());
+        semesterComboBox.getSelectionModel().select(courseData.getSemester());
+        yearComboBox.getSelectionModel().select(courseData.getYear());
+        subjectComboBox.getSelectionModel().select(courseData.getSubject());
+        titleField.setText(courseData.getTitle());
+        instructorField.setText(courseData.getInstructorName());
+        homeField.setText(courseData.getInstructorHome());
+        exportDirLabel.setText(courseData.getExportDir());
+        dirLabel.setText(courseData.getTemplateDir());
+        
+        Image bannerImage = new Image(courseData.getSchoolImage());
+        schoolBannerImage.setImage(bannerImage);
+        schoolBannerImage.setFitHeight(50);
+        schoolBannerImage.setFitWidth(150);
+        
+        Image leftImage = new Image(courseData.getLeftFooterImage());
+        leftFooterImage.setImage(leftImage);
+        leftFooterImage.setFitHeight(50);
+        leftFooterImage.setFitWidth(150);
+        
+        Image rightImage = new Image(courseData.getRightFooterImage());
+        rightFooterImage.setImage(rightImage);
+        rightFooterImage.setFitHeight(50);
+        rightFooterImage.setFitWidth(150);
+        
+        stylesheets.add(courseData.getStylesheet());
+        stylesheetComboBox.getSelectionModel().select(0);
     }
 }
     

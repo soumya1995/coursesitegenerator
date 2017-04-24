@@ -20,6 +20,10 @@ public class RecitationData {
      CSGManager app;
      ObservableList<Recitation> recitations;
     
+    public RecitationData(){
+        recitations = FXCollections.observableArrayList();
+    } 
+     
     public RecitationData(CSGManager initApp){
         app = initApp;
         recitations = FXCollections.observableArrayList();

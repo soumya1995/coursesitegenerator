@@ -9,8 +9,14 @@ import csg.CSGManager;
 import csg.CSGManagerProp;
 import csg.data.Schedule;
 import csg.data.ScheduleData;
+import csg.data.TAData;
 import csg.data.WorkspaceData;
 import djf.components.AppDataComponent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -146,7 +152,6 @@ public class ScheduleWorkspace {
         //INITILIZE THE TABLE
         table = new TableView();
         table.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-       // CourseData data1 = ((WorkspaceData)app.getDataComponent()).getCourseData();
         ScheduleData data = ((WorkspaceData)app.getDataComponent()).getScheduleData();
         ObservableList<Schedule> tableData = data.getSchedules();
         table.setItems(tableData);
@@ -160,16 +165,16 @@ public class ScheduleWorkspace {
         topicColumn = new TableColumn(topicColumnText);
         
         typeColumn.setCellValueFactory(
-                new PropertyValueFactory<Schedule, String>("section")
+                new PropertyValueFactory<Schedule, String>("type")
         );
         dateColumn.setCellValueFactory(
-                new PropertyValueFactory<Schedule, String>("instructor")
+                new PropertyValueFactory<Schedule, String>("date")
         );
         titleColumn.setCellValueFactory(
-                new PropertyValueFactory<Schedule, String>("day")
+                new PropertyValueFactory<Schedule, String>("title")
         );
         topicColumn.setCellValueFactory(
-                new PropertyValueFactory<Schedule, String>("location")
+                new PropertyValueFactory<Schedule, String>("topic")
         );
         
         table.getColumns().add(typeColumn);
@@ -458,6 +463,25 @@ public class ScheduleWorkspace {
 
     public void reloadWorkspace(AppDataComponent dataComponent) {
         
+        ScheduleData scheduleData = ((WorkspaceData)dataComponent).getScheduleData();
+        reloadSchedules(scheduleData);
     }
     
+    public void reloadSchedules(ScheduleData data){
+        
+        //SET THE START AND END DATE
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        startBox.setValue(localDate(df.format(data.getStartDate())));
+        endBox.setValue(localDate(df.format(data.getEndDate())));
+
+        
+        
+    }
+    
+    public LocalDate localDate(String date){
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
+    }
 }
