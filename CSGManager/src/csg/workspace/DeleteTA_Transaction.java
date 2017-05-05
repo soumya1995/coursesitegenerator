@@ -19,13 +19,15 @@ import csg.file.TimeSlot;
  */
 public class DeleteTA_Transaction implements jTPS_Transaction {
     
+    private Boolean taUndergrad;
     private String taEmail;
     private String taName;
     private TAData data;
     private TAController controller;
     private ArrayList<TimeSlot> officeHoursList;
     
-    public DeleteTA_Transaction(String name, String email, CSGManager initApp){
+    public DeleteTA_Transaction(Boolean undergrad, String name, String email, CSGManager initApp){
+        taUndergrad = undergrad;
         taName = name;
         taEmail = email;
         data = ((WorkspaceData)initApp.getDataComponent()).getTAData();
@@ -38,7 +40,7 @@ public class DeleteTA_Transaction implements jTPS_Transaction {
         controller.removeTAOfficeHours(taName);
     }
     public void undoTransaction() {
-        data.addTA(taName, taEmail);
+        data.addTA(taUndergrad, taName, taEmail);
         initOfficeHours();
     }
     private void initOfficeHours(){

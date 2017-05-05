@@ -5,10 +5,20 @@
  */
 package csg.workspace;
 
+import csg.CSGManager;
+import jtps.jTPS;
+
 /**
  *
  * @author Soumya
  */
 public class ScheduleController {
+    
+    static jTPS jTPS = new jTPS(); 
+    CSGManager app;
+
+    ScheduleController(CSGManager initApp) {
+        app=initApp;
+    }
     
 }

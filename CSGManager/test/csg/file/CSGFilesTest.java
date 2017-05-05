@@ -82,17 +82,17 @@ public class CSGFilesTest {
     public void testLoadCourseData(CourseData data) throws Exception {
         
         assertEquals(data.getSubject(), "CSE");
-        assertEquals(data.getNumber(), "219");
+        assertEquals(data.getNumber(), "308");
         assertEquals(data.getSemester(), "Fall");
         assertEquals(data.getYear(), "2017");
-        assertEquals(data.getTitle(), "Computer Science III");
+        assertEquals(data.getTitle(), "Software Engineering");
         assertEquals(data.getInstructorName(), "Richard Mckenna");
         assertEquals(data.getInstructorHome(), "http://www.rmckenna.com"); 
-        assertEquals(data.getExportDir(), "D:\\CSE 219\\coursesitegenerator\\CSGManager\\work"); 
-        assertEquals(data.getTemplateDir(), "D:\\CSE 219\\coursesitegenerator\\CSGManager\\work\\public_html");
+        assertEquals(data.getExportDir(), ".\\public_html"); 
+        assertEquals(data.getTemplateDir(), ".\\work\\public_html");
         assertEquals(data.getSchoolImage(), "file:.\\images\\schoolBanner.png");
-        assertEquals(data.getLeftFooterImage(), "file:.\\images\\schoolBanner.png");
-        assertEquals(data.getRightFooterImage(), "file:.\\images\\schoolBanner.png");
+        assertEquals(data.getLeftFooterImage(), "file:.\\images\\left.jpg");
+        assertEquals(data.getRightFooterImage(), "file:.\\images\\right.png");
              
     }
 
@@ -123,8 +123,8 @@ public class CSGFilesTest {
     public void testLoadScheduleData(ScheduleData data) throws Exception {
         
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-        assertEquals(df.format(data.getStartDate()), "07/22/2017");
-        assertEquals(df.format(data.getEndDate()), "12/19/2017");
+        assertEquals(df.format(data.getStartDate()), "07/23/2017");
+        assertEquals(df.format(data.getEndDate()), "12/15/2017");
         
         Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("07/29/2017");
         Date date2 = new SimpleDateFormat("MM/dd/yyyy").parse("08/29/2017");

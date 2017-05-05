@@ -39,7 +39,7 @@ public class RecitationData {
         Recitation rec = new Recitation(initSection, initInstructor, initDay, initLocation, initTA1, initTA2);
 
         // ADD THE RECITATION
-         if (!containsTA(initSection, initInstructor, initDay, initLocation, initTA1, initTA2)) {
+         if (!containsRecitation(initSection, initInstructor, initDay, initLocation, initTA1, initTA2)) {
             recitations.add(rec);
          }
 
@@ -47,7 +47,7 @@ public class RecitationData {
         Collections.sort(recitations);
     }
 
-    private boolean containsTA(String section, String instructor, String day, String location, String ta1, String ta2) {
+    public boolean containsRecitation(String section, String instructor, String day, String location, String ta1, String ta2) {
         
         for (Recitation rec : recitations) {
             if (rec.getSection().equals(section)) {
@@ -59,6 +59,15 @@ public class RecitationData {
       
         }
         return false;
+    }
+    
+    public void removeRecitation(String section) {
+        for (Recitation r : recitations) {
+            if (section.equals(r.getSection())) {
+                recitations.remove(r);
+                return;
+            }
+        }
     }
     
 }

@@ -12,6 +12,8 @@ import csg.CSGManagerProp;
 import csg.data.Page;
 import csg.data.CourseData;
 import csg.data.WorkspaceData;
+import java.io.File;
+import java.util.Collection;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -39,6 +41,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
+import org.apache.commons.io.FileUtils;
 import properties_manager.PropertiesManager;
 
 /**
@@ -410,8 +413,15 @@ public class CourseWorkspace{
         //THE STYLESHEET CHOOSER COMBOBOX
         String stylesheetText = props.getProperty(CSGManagerProp.STYLESHEET_TEXT.toString());
         stylesheetLabel = new Label(stylesheetText);
+        String extCss[] = {"css"};
+        String PATH_WORK_CSS = "./work/css";
+        File cssPath = new File(PATH_WORK_CSS);
+        Collection<File> cssFiles = FileUtils.listFiles(cssPath, extCss, true);
         stylesheets = FXCollections.observableArrayList();
+        for(File f: cssFiles)
+            stylesheets.add(f.getName());
         stylesheetComboBox = new ComboBox(stylesheets);
+        stylesheetComboBox.getSelectionModel().select(0);
         stylesheetBox = new HBox();
         stylesheetBox.setSpacing(25);
         stylesheetBox.getChildren().add(stylesheetLabel);
@@ -449,8 +459,29 @@ public class CourseWorkspace{
         
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(courseTab);
-
+        
+        CourseController controller = new  CourseController(app);
+        
+        // CONTROLS FOR ADDING TAs
+        changeButton1.setOnAction(e -> {
+            controller.handleExportDir();
+        });
+        
+        selectTemplateButton.setOnAction(e -> {
+            controller.handleTemplate();
+        });
+        
+        changeButton2.setOnAction(e -> {
+            controller.handleBannerImageImport();
+        });
+        
+        changeButton3.setOnAction(e -> {
+            controller.handleLeftImageImport();
+        });
        
+        changeButton3.setOnAction(e -> {
+            controller.handleRightImageImport();
+        });
     }
     
     // WE'LL PROVIDE AN ACCESSOR METHOD FOR EACH VISIBLE COMPONENT
@@ -762,7 +793,7 @@ public class CourseWorkspace{
         exportDirLabel.setText(courseData.getExportDir());
         dirLabel.setText(courseData.getTemplateDir());
         
-        Image bannerImage = new Image(courseData.getSchoolImage());
+       /* Image bannerImage = new Image(courseData.getSchoolImage());
         schoolBannerImage.setImage(bannerImage);
         schoolBannerImage.setFitHeight(50);
         schoolBannerImage.setFitWidth(150);
@@ -778,7 +809,7 @@ public class CourseWorkspace{
         rightFooterImage.setFitWidth(150);
         
         stylesheets.add(courseData.getStylesheet());
-        stylesheetComboBox.getSelectionModel().select(0);
+        stylesheetComboBox.getSelectionModel().select(0);*/
     }
 }
     

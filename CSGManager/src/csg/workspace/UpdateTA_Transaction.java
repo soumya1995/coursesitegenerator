@@ -17,17 +17,21 @@ import csg.data.WorkspaceData;
  */
 public class UpdateTA_Transaction implements jTPS_Transaction {
     
+    private boolean oldTAUndergrad;
     private String oldTAEmail;
     private String newTAEmail;
     private String oldTAName;
+    private boolean newTAUndergrad;
     private String newTAName;
     private TAData data;
     private TAController controller;
             
-    public UpdateTA_Transaction(String oldName, String oldEmail, String newName, String newEmail, CSGManager initApp){
+    public UpdateTA_Transaction(boolean oldUndergrad, String oldName, String oldEmail, boolean newUndergrad, String newName, String newEmail, CSGManager initApp){
+        oldTAUndergrad = oldUndergrad;
         oldTAEmail = oldEmail;
         newTAEmail = newEmail;
         oldTAName = oldName;
+        newTAUndergrad = newUndergrad;
         newTAName = newName;
         data = ((WorkspaceData)initApp.getDataComponent()).getTAData();
         controller = new TAController(initApp);
@@ -35,12 +39,12 @@ public class UpdateTA_Transaction implements jTPS_Transaction {
     
     public void doTransaction() {
         data.removeTA(oldTAName);
-        data.addTA(newTAName, newTAEmail);
+        data.addTA(newTAUndergrad, newTAName, newTAEmail);
         controller.updateTAInOfficeHoursGrid(oldTAName, newTAName);
     }
     public void undoTransaction() {
         data.removeTA(newTAName);
-        data.addTA(oldTAName, oldTAEmail);
+        data.addTA(oldTAUndergrad, oldTAName, oldTAEmail);
         controller.updateTAInOfficeHoursGrid(newTAName, oldTAName);
     }
     

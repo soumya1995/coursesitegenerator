@@ -294,9 +294,9 @@ public class TAData {
 
 
 
-    public void addTA(String initName, String initEmail) {
+    public void addTA(Boolean use, String initName, String initEmail) {
         // MAKE THE TA
-        TeachingAssistant ta = new TeachingAssistant(false, initName, initEmail);
+        TeachingAssistant ta = new TeachingAssistant(use, initName, initEmail);
 
         // ADD THE TA
         if (!containsTA(initName, initEmail)) {

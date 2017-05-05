@@ -35,6 +35,8 @@ public class ScheduleData {
     public ScheduleData(CSGManager initApp) {
         app = initApp;
         schedules = FXCollections.observableArrayList();
+        startDate = new Date(100, 1, 1);
+        endDate = new Date();
     }
 
     public ObservableList<Schedule> getSchedules() {

@@ -1,67 +1,90 @@
 
 {
     "subject":"CSE",
-    "number":"219",
+    "number":"308",
     "semester":"Fall",
     "year":"2017",
-    "title":"Computer Science III",
+    "title":"Software Engineering",
     "instructor_name":"Richard Mckenna",
     "instructor_home":"http://www.rmckenna.com",
-    "export_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\work",
-    "template_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\work\\public_html",
+    "export_dir":".\\public_html",
+    "template_dir":".\\work\\public_html",
     "banner_image":"file:.\\images\\schoolBanner.png",
-    "left_footer_image":"file:.\\images\\schoolBanner.png",
-    "right_footer_image":"file:.\\images\\schoolBanner.png",
+    "left_footer_image":"file:.\\images\\left.jpg",
+    "right_footer_image":"file:.\\images\\right.png",
     "stylesheet":"sea_wolf.css",
     "pages":[
         {
-            "use":"true"
+            "use":"true",
+            "title":"Home",
+            "file":"index.html",
+            "script":"HomeBuilder.js"
         },
         {
-            "use":"true"
+            "use":"true",
+            "title":"Syllabus",
+            "file":"syllabus.html",
+            "script":"syllabus.js"
         },
         {
-            "use":"true"
+            "use":"true",
+            "title":"Schedule",
+            "file":"schedules.html",
+            "script":"Schedules.js"
         },
         {
-            "use":"true"
+            "use":"true",
+            "title":"HWs",
+            "file":"hws.html",
+            "script":"Hws.js"
         },
         {
-            "use":"true"
+            "use":"true",
+            "title":"Projects",
+            "file":"project.html",
+            "script":"ProjectBuilder.js"
         }
     ],
     "startHour":"10",
     "endHour":"19",
     "undergrad_tas":[
         {
+            "undergrad":"true",
             "name":"Eli Parx",
             "email":"eli.parrx@stony.edu"
         },
         {
+            "undergrad":"true",
             "name":"Govid Hihra",
             "email":"govid.cox@stoyt.edu"
         },
         {
+            "undergrad":"false",
             "name":"Leo Harais",
             "email":"leo.wero@savy.com"
         },
         {
+            "undergrad":"true",
             "name":"Piggy Rob",
             "email":"piggy.rob@wiki.com"
         },
         {
+            "undergrad":"true",
             "name":"Rik Dermy",
             "email":"rik.dermy@stonybrook.ed"
         },
         {
+            "undergrad":"true",
             "name":"Ron Jeremy",
             "email":"ron.jermey@rimon.edu"
         },
         {
+            "undergrad":"true",
             "name":"Ronit Sya",
             "email":"rnit.fur@gmail.com"
         },
         {
+            "undergrad":"true",
             "name":"Tim Frezee",
             "email":"tim.freze@stonybrook.edy"
         }
@@ -106,8 +129,8 @@
             "ta_2":"Govid Hihra"
         }
     ],
-    "startDate":"07/22/2017",
-    "endDate":"12/19/2017",
+    "startDate":"07/23/2017",
+    "endDate":"12/15/2017",
     "schedules":[
         {
             "type":"Lecture",
@@ -141,13 +164,13 @@
         {
             "teamName":"Atomic Comics",
             "color":"552211",
-            "textColor":"ffffff",
+            "text_color":"ffffff",
             "link":"http://atomicomic.com"
         },
         {
             "teamName":"C4 Comics",
             "color":"fff000",
-            "textColor":"000000",
+            "text_color":"000000",
             "link":"http://c4_comics.com"
         }
     ],
@@ -156,7 +179,7 @@
             "firstName":"Buae",
             "lastName":"Conan",
             "team":"Atomic Comics",
-            "role":"Lead Programmar"
+            "role":"Lead Programmer"
         },
         {
             "firstName":"Noonan",

@@ -277,6 +277,13 @@ public class ScheduleWorkspace {
         
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(scheduleTab);
+        
+        // NOW LET'S SETUP THE EVENT HANDLING
+        controller = new ScheduleController(app);
+        
+        //SETTING UP CONTROLS
+        
+        startBox
 }
 
     public Tab getScheduleTab() {

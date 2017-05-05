@@ -17,18 +17,20 @@ import csg.data.WorkspaceData;
  */
 public class AddTA_Transaction implements jTPS_Transaction {
     
+    private boolean taUndergrad;
     private String taEmail;
     private String taName;
     private TAData data;
             
-    public AddTA_Transaction(String name, String email, CSGManager initApp){
+    public AddTA_Transaction(boolean undergrad, String name, String email, CSGManager initApp){
+        taUndergrad = undergrad;
         taName = name;
         taEmail = email;
         data = ((WorkspaceData)initApp.getDataComponent()).getTAData();
     }
     
     public void doTransaction() {
-        data.addTA(taName, taEmail);
+        data.addTA(taUndergrad, taName, taEmail);
     }
     public void undoTransaction() {
         data.removeTA(taName);

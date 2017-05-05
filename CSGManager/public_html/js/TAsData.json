@@ -1,0 +1,49 @@
+
+{
+    "startHour":"10",
+    "endHour":"19",
+    "undergrad_tas":[
+        {
+            "undergrad":"true",
+            "name":"Eli Parx",
+            "email":"eli.parrx@stony.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Govid Hihra",
+            "email":"govid.cox@stoyt.edu"
+        },
+        {
+            "undergrad":"false",
+            "name":"Leo Harais",
+            "email":"leo.wero@savy.com"
+        },
+        {
+            "undergrad":"true",
+            "name":"Piggy Rob",
+            "email":"piggy.rob@wiki.com"
+        },
+        {
+            "undergrad":"true",
+            "name":"Rik Dermy",
+            "email":"rik.dermy@stonybrook.ed"
+        },
+        {
+            "undergrad":"true",
+            "name":"Ron Jeremy",
+            "email":"ron.jermey@rimon.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Ronit Sya",
+            "email":"rnit.fur@gmail.com"
+        },
+        {
+            "undergrad":"true",
+            "name":"Tim Frezee",
+            "email":"tim.freze@stonybrook.edy"
+        }
+    ],
+    "officeHours":[
+    ]
+}

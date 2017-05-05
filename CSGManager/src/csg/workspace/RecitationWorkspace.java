@@ -242,6 +242,25 @@ public class RecitationWorkspace {
         
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(recitationTab);
+        
+        RecitationController controller = new  RecitationController(app);
+        
+        // CONTROLS FOR ADDING TAs
+        addButton.setOnAction(e -> {
+            controller.handleAddRecitation();
+        });
+        
+        clearButton.setOnAction(e -> {
+            controller.handleClearRecitation();
+        });
+        
+        table.setOnMouseClicked(e -> {
+            controller.handleUpdateRecitation();
+        });
+        
+        recitationPane.setOnKeyPressed(e -> {
+            controller.handleKeyPress(e);
+        });
     }
 
 

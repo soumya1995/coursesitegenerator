@@ -112,12 +112,17 @@ public class TAController {
         // EVERYTHING IS FINE, ADD A NEW TA
         else {
             // ADD THE NEW TA TO THE DATA
-            AddTA_Transaction addTA_Transaction = new AddTA_Transaction(name, email, app);
+            AddTA_Transaction addTA_Transaction = new AddTA_Transaction(true, name, email, app);
             jTPS.addTransaction(addTA_Transaction);
             
-            data.addTA(name, email);
+            data.addTA(true, name, email);
             
-            
+            //ADD TA NAME TO COMBOBOX IN RECITATION
+            RecitationWorkspace recWorkspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();
+            recWorkspace.getTa1ComboBox().getItems().add(name);
+            recWorkspace.getTa1ComboBox().getSelectionModel().selectFirst();
+            recWorkspace.getTa2ComboBox().getItems().add(name);
+            recWorkspace.getTa2ComboBox().getSelectionModel().selectFirst();
             
             // CLEAR THE TEXT FIELDS
             nameTextField.setText("");
@@ -159,7 +164,7 @@ public class TAController {
                 String taName = ta.getName();
                 TAData data = ((WorkspaceData)app.getDataComponent()).getTAData();
                 
-                DeleteTA_Transaction DeleteTA_Transaction = new DeleteTA_Transaction(taName, ta.getEmail(), app);
+                DeleteTA_Transaction DeleteTA_Transaction = new DeleteTA_Transaction(ta.isUndergrad().get(),taName, ta.getEmail(), app);
                 jTPS.addTransaction(DeleteTA_Transaction);
                 
                 data.removeTA(taName);
@@ -326,7 +331,7 @@ public class TAController {
                 // WE'VE CHANGED STUFF
                  markWorkAsEdited();
             
-            UpdateTA_Transaction updateTA_Transaction = new UpdateTA_Transaction(oldTAName, ta.getEmail(), name, email, app);
+            UpdateTA_Transaction updateTA_Transaction = new UpdateTA_Transaction(ta.isUndergrad().get(), oldTAName, ta.getEmail(), true, name, email, app);
             jTPS.addTransaction(updateTA_Transaction);
             
            // data.removeTA(oldTAName);

@@ -449,6 +449,17 @@ public class TAWorkspace {
         
         startTimeBox.getSelectionModel().select(dataComponent.getStartHour());
         endTimeBox.getSelectionModel().select(dataComponent.getEndHour());
+        
+         //ADD TA NAME TO COMBOBOX IN RECITATION
+            RecitationWorkspace recWorkspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();
+            
+            ObservableList<TeachingAssistant> teachingAssistants = dataComponent.getTeachingAssistants();
+            
+            for(TeachingAssistant t: teachingAssistants){
+            recWorkspace.getTa1ComboBox().getItems().add(t.getName());
+            }
+            recWorkspace.getTa1ComboBox().getSelectionModel().selectFirst();
+            recWorkspace.getTa2ComboBox().getSelectionModel().selectFirst();
 
         // ADD THE TIME HEADERS
         for (int i = 0; i < 2; i++) {

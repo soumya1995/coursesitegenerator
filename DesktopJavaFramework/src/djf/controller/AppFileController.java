@@ -246,7 +246,7 @@ public class AppFileController {
                 //chooser.setTitle(props.getProperty(EXPORT_WORK_TITLE));
                 //File destDir = chooser.showDialog(app.getGUI().getWindow());
                 
-                app.getFileComponent().exportData(app.getDataComponent(), PATH_EXPORT_SRC);
+                app.getFileComponent().exportData(app.getDataComponent());
          
                 
              //   FileChooser fc = new FileChooser();

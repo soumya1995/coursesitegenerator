@@ -22,6 +22,7 @@
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ProjectStyle.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/CourseData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CourseController.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteRecitation_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboBox_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/RecitationStyle.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/CourseStyle.java</file>
@@ -42,7 +43,9 @@
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/RecitationWorkspace.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAController.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/csg_style.css</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateRecitation_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Schedule.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddRecitation_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/RecitationData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/file/TimeSlot.java</file>
         </group>

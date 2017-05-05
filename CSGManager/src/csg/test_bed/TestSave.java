@@ -61,17 +61,17 @@ public class TestSave {
     public void setCourseData(CourseData data){
         
         data.setSubject("CSE");
-        data.setNumber("219");
+        data.setNumber("308");
         data.setSemester("Fall");
         data.setYear("2017");
-        data.setTitle("Computer Science III");
+        data.setTitle("Software Engineering");
         data.setInstructorName("Richard Mckenna");
         data.setInstructorHome("http://www.rmckenna.com");
-        data.setExportDir("D:\\CSE 219\\coursesitegenerator\\CSGManager\\work");
-        data.setTemplateDir("D:\\CSE 219\\coursesitegenerator\\CSGManager\\work\\public_html"); 
+        data.setExportDir(".\\public_html");
+        data.setTemplateDir(".\\work\\public_html"); 
         data.setSchoolImage("file:./images/schoolBanner.png");
-        data.setLeftFooterImage("file:./images/schoolBanner.png");
-        data.setRightFooterImage("file:./images/schoolBanner.png");
+        data.setLeftFooterImage("file:./images/left.jpg");
+        data.setRightFooterImage("file:./images/right.png");
         data.setStylesheet("sea_wolf.css");
     }
        
@@ -80,14 +80,14 @@ public class TestSave {
         data.initHours("10", "19");
         
         //SET UP THE TAS
-        data.addTA("Ron Jeremy", "ron.jermey@rimon.edu");
-        data.addTA("Tim Frezee", "tim.freze@stonybrook.edy");
-        data.addTA("Rik Dermy", "rik.dermy@stonybrook.ed");
-        data.addTA("Piggy Rob", "piggy.rob@wiki.com");
-        data.addTA("Eli Parx", "eli.parrx@stony.edu");
-        data.addTA("Ronit Sya", "rnit.fur@gmail.com");
-        data.addTA("Govid Hihra", "govid.cox@stoyt.edu");
-        data.addTA("Leo Harais", "leo.wero@savy.com");
+        data.addTA(true,"Ron Jeremy", "ron.jermey@rimon.edu");
+        data.addTA(true, "Tim Frezee", "tim.freze@stonybrook.edy");
+        data.addTA(true, "Rik Dermy", "rik.dermy@stonybrook.ed");
+        data.addTA(true, "Piggy Rob", "piggy.rob@wiki.com");
+        data.addTA(true, "Eli Parx", "eli.parrx@stony.edu");
+        data.addTA(true, "Ronit Sya", "rnit.fur@gmail.com");
+        data.addTA(true, "Govid Hihra", "govid.cox@stoyt.edu");
+        data.addTA(false, "Leo Harais", "leo.wero@savy.com");
         
         //OFFICE HOURS ARE HARD CODED IN CSGFILES
         
@@ -105,7 +105,7 @@ public class TestSave {
     public void setScheduleData(ScheduleData data) throws ParseException{
         
         //SET THE START AND END DATE
-        data.initDate("07/22/2017", "12/19/2017");
+        data.initDate("07/23/2017", "12/15/2017");
         
         //MAKE THE DATES
         Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse("07/29/2017");
@@ -128,7 +128,7 @@ public class TestSave {
     public void setStudentData(StudentData data){
         
         data.addStudent("Noonan", "Stiff", "C4 Comics", "Lead Designer");
-        data.addStudent("Buae", "Conan", "Atomic Comics", "Lead Programmar");
+        data.addStudent("Buae", "Conan", "Atomic Comics", "Lead Programmer");
     }
     
     public void saveRequest() throws IOException{

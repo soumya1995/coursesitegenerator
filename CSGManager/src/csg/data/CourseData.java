@@ -57,9 +57,9 @@ public class CourseData {
         templateDir = new SimpleStringProperty();
         number = new SimpleStringProperty();
         stylesheet = new SimpleStringProperty();
-        for(int i=0; i<5; i++)
-            usedPages.add(true);
-        addRequiredPages(usedPages);
+       // for(int i=0; i<5; i++)
+         //   usedPages.add(true);
+      //  addRequiredPages(usedPages);
     }
     
     public CourseData(CSGManager initApp){
@@ -78,9 +78,9 @@ public class CourseData {
         templateDir = new SimpleStringProperty();
         number = new SimpleStringProperty();
         stylesheet = new SimpleStringProperty();
-        for(int i=0; i<5; i++)
-            usedPages.add(true);
-        addRequiredPages(usedPages);
+       // for(int i=0; i<5; i++)
+        //    usedPages.add(true);
+       // addRequiredPages(usedPages);
     }
     
     
@@ -161,6 +161,8 @@ public class CourseData {
     }
 
     public String getSchoolImage() {
+        if(schoolImage == null)
+            return "file:./images/schoolBanner.png";
         return schoolImage.getPath();
     }
 
@@ -169,6 +171,8 @@ public class CourseData {
     }
 
     public String getLeftFooterImage() {
+        if(schoolImage == null)
+            return "file:./images/left.jpg";
         return leftFooterImage.getPath();
     }
 
@@ -177,6 +181,8 @@ public class CourseData {
     }
 
     public String getRightFooterImage() {
+        if(schoolImage == null)
+            return "file:./images/right.png";
         return rightFooterImage.getPath();
     }
 
