@@ -130,6 +130,8 @@ public class ProjectWorkspace {
     Button addButton2;
     Button clearButton2;
     
+    ObservableList<String> teamNames;
+    
     
     public ProjectWorkspace(CSGManager initApp, MasterWorkspace masterWorkspace){
         //INITILIZE THE APP
@@ -205,7 +207,7 @@ public class ProjectWorkspace {
         c1.getChildren().addAll(colorLabel, colorPicker);
         String textColorText = props.getProperty(CSGManagerProp.TEXT_COLOR_TEXT.toString());
         textColorLabel = new Label(textColorText);
-        textColorPicker = new ColorPicker();
+        textColorPicker = new ColorPicker(Color.WHITE);
         HBox c2 = new HBox();
         c2.setSpacing(30);
         c2.getChildren().addAll(textColorLabel, textColorPicker);
@@ -297,7 +299,7 @@ public class ProjectWorkspace {
         //GET THE TEAMS FOR THE COMBO BOX
         TeamData teamData = ((WorkspaceData)app.getDataComponent()).getTeamData();
         ObservableList<Team> teams = teamData.getTeams();
-        ObservableList<String> teamNames = FXCollections.observableArrayList();
+        teamNames = FXCollections.observableArrayList();
         for(Team t: teams)
             teamNames.add(t.getName());
         
@@ -349,7 +351,68 @@ public class ProjectWorkspace {
         //PUT THE COURSE TAB IN THE TAB PANE
         masterWorkspace.getTabPane().getTabs().add(projectTab);
         
+        ProjectController controller = new ProjectController(app);
+        
+        nameTextField.setOnAction(e -> {
+            controller.handleAddTeam();
+            updateTeamListInStudents();
+        });
+        
+        linkTextField.setOnAction(e -> {
+            controller.handleAddTeam();
+            updateTeamListInStudents();
+        });
+        
+        addButton.setOnAction(e -> {
+            controller.handleAddTeam();
+            updateTeamListInStudents();
+        });
+        
+        clearButton.setOnAction(e -> {
+            controller.handleClearTeam();
+        });
+        
+        teamTable.setOnMouseClicked(e -> {
+            controller.handleUpdateTeam();
+            updateTeamListInStudents();
+        });
+        
+        teamTable.setOnKeyPressed(e -> {
+            controller.handleTeamKeyPress(e);
+            updateTeamListInStudents();
+        });
+        
+        firstNameTextField.setOnAction(e -> {
+            controller.handleAddStudent();
+        });
+        
+        lastNameTextField.setOnAction(e -> {
+            controller.handleAddStudent();
+        });
+        
+        roleTextField.setOnAction(e -> {
+            controller.handleAddStudent();
+        });
+        
+        addButton2.setOnAction(e -> {
+            controller.handleAddStudent();
+        });
+        
+        clearButton2.setOnAction(e -> {
+            controller.handleClearStudent();
+        });
+        
+        studentTable.setOnMouseClicked(e -> {
+            controller.handleUpdateStudent();
+        });
+        
+        studentTable.setOnKeyPressed(e -> {
+            controller.handleStudentKeyPress(e);
+        });
+        
+        
     }
+   
 
     public Tab getProjectTab() {
         return projectTab;
@@ -507,6 +570,14 @@ public class ProjectWorkspace {
         return firstNameBox;
     }
 
+    public Button getAddButton2() {
+        return addButton2;
+    }
+
+    public Button getClearButton2() {
+        return clearButton2;
+    }
+
     public Label getFirstNameLabel() {
         return firstNameLabel;
     }
@@ -556,6 +627,18 @@ public class ProjectWorkspace {
     }
 
     void reloadWorkspace(AppDataComponent dataComponent) {
+        
+    }
+
+    private void updateTeamListInStudents() {
+        //GET THE TEAMS FOR THE COMBO BOX
+        TeamData teamData = ((WorkspaceData)app.getDataComponent()).getTeamData();
+        ObservableList<Team> teams = teamData.getTeams();
+        teamNames.clear();
+        for(Team t: teams)
+            teamNames.add(t.getName());
+        teamComboBox.getSelectionModel().selectFirst();
+        
         
     }
     

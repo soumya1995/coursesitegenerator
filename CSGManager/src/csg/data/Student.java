@@ -47,8 +47,8 @@ public class Student<E extends Comparable<E>> implements Comparable<E> {
         return team.get();
     }
 
-    public void setTeam(Team team) {
-        this.team.set(team.getName());
+    public void setTeam(String team) {
+        this.team.set(team);
     }
 
     public String getRole() {

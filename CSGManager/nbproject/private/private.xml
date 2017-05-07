@@ -4,50 +4,54 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/TAStyle.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Page.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeachingAssistant.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateTA_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ProjectController.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/WorkspaceData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ScheduleWorkspace.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteTA_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddTA_Transaction.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/StudentData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/file/CSGFiles.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/MasterWorkspace.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManager.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Recitation.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TAData.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CellToggle_Transaction.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ProjectStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateSchedule_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/CourseData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CourseController.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteRecitation_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboBox_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/RecitationStyle.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/CourseStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteSchedule_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ScheduleController.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManagerProp.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ProjectWorkspace.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAWorkspace.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Team.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CourseWorkspace.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Student.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/test_bed/TestSave.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/ScheduleData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/MasterStyle.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/RecitationController.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeamData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/test/csg/file/CSGFilesTest.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ScheduleStyle.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/RecitationWorkspace.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAController.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/csg_style.css</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateRecitation_Transaction.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Schedule.java</file>
-            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddRecitation_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/RecitationData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/file/TimeSlot.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Page.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeachingAssistant.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/WorkspaceData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/StudentData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManager.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CellToggle_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ProjectStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboDateBox_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/CourseStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManagerProp.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAWorkspace.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Team.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/test_bed/TestSave.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/ScheduleData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/RecitationController.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeamData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ScheduleStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAController.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddSchedule_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Schedule.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddRecitation_Transaction.java</file>
         </group>
     </open-files>
 </project-private>

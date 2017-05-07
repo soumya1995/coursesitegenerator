@@ -69,4 +69,15 @@ public class StudentData {
         }
         return false;
     }   
+
+    public void removeStudent(String firstName, String lastName, String team, String role) {
+        
+        for(Student s: students){
+            if(s.getFirstName().equals(firstName)){
+                students.remove(s);
+                return;
+            }
+                
+        }
+    }
 }

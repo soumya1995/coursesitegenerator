@@ -121,7 +121,6 @@ public class TAController {
             RecitationWorkspace recWorkspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();
             recWorkspace.getTa1ComboBox().getItems().add(name);
             recWorkspace.getTa1ComboBox().getSelectionModel().selectFirst();
-            recWorkspace.getTa2ComboBox().getItems().add(name);
             recWorkspace.getTa2ComboBox().getSelectionModel().selectFirst();
             
             // CLEAR THE TEXT FIELDS

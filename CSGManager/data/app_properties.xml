@@ -48,6 +48,8 @@
         <property name="EXPORT_ERROR_MESSAGE"             value="An error occured while exporting work"></property>
         <property name="START_END_TIME_ERROR"           value="Start End Hour Error"></property>
         <property name="START_END_TIME_ERROR_MESSAGE"   value="Start hour should be before end hour"></property>
+        <property name="START_END_DATE_ERROR"           value="Start End Date Error"></property>
+        <property name="START_END_DATE_ERROR_MESSAGE"   value="Start date should be before end date"></property>
         <property name="PROPERTIES_LOAD_ERROR_MESSAGE"	value="An error occured loading a properties file."></property>	
         <property name="PROPERTIES_LOAD_ERROR_TITLE"	value="Properties File Loading Error"></property>
 	
@@ -65,6 +67,8 @@
         <property name="SAVE_UNSAVED_WORK_TITLE"	value="Save unsaved work?"></property>
         <property name="CHANGE_TITLE"                   value="Change to office hours"></property>
         <property name="CHANGE_MESSAGE"                 value="Do you really want to make changes to existing office hours"></property>
+        <property name="CHANGE_DATE_TITLE"                   value="Change to calendar boundaries"></property>
+        <property name="CHANGE_DATE_MESSAGE"                 value="Do you really want to make changes to existing date boundaries"></property>
         
 	
         <property name="NEW_CREATED_MESSAGE"		value="New Work Created but not yet Saved"></property>
@@ -194,6 +198,18 @@
         <!-- WORKSPACE ERROR MESSAGES -->
         <property name="MISSING_TA_NAME_TITLE"          value="Missing TA Name"></property>
         <property name="MISSING_TA_NAME_MESSAGE"        value="You must provide a TA Name"></property>
+        <property name="MISSING_SECTION_NAME_TITLE"          value="Missing Section"></property>
+        <property name="MISSING_SECTION_NAME_MESSAGE"        value="You must provide a Section"></property>
+        <property name="MISSING_INS_NAME_TITLE"          value="Missing Instructor Name"></property>
+        <property name="MISSING_INS_NAME_MESSAGE"        value="You must provide an Instructor Name"></property>
+        <property name="MISSING_DAY_NAME_TITLE"          value="Missing Day/Time"></property>
+        <property name="MISSING_DAY_NAME_MESSAGE"        value="You must provide a Day and Time"></property>
+        <property name="MISSING_LOC_NAME_TITLE"          value="Missing Location"></property>
+        <property name="MISSING_LOC_NAME_MESSAGE"        value="You must provide a location"></property>
+        <property name="SAME_TA_NAME_TITLE"          value="Same TA Name"></property>
+        <property name="SAME_TA_NAME_MESSAGE"        value="You must provide unique TAs"></property>
+        <property name="SECTION_DAY_NOT_UNIQUE_TITLE"          value="Section or day not unique"></property>
+        <property name="SECTION_DAY_NOT_UNIQUE_MESSAGE"        value="You must provide a unique section and day/time"></property>
         <property name="MISSING_TA_EMAIL_TITLE"         value="Missing TA Email"></property>
         <property name="MISSING_TA_EMAIL_MESSAGE"       value="You must provide a TA Email"></property>
         <property name="TA_NAME_AND_EMAIL_NOT_UNIQUE_TITLE"     value="TA Name and Email Not Unique"></property>

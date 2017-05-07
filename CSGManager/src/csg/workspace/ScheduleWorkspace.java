@@ -13,10 +13,14 @@ import csg.data.TAData;
 import csg.data.WorkspaceData;
 import djf.components.AppDataComponent;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -204,6 +208,7 @@ public class ScheduleWorkspace {
         String dateText = props.getProperty(CSGManagerProp.DATE_TEXT.toString());
         dateLabel = new Label(dateText);
         datePickerBox = new DatePicker();
+        datePickerBox.setValue((data.getEndDate()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
         dateBox = new HBox();
         dateBox.setSpacing(50);
         dateBox.getChildren().addAll(dateLabel, datePickerBox);
@@ -283,7 +288,61 @@ public class ScheduleWorkspace {
         
         //SETTING UP CONTROLS
         
-        startBox
+        startBox.setOnAction(e -> {
+            try {
+                controller.handleStartEndDate(Date.from(startBox.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(endBox.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            } catch (ParseException ex) {
+                Logger.getLogger(ScheduleWorkspace.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            LocalDate date = (data.getStartDate()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            startBox.setValue(date);
+           // return;
+        });
+        
+        endBox.setOnAction(e -> {
+            try {
+                controller.handleStartEndDate(Date.from(startBox.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(endBox.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            } catch (ParseException ex) {
+                Logger.getLogger(ScheduleWorkspace.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            LocalDate date = (data.getEndDate()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            endBox.setValue(date);
+        });
+        
+        timeTextField.setOnAction(e -> {
+            controller.handleAddSchedule();
+        });
+        
+        titleTextField.setOnAction(e -> {
+            controller.handleAddSchedule();
+        });
+        
+        linkTextField.setOnAction(e -> {
+            controller.handleAddSchedule();
+        });
+        
+        criteriaTextField.setOnAction(e -> {
+            controller.handleAddSchedule();
+        });
+        
+        addButton.setOnAction(e -> {
+            controller.handleAddSchedule();
+        });
+        
+        clearButton.setOnAction(e -> {
+            controller.handleClearSchedule();
+        });
+        
+        table.setOnMouseClicked(e -> {
+            controller.handleUpdateSchedule();
+        });
+        
+        table.setFocusTraversable(true);
+        table.setOnKeyPressed(e -> {
+            controller.handleKeyPress(e);
+        });
+        
+        
 }
 
     public Tab getScheduleTab() {

@@ -10,6 +10,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import properties_manager.PropertiesManager;
 import djf.AppTemplate;
+import static djf.settings.AppPropertyType.CHANGE_DATE_MESSAGE;
+import static djf.settings.AppPropertyType.CHANGE_DATE_TITLE;
 import static djf.settings.AppPropertyType.CHANGE_MESSAGE;
 import static djf.settings.AppPropertyType.CHANGE_TITLE;
 import org.apache.commons.io.FileUtils;
@@ -372,6 +374,26 @@ public class AppFileController {
         // PROMPT THE USER TO SAVE UNSAVED WORK
 	AppYesNoCancelDialogSingleton yesNoDialog = AppYesNoCancelDialogSingleton.getSingleton();
         yesNoDialog.show(props.getProperty(CHANGE_TITLE), props.getProperty(CHANGE_MESSAGE));
+        
+        // AND NOW GET THE USER'S SELECTION
+        String selection = yesNoDialog.getSelection();
+        
+        if (selection.equals(AppYesNoCancelDialogSingleton.YES)) 
+            return true;
+        else
+            return false;
+
+    }
+    
+    public static boolean promptToConfirmDates(){
+        PropertiesManager props = PropertiesManager.getPropertiesManager();
+	
+	// CHECK TO SEE IF THE CURRENT WORK HAS
+	// BEEN SAVED AT LEAST ONCE
+	
+        // PROMPT THE USER TO SAVE UNSAVED WORK
+	AppYesNoCancelDialogSingleton yesNoDialog = AppYesNoCancelDialogSingleton.getSingleton();
+        yesNoDialog.show(props.getProperty(CHANGE_DATE_TITLE), props.getProperty(CHANGE_DATE_MESSAGE));
         
         // AND NOW GET THE USER'S SELECTION
         String selection = yesNoDialog.getSelection();

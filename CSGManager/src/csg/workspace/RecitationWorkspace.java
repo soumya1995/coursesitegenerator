@@ -246,6 +246,22 @@ public class RecitationWorkspace {
         RecitationController controller = new  RecitationController(app);
         
         // CONTROLS FOR ADDING TAs
+        sectionTextField.setOnAction(e -> {
+            controller.handleAddRecitation();
+        });
+        
+        instructorTextField.setOnAction(e -> {
+            controller.handleAddRecitation();
+        });
+        
+        dayTextField.setOnAction(e -> {
+            controller.handleAddRecitation();
+        });
+        
+        locationTextField.setOnAction(e -> {
+            controller.handleAddRecitation();
+        });
+        
         addButton.setOnAction(e -> {
             controller.handleAddRecitation();
         });

@@ -11,8 +11,12 @@ import csg.workspace.ScheduleWorkspace;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -35,7 +39,12 @@ public class ScheduleData {
     public ScheduleData(CSGManager initApp) {
         app = initApp;
         schedules = FXCollections.observableArrayList();
-        startDate = new Date(100, 1, 1);
+         try {
+             startDate = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/2000");
+         } catch (ParseException ex) {
+             Logger.getLogger(ScheduleData.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        //startDate = new Date(100, 1, 1);
         endDate = new Date();
     }
 
@@ -78,7 +87,7 @@ public class ScheduleData {
         Schedule schedule = new Schedule(initType, initDate, initTitle, initTopic, initTime, initLink, initCriteria);
 
         // ADD THE SCHEDULE
-         if (!containsSchedule(initDate)) {
+         if (!containsSchedule(initDate, initType)) {
             schedules.add(schedule);
          }
 
@@ -87,15 +96,49 @@ public class ScheduleData {
         }
     }
     
-    public boolean containsSchedule(Date initDate){
+    public boolean containsSchedule(Date initDate, String initType){
         
         for(Schedule s:schedules){
             Format df = new SimpleDateFormat("MM/dd/yyyy");
-            if(s.getDate().compareTo(df.format(initDate))==0)
+            if(s.getDate().compareTo(df.format(initDate))==0 && s.getType().equals(initType))
                 return true;
         }
         
         return false;
     }
     
+    public void removeSchedule(String type, String date) {
+        for (Schedule r : schedules) {
+            if (type.equals(r.getType()) && date.equals(r.getDate())) {
+                schedules.remove(r);
+                return;
+            }
+        }
+    }
+    
+    public ArrayList<Schedule> getExcessSchedules(Date start, Date end) throws ParseException{
+        ArrayList<Schedule> excessSchedules = new ArrayList<>();
+        for(Schedule s: schedules){
+            Date date = new SimpleDateFormat("MM/dd/yyyy").parse(s.getDate());
+            if(date.compareTo(start)<0 || date.compareTo(end)>0)
+                excessSchedules.add(s);
+        }
+        
+        return excessSchedules;
+    }
+    
+    public void deleteFromSchedules(Date start, Date end) throws ParseException{
+        for(Schedule s: schedules){
+            Date date = new SimpleDateFormat("MM/dd/yyyy").parse(s.getDate());
+            if(date.compareTo(start)<0 || date.compareTo(end)>0)
+                schedules.remove(s);
+        }
+    }
+    
+    public void addToSchedules(ArrayList<Schedule> list){
+        for(Schedule s: list){
+            schedules.add(s);
+        }
+         Collections.sort(schedules);
+    }
 }

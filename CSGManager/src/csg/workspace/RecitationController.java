@@ -172,7 +172,7 @@ public class RecitationController {
    }   
    
    public void updateRecitation(){
-       RecitationWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();
+        RecitationWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();
         TableView table = workspace.getTable();
         
         // IS A TA SELECTED IN THE TABLE?
