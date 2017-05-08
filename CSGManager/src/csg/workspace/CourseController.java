@@ -67,6 +67,7 @@ public class CourseController {
 		File selectedPath = directoryChooser();
 		if (selectedPath != null) {
 		    data.setExportDir(selectedPath.getPath());
+                    workspace.getExportDirLabel().setText(selectedPath.getPath());
 	    }
         } catch (Exception ioe) {
 	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
@@ -79,7 +80,8 @@ public class CourseController {
         
         // WE'LL NEED TO ASK THE DATA SOME QUESTIONS TOO
         CourseData data = ((WorkspaceData)app.getDataComponent()).getCourseData();
-        
+
+        data.getPages().clear();
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         File selectedPath = null;
         String extHtml[] = {"html"};
@@ -89,6 +91,8 @@ public class CourseController {
 		selectedPath = directoryChooser();
 		if (selectedPath != null) {
 		    data.setTemplateDir(selectedPath.getPath());
+                    workspace.getDirLabel().setText(selectedPath.getPath());
+                    
                     
                     //THE HTML FILES
                     Collection<File> htmlFiles = FileUtils.listFiles(selectedPath, extHtml, true);
@@ -149,9 +153,9 @@ public class CourseController {
         
         //SET THE IMAGE IN IMAGE VIEW
         Image image = new Image(courseData.getLeftFooterImage());
-        workspace.getSchoolBannerImage().setImage(image);
-        workspace.getSchoolBannerImage().setFitHeight(50);
-        workspace.getSchoolBannerImage().setFitWidth(150);
+        workspace.getLeftFooterImage().setImage(image);
+        workspace.getLeftFooterImage().setFitHeight(50);
+        workspace.getLeftFooterImage().setFitWidth(150);
     }
     
     public void handleRightImageImport() {
@@ -159,13 +163,13 @@ public class CourseController {
         CourseWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getCourseWorkspace();
         
         File imageFile = fileChooser();
-        courseData.setRightFooterImage(imageFile.getPath());
+        courseData.setRightFooterImage(imageFile.toURI().toString());
         
         //SET THE IMAGE IN IMAGE VIEW
-        Image image = new Image(imageFile.toURI().toString());
-        workspace.getSchoolBannerImage().setImage(image);
-        workspace.getSchoolBannerImage().setFitHeight(50);
-        workspace.getSchoolBannerImage().setFitWidth(150);
+        Image image = new Image(courseData.getRightFooterImage());
+        workspace.getRightFooterImage().setImage(image);
+        workspace.getRightFooterImage().setFitHeight(50);
+        workspace.getRightFooterImage().setFitWidth(150);
     }
     
     public File fileChooser(){

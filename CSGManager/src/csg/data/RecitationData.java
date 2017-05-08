@@ -70,4 +70,8 @@ public class RecitationData {
         }
     }
     
+    public void reset(){
+        recitations.clear();
+    }
+    
 }

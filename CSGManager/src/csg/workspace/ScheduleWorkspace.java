@@ -197,8 +197,10 @@ public class ScheduleWorkspace {
         typeLabel = new Label(typeText);
         String holiday = props.getProperty(CSGManagerProp.HOLIDAY_TEXT.toString());
         String lecture = props.getProperty(CSGManagerProp.LECTURE_TEXT.toString());
+        String recitation = props.getProperty(CSGManagerProp.RECITATION_TEXT.toString());
+        String reference = props.getProperty(CSGManagerProp.REFERENCE_TEXT.toString());
         String hw = props.getProperty(CSGManagerProp.HW_TEXT.toString());
-        ObservableList<String> subjects = FXCollections.observableArrayList(holiday,lecture,hw);
+        ObservableList<String> subjects = FXCollections.observableArrayList(holiday,lecture,recitation,hw,reference);
         typeComboBox = new ComboBox(subjects);
         typeComboBox.getSelectionModel().selectFirst();
         typeBox = new HBox();
@@ -340,6 +342,14 @@ public class ScheduleWorkspace {
         table.setFocusTraversable(true);
         table.setOnKeyPressed(e -> {
             controller.handleKeyPress(e);
+        });
+        
+        app.getGUI().getUndoButton().setOnAction(e -> {
+            controller.handleUndo();
+        });
+        
+        app.getGUI().getRedoButton().setOnAction(e -> {
+            controller.handleRedo();
         });
         
         
@@ -524,6 +534,11 @@ public class ScheduleWorkspace {
     
 
     public void resetWorkspace() {
+       typeComboBox.getSelectionModel().selectFirst();
+       timeTextField.setText("");
+       titleTextField.setText("");
+       topicTextField.setText("");
+       criteriaTextField.setText("");
        
     }
 

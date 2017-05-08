@@ -110,4 +110,8 @@ public class TeamData {
         for(Student s: removedStudents) 
             students.add(s);
     }
+    
+    public void reset(){
+        teams.clear();
+    }
 }

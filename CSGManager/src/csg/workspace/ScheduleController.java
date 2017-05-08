@@ -83,6 +83,14 @@ public class ScheduleController {
                 dialog.show(props.getProperty(START_END_TIME_ERROR), props.getProperty(START_END_TIME_ERROR_MESSAGE));
            }
          }
+    
+    public void handleUndo(){
+        jTPS.undoTransaction();
+    }
+    
+    public void handleRedo(){
+        jTPS.doTransaction();
+    }
 
     public void handleAddSchedule() {
         // WE'LL NEED THE WORKSPACE TO RETRIEVE THE USER INPUT VALUES
@@ -135,15 +143,6 @@ public class ScheduleController {
 	    dialog.show(props.getProperty(MISSING_LOC_NAME_TITLE), props.getProperty(MISSING_LOC_NAME_MESSAGE));                        
         }
         
-        else if (link.isEmpty()) {
-	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
-	    dialog.show(props.getProperty(MISSING_LOC_NAME_TITLE), props.getProperty(MISSING_LOC_NAME_MESSAGE));                        
-        }
-        
-        else if (criteria.isEmpty()) {
-	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
-	    dialog.show(props.getProperty(MISSING_LOC_NAME_TITLE), props.getProperty(MISSING_LOC_NAME_MESSAGE));                        
-        }
         
         else if (data.containsSchedule(date, type)) {
 	    AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();

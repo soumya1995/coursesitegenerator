@@ -258,6 +258,14 @@ public class ProjectController {
         }
     }
     
+    public void handleUndo(){
+        jTPS.undoTransaction();
+    }
+    
+    public void handleRedo(){
+        jTPS.doTransaction();
+    }
+    
     public void handleAddStudent(){
         ProjectWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getProjectWorkspace();
         TextField firstNameTextField = workspace.getFirstNameTextField();

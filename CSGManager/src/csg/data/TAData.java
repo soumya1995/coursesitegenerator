@@ -259,9 +259,9 @@ public class TAData {
         // WE'LL BUILD THE USER INTERFACE COMPONENT FOR THE
         // OFFICE HOURS GRID AND FEED THEM TO OUR DATA
         // STRUCTURE AS WE GO
-//         TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
-  //       workspaceComponent.resetWorkspace();
-    //     workspaceComponent.reloadOfficeHoursGrid(this);
+        TAWorkspace workspaceComponent = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
+        workspaceComponent.resetWorkspace();
+         workspaceComponent.reloadOfficeHoursGrid(this);
     }
     
     

@@ -80,4 +80,8 @@ public class StudentData {
                 
         }
     }
+    
+    public void reset(){
+        students.clear();
+    }
 }

@@ -1,0 +1,396 @@
+
+{
+    "subject":"",
+    "number":"",
+    "semester":"",
+    "year":"",
+    "title":"",
+    "instructor_name":"",
+    "instructor_home":"",
+    "export_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\public_html",
+    "template_dir":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\work\\CSE 219",
+    "banner_image":"D:\\CSE 219\\coursesitegenerator\\CSGManager\\public_html\\images\\SBUWhiteShieldLogo.jpg",
+    "left_footer_image":"file:\\D:\\CSE%20219\\coursesitegenerator\\CSGManager\\public_html\\images\\SBUDarkRedShieldLogo.png",
+    "right_footer_image":"file:\\D:\\CSE%20219\\coursesitegenerator\\CSGManager\\public_html\\images\\CSLogo.png",
+    "stylesheet":"",
+    "pages":[
+        {
+            "use":"false"
+        },
+        {
+            "use":"false"
+        },
+        {
+            "use":"false"
+        },
+        {
+            "use":"false"
+        }
+    ],
+    "startHour":"9",
+    "endHour":"20",
+    "undergrad_tas":[
+        {
+            "undergrad":"true",
+            "name":"Ashley Moshe",
+            "email":"ashley.moshe@stonybrook.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Brendan Maculla",
+            "email":"brendan.mculla@stonybrook.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Mickey Ash",
+            "email":"mickey.ash@stonybrook.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Pat Berghius",
+            "email":"pat.berghius@stonybrook.edu"
+        },
+        {
+            "undergrad":"true",
+            "name":"Ricky Pointing",
+            "email":"ricky.pointing@stonybrook.edu"
+        }
+    ],
+    "officeHours":[
+        {
+            "day":"TUESDAY",
+            "time":"9_00am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"9_00am",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"9_30am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"9_30am",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"10_00am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"10_30am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"10_30am",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"MONDAY",
+            "time":"11_00am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"11_00am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"11_00am",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"11_00am",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"MONDAY",
+            "time":"11_30am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"11_30am",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"MONDAY",
+            "time":"12_00pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"MONDAY",
+            "time":"12_00pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"12_00pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"12_00pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"12_00pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"MONDAY",
+            "time":"12_30pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"MONDAY",
+            "time":"12_30pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"12_30pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"12_30pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"12_30pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"MONDAY",
+            "time":"1_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"1_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"1_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"MONDAY",
+            "time":"1_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"1_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"1_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"MONDAY",
+            "time":"2_00pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"2_00pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"2_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"MONDAY",
+            "time":"2_30pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"2_30pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"3_00pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"3_00pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"3_00pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"MONDAY",
+            "time":"3_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"3_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"3_30pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"3_30pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"3_30pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"MONDAY",
+            "time":"4_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"4_00pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"4_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"4_00pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"MONDAY",
+            "time":"4_30pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"4_30pm",
+            "name":"Ricky Pointing"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"4_30pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"MONDAY",
+            "time":"5_00pm",
+            "name":"Brendan Maculla"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"5_00pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"5_00pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"5_30pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"WEDNESDAY",
+            "time":"5_30pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"5_30pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"TUESDAY",
+            "time":"6_00pm",
+            "name":"Pat Berghius"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"6_00pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"6_00pm",
+            "name":"Ashley Moshe"
+        },
+        {
+            "day":"THURSDAY",
+            "time":"6_30pm",
+            "name":"Mickey Ash"
+        },
+        {
+            "day":"FRIDAY",
+            "time":"6_30pm",
+            "name":"Ashley Moshe"
+        }
+    ],
+    "recitations":[
+        {
+            "section":"R02",
+            "instructor":"Mckenna",
+            "day_time":"Wed 2:30pm - 3:50pm",
+            "location":"CS 2114",
+            "ta_1":"Ricky Pointing",
+            "ta_2":"Ashley Moshe"
+        },
+        {
+            "section":"R03",
+            "instructor":"Banerjee",
+            "day_time":"Tues 2:30pm - 3:50 pm",
+            "location":"CS 2114",
+            "ta_1":"Pat Berghius",
+            "ta_2":"Ricky Pointing"
+        }
+    ],
+    "startDate":"01/23/2017",
+    "endDate":"05/19/2017",
+    "schedules":[
+        {
+            "type":"Lecture",
+            "date":"01/24/2017",
+            "scheduleTitle":"Lecture 1",
+            "topic":"Development lifecycle",
+            "scheduleTime":"1:00pm - 2:30pm",
+            "scheduleLink":"https://blackboard.stonybrook.edu/bbcswebdav/pid-4007199-dt-content-rid-26212680_1/xid-26212680_1",
+            "criteria":" "
+        }
+    ],
+    "teams":[
+    ],
+    "students":[
+    ]
+}

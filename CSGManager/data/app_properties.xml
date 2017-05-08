@@ -45,6 +45,8 @@
         <property name="SAVE_ERROR_MESSAGE"             value="An error occured saving work."></property>
         <property name="SAVE_ERROR_TITLE"		value="Save Work Error"></property>
         <property name="EXPORT_ERROR_TITLE"		value="Export Work Error"></property>
+        <property name="ABOUT_TITLE"     value="About this Application"></property>
+        <property name="ABOUT_MESSAGE"     value="This Application is for generating course websites"></property>
         <property name="EXPORT_ERROR_MESSAGE"             value="An error occured while exporting work"></property>
         <property name="START_END_TIME_ERROR"           value="Start End Hour Error"></property>
         <property name="START_END_TIME_ERROR_MESSAGE"   value="Start hour should be before end hour"></property>
@@ -166,6 +168,8 @@
 		<property name="TIME_TEXT"                value="Time: "></property>
 		<property name="DATE_TEXT"                value="Date: "></property>
 		<property name="HW_TEXT"                value="HW"></property>
+		<property name="RECITATION_TEXT"                value="Recitation"></property>
+		<property name="REFERENCE_TEXT"                value="Reference"></property>
 		<property name="LECTURE_TEXT"                value="Lecture"></property>
 		<property name="HOLIDAY_TEXT"                value="Holiday"></property>
 		<property name="TYPE_TEXT"                value="Type: "></property>

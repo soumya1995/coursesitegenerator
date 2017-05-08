@@ -186,6 +186,14 @@ public class TAController {
         }
     }
     
+    public void handleUndo(){
+        jTPS.undoTransaction();
+    }
+    
+    public void handleRedo(){
+        jTPS.doTransaction();
+    }
+    
     public void removeTAOfficeHours(String taName){
         TAWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getTAWorkspace();
         TAData data = ((WorkspaceData)app.getDataComponent()).getTAData();

@@ -131,6 +131,15 @@ public class RecitationController {
             markWorkAsEdited();
         }
     }
+   
+   public void handleUndo(){
+        jTPS.undoTransaction();
+    }
+    
+    public void handleRedo(){
+        jTPS.doTransaction();
+    }
+    
    public void handleUpdateRecitation(){
    
         RecitationWorkspace workspace = ((MasterWorkspace)app.getWorkspaceComponent()).getRecitationWorkspace();

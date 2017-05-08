@@ -96,6 +96,8 @@ public class RecitationWorkspace {
     Button addButton;
     Button clearButton;
     
+    ObservableList<String> taNames;
+    
     public RecitationWorkspace(CSGManager initApp, MasterWorkspace masterWorkspace){
         //INITILIZE THE APP
         app = initApp;
@@ -194,7 +196,7 @@ public class RecitationWorkspace {
         //GET THE TAS FOR THE COMBO BOX
         TAData taData = ((WorkspaceData)app.getDataComponent()).getTAData();
         ObservableList<TeachingAssistant> teachingAssistants = taData.getTeachingAssistants();
-        ObservableList<String> taNames = FXCollections.observableArrayList();
+        taNames = FXCollections.observableArrayList();
         for(TeachingAssistant ta: teachingAssistants)
             taNames.add(ta.getName());
         
@@ -276,6 +278,14 @@ public class RecitationWorkspace {
         
         recitationPane.setOnKeyPressed(e -> {
             controller.handleKeyPress(e);
+        });
+        
+        app.getGUI().getUndoButton().setOnAction(e -> {
+            controller.handleUndo();
+        });
+        
+        app.getGUI().getRedoButton().setOnAction(e -> {
+            controller.handleRedo();
         });
     }
 
@@ -425,6 +435,13 @@ public class RecitationWorkspace {
     }
     
     public void resetWorkspace(){
+        sectionTextField.setText("");
+        instructorTextField.setText("");
+        dayTextField.setText("");
+        locationTextField.setText("");
+        ta1ComboBox.getSelectionModel().selectFirst();
+        ta2ComboBox.getSelectionModel().selectFirst();
+        taNames.clear();
         
     }
     

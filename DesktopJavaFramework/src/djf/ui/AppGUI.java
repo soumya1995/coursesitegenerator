@@ -20,6 +20,10 @@ import static djf.settings.AppStartupConstants.PATH_IMAGES;
 import djf.components.AppStyleComponent;
 import static djf.components.AppStyleComponent.CLASS_BORDERED_PANE;
 import static djf.components.AppStyleComponent.CLASS_FILE_BUTTON;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jtps.jTPS;
 
 /**
  * This class provides the basic user interface for this application,
@@ -57,6 +61,8 @@ public class AppGUI {
     protected Button undoButton;
     protected Button redoButton;
     protected Button aboutButton;
+    
+    static jTPS jTPS = new jTPS(); 
     
     // THIS DIALOG IS USED FOR GIVING FEEDBACK TO THE USER
     protected AppYesNoCancelDialogSingleton yesNoCancelDialog;
@@ -138,6 +144,14 @@ public class AppGUI {
         // NOTE THAT THE NEW, LOAD, AND EXIT BUTTONS
         // ARE NEVER DISABLED SO WE NEVER HAVE TO TOUCH THEM
     }
+    
+    public Button getUndoButton(){
+        return undoButton;
+    }
+    
+    public Button getRedoButton(){
+        return redoButton;
+    }
 
     /****************************************************************************/
     /* BELOW ARE ALL THE PRIVATE HELPER METHODS WE USE FOR INITIALIZING OUR AppGUI */
@@ -179,7 +193,26 @@ public class AppGUI {
         exportButton.setOnAction(e -> {
             fileController.handleExportRequest();
         });
+        
+        undoButton.setOnAction(e -> {
+            jTPS.undoTransaction();
+        });
+        
+        redoButton.setOnAction(e -> {
+            jTPS.doTransaction();
+        });
+        
+        aboutButton.setOnAction(e -> {
+            AppMessageDialogSingleton dialog = AppMessageDialogSingleton.getSingleton();
+            PropertiesManager props = PropertiesManager.getPropertiesManager();
+            dialog.show(props.getProperty(ABOUT_TITLE), props.getProperty(ABOUT_MESSAGE));
+        });
         exitButton.setOnAction(e -> {
+            try {
+                fileController.promptToSave();
+            } catch (IOException ex) {
+                Logger.getLogger(AppGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
             fileController.handleExitRequest();
         });	
     }

@@ -141,4 +141,10 @@ public class ScheduleData {
         }
          Collections.sort(schedules);
     }
+    
+    public void reset() throws ParseException{
+        schedules.clear();
+        startDate = new SimpleDateFormat("MM/dd/yyyy").parse("01/01/2000");
+        endDate = new Date();
+    }
 }

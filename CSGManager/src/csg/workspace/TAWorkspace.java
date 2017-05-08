@@ -32,9 +32,11 @@ import csg.data.TAData;
 import csg.data.TeachingAssistant;
 import csg.data.WorkspaceData;
 import csg.style.MasterStyle;
+import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.scene.control.Tab;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.input.KeyCode;
 
 /**
  * This class serves as the workspace component for the TA Manager
@@ -277,6 +279,13 @@ public class TAWorkspace {
             endTimeBox.getSelectionModel().select(data.getEndHour());
         });
         
+        (app.getGUI().getUndoButton()).setOnAction(e -> {
+            controller.handleKeyPress(new KeyEvent(new EventType<KeyEvent>("KeyEvent"),"", "", KeyCode.Z,false, true, false, false));
+        });
+        
+        (app.getGUI().getRedoButton()).setOnAction(e -> {
+            controller.handleRedo();
+        });
     }
     
     

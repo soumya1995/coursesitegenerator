@@ -7,6 +7,9 @@ package csg.data;
 
 import csg.CSGManager;
 import djf.components.AppDataComponent;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -62,8 +65,17 @@ public class WorkspaceData implements AppDataComponent{
     }
     
     public void resetData(){
-      //  courseData.resetData();
+        courseData.resetData();
         taData.resetData();
+        recitationData.reset();
+        try {
+            scheduleData.reset();
+        } catch (ParseException ex) {
+            Logger.getLogger(WorkspaceData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        teamData.reset();
+        studentData.reset();
+        
     }
    
 

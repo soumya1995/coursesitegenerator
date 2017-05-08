@@ -168,7 +168,7 @@ public enum CSGManagerProp {
     HWS_TEXT, 
     PROJECTS_TEXT,
     
-    LOAD_IMAGE_TITLE
+    LOAD_IMAGE_TITLE, RECITATION_TEXT, REFERENCE_TEXT
     
 }
 

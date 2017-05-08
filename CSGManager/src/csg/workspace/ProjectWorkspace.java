@@ -410,7 +410,13 @@ public class ProjectWorkspace {
             controller.handleStudentKeyPress(e);
         });
         
+        app.getGUI().getUndoButton().setOnAction(e -> {
+            controller.handleUndo();
+        });
         
+        app.getGUI().getRedoButton().setOnAction(e -> {
+            controller.handleRedo();
+        });
     }
    
 
@@ -622,8 +628,17 @@ public class ProjectWorkspace {
         return roleTextField;
     }
 
-    void resetWorkspace() {
-      
+    public void resetWorkspace() {
+      nameTextField.setText("");
+      colorPicker.setValue(Color.BLUE);
+      textColorPicker.setValue(Color.WHITE);
+      linkTextField.setText("");
+      firstNameTextField.setText("");
+      lastNameTextField.setText("");
+      teamComboBox.getSelectionModel().selectFirst();
+      roleTextField.setText("");
+      teamNames.clear();
+        
     }
 
     void reloadWorkspace(AppDataComponent dataComponent) {

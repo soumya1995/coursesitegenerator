@@ -317,7 +317,7 @@ public class AppFileController {
      * presses the NO option to not save, false if the user presses the CANCEL
      * option to not continue.
      */
-    private boolean promptToSave() throws IOException {
+    public boolean promptToSave() throws IOException {
 	PropertiesManager props = PropertiesManager.getPropertiesManager();
 	
 	// CHECK TO SEE IF THE CURRENT WORK HAS

@@ -20,6 +20,7 @@
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboBox_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/RecitationStyle.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteSchedule_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteStudent_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ScheduleController.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ProjectWorkspace.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CourseWorkspace.java</file>
@@ -34,12 +35,17 @@
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Page.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/TeachingAssistant.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/WorkspaceData.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateStudentTransaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/DeleteTeam_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/StudentData.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManager.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddTeamTransaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/CellToggle_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/ProjectStyle.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/ComboDateBox_Transaction.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/AddStudent_Transaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/style/CourseStyle.java</file>
+            <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/UpdateTeamTransaction.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/CSGManagerProp.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/workspace/TAWorkspace.java</file>
             <file>file:/D:/CSE%20219/coursesitegenerator/CSGManager/src/csg/data/Team.java</file>

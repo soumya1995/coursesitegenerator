@@ -479,9 +479,11 @@ public class CourseWorkspace{
             controller.handleLeftImageImport();
         });
        
-        changeButton3.setOnAction(e -> {
+        changeButton4.setOnAction(e -> {
             controller.handleRightImageImport();
         });
+        
+        
     }
     
     // WE'LL PROVIDE AN ACCESSOR METHOD FOR EACH VISIBLE COMPONENT
@@ -763,9 +765,10 @@ public class CourseWorkspace{
         yearComboBox.getSelectionModel().selectFirst();
         
         //CLEAR TEXT FIELDS AND LABELS
-        titleField.clear();
-        instructorField.clear();
-        homeField.clear();
+        
+        titleField.setText("");
+        instructorField.setText("");
+        homeField.setText("");
         exportDirLabel.setText("");
         dirLabel.setText("");
         

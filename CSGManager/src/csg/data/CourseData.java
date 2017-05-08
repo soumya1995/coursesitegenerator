@@ -230,6 +230,19 @@ public class CourseData {
     
     public void resetData(){
         pages.clear();
+        setSubject("");
+        setNumber("");
+        setSemester("");
+        setYear("");
+        setTitle("");
+        setInstructorName("");
+        setInstructorHome("");
+        setExportDir("");
+        setTemplateDir("");
+        setStylesheet("");
+        setSchoolImage("");
+        setLeftFooterImage("");
+        setRightFooterImage("");
     }
     
     
